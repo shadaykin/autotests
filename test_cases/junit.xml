@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skipped="0" tests="1" time="9.533"><testcase classname="components.authorization.test_auth_success" file="components\authorization\test_auth_success.py" line="6" name="test_authorization" time="9.341"></testcase></testsuite>
