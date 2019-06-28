@@ -4,6 +4,7 @@ import time, os, json, sys
 from functions.clear_cash import Cookie
 from functions.authorization import Authorization
 
+service='https://yandex.ru'
 
 def test_auth_success():
     cash = Cookie.clear_cash_func()
@@ -11,8 +12,8 @@ def test_auth_success():
 
     # driver.maximize_window()
     try:
-        Authorization.correct_authorization(driver)
-        assert "accounts/edit" == driver.current_url.split("https://passport.jw-test.zxz.su/")[1], driver.close()
+        Authorization.correct_auth_cas(driver,service)
+        assert "accounts/complete == driver.current_url.split("https://passport.jw-test.zxz.su/")[1], driver.close()
         driver.close()
     except:
         assert 1 == 2, driver.close()
