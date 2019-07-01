@@ -8,7 +8,7 @@ class Data_pwd():
 	def correct_pwd(browser):
 		enter_pwd = browser.find_element_by_name("password")
 		enter_pwd.clear()
-		enter_pwd.send_keys("258963Il")
+		enter_pwd.send_keys("111111xX")
 		time.sleep(1)
 		enter_pwd.submit()
 		
