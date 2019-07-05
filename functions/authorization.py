@@ -1,12 +1,13 @@
 import time
+from selenium import webdriver
 
 class Authorization():
 	
-	url='https://passport.jw-test.zxz.su/'
+	url = 'https://passport.jw-test.zxz.su/'
 
 	def correct_authorization(driver):
 		# create a new Firefox session
-		Authorization.url+='cas/login/'
+		Authorization.url += 'cas/login/'
 		
 		# Navigate to the application home page
 		driver.get(Authorization.url)
@@ -50,19 +51,32 @@ class Authorization():
 		from functions.password import Data_pwd
 		Data_pwd.correct_pwd(driver)
 		time.sleep(3)
-		
-	def correct_auth_oauth(driver,client_id, redirect_uri):
-		url='https://passport.jw-test.zxz.su/oauth/authorize/'+str(client_id)+str(redirect_uri)
-		driver.get(url)
-		assert "Pass.Media" in driver.title
-		
+
+	def correct_auth_oauth(driver, client_id, redirect_uri):
+
+		add_url = 'oauth/authorize?'
+		driver.get(
+			Authorization.url + add_url + 'response_type=code&client_id=' + client_id + '&redirect_uri=' + redirect_uri)
+		time.sleep(1)
+
 		from functions.login import Data_login
 		Data_login.correct_login(driver)
 		time.sleep(1)
-		
+
 		from functions.password import Data_pwd
 		Data_pwd.correct_pwd(driver)
 		time.sleep(2)
+
+		access = driver.find_element_by_class_name("btn")
+		access.submit()
+		time.sleep(3)
+
+		try:
+			code = driver.current_url.split("code=")[1]
+		except:
+			print('Access denied')
+		return code
+
 		
 		
 		
