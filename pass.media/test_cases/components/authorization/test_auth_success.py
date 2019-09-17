@@ -7,8 +7,8 @@ from functions.authorization import Authorization
 
 def test_auth_success():
 	
-	cash=Cookie.clear_cash_func()
-	driver = webdriver.Firefox(cash)
+
+	driver = webdriver.Chrome()
 	
 	#driver.maximize_window()
 	try:
@@ -16,7 +16,7 @@ def test_auth_success():
 		assert "accounts/edit" == driver.current_url.split("https://passport.jw-test.zxz.su/")[1], driver.close()
 		driver.close()
 	except:
-		assert 1==2,driver.close()
+		assert 1 == 2,driver.close()
 
 	
 	

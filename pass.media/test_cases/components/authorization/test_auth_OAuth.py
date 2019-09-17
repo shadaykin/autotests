@@ -12,8 +12,8 @@ def test_auth_oauth():
     # driver.maximize_window()
     try:
         Authorization.correct_auth_oauth(driver, client_id, redirect_uri)
-        driver.close()
+        #driver.close()
     except:
-        assert 1 == 2, driver.close()
+        assert 1 == 2
 
 

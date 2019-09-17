@@ -55,8 +55,7 @@ class Authorization():
 	def correct_auth_oauth(driver, client_id, redirect_uri):
 
 		add_url = 'oauth/authorize?'
-		driver.get(
-			Authorization.url + add_url + 'response_type=code&client_id=' + client_id + '&redirect_uri=' + redirect_uri)
+		driver.get(Authorization.url + add_url + 'response_type=code&client_id=' + client_id + '&redirect_uri=' + redirect_uri)
 		time.sleep(1)
 
 		from functions.login import Data_login
@@ -67,16 +66,10 @@ class Authorization():
 		Data_pwd.correct_pwd(driver)
 		time.sleep(2)
 
-		access = driver.find_element_by_class_name("btn")
-		access.submit()
-		time.sleep(3)
+		driver.find_element_by_xpath("//button[text()='Продолжить']").click()
 
 		try:
 			code = driver.current_url.split("code=")[1]
+			return code
 		except:
 			print('Access denied')
-		return code
-
-		
-		
-		
