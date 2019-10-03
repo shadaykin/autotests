@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490fc803-22e8-484c-88ac-b1f2c01f6130" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pass.media/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pass.media/enviroments.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pass.media/test_cases/functions/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/functions/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/functions/authorization.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/functions/check_token.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/functions/clear_cash.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/functions/login.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/functions/password.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/test_cases/components/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/test_cases/components/authorization/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/test_cases/components/authorization/junit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/test_cases/components/authorization/test_auth_OAuth.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/test_cases/components/authorization/test_auth_cas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/test_cases/components/authorization/test_auth_incorrect_pwd.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass.media/test_cases/components/authorization/test_auth_success.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass.media/test_cases/functions/session_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass.media/test_cases/functions/session_id.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +19,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,12 +59,14 @@
         <option value="$PROJECT_DIR$/pass.media/test_cases/components/authorization/test_auth_success.py" />
         <option value="$PROJECT_DIR$/pass.media/functions/authorization.py" />
         <option value="$PROJECT_DIR$/pass.media/functions/login.py" />
+        <option value="$PROJECT_DIR$/pass.media/enviroments.py" />
+        <option value="$PROJECT_DIR$/pass.media/test_cases/functions/session_id.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="391" />
-    <option name="y" value="35" />
+    <option name="x" value="2080" />
+    <option name="y" value="16" />
     <option name="width" value="1387" />
     <option name="height" value="1000" />
   </component>
@@ -83,17 +83,6 @@
               <item name="autotests" type="b2602c69:ProjectViewProjectNode" />
               <item name="autotests" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="autotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="autotests" type="462c0819:PsiDirectoryNode" />
-              <item name="pass.media" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="autotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="autotests" type="462c0819:PsiDirectoryNode" />
-              <item name="pass.media" type="462c0819:PsiDirectoryNode" />
-              <item name="test_cases" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -105,6 +94,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/learn_stepik" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\isadretdinov\Desktop\autotests\pass.media" />
+      <recent name="C:\Users\isadretdinov\Desktop\autotests\pass.media\test_cases\functions" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\isadretdinov\Desktop\autotests\learn_stepik" />
     </key>
@@ -121,7 +114,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.session_id">
+    <configuration name="session_id" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass.media/test_cases/functions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pass.media/test_cases/functions/session_id.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test_auth_cas" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,6 +159,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.session_id" />
         <item itemvalue="Python.test_auth_cas" />
       </list>
     </recent_temporary>
@@ -194,20 +209,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49913943" visible="true" weight="0.17913593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5008606" side_tool="true" weight="0.25203854" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3298731" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3298731" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.30985916" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.30985916" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -344,5 +359,22 @@
     <entry file="file://$PROJECT_DIR$/pass.media/functions/login.py" />
     <entry file="file://$PROJECT_DIR$/pass.media/functions/authorization.py" />
     <entry file="file://$PROJECT_DIR$/pass.media/test_cases/components/authorization/test_auth_success.py" />
+    <entry file="file://$PROJECT_DIR$/pass.media/test_cases/functions/session_id.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass.media/enviroments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
