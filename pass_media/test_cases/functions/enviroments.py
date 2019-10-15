@@ -1,4 +1,4 @@
 options = dict(
-    phone='9067240288',
+    phone='+79067240288',
     password='111111xX',
 )
