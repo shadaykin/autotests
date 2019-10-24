@@ -1,8 +1,9 @@
 import requests
+import enviroments
 
 def get_sessionid():
-    link = "https://passport.jw-test.zxz.su/cas/login"
 
+    link = "https://passport.jw-test.zxz.su/cas/login"
     s = requests.Session()
     get_csrf = s.get(link)
     csrftoken = get_csrf.cookies['csrftoken']
@@ -10,12 +11,11 @@ def get_sessionid():
     headers = {
         'X-CSRFToken': csrftoken, 'Referer': link
     }
-    files = {'username': (None, '+79096201687'), 'password': (None, '111111xX')}
-
+    files = {'username': (None, enviroments.options['phone']), 'password': (None, enviroments.options['password'])}
     response = s.post(link, files=files, headers=headers, cookies=cookies)
+    session_id = {'sessionid': s.cookies['sessionid']}
+    s.__exit__()
 
-    print(s.cookies.get_dict())
+    return session_id
 
-
-
-get_sessionid()
+print(get_sessionid())
