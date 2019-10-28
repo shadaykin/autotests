@@ -1,5 +1,7 @@
 import requests
 import enviroments
+import sys
+
 
 def get_sessionid(env):
 
@@ -16,4 +18,13 @@ def get_sessionid(env):
     session_id = {'sessionid': s.cookies['sessionid']}
     return session_id
 
-print(get_sessionid())
+print(get_sessionid('prod'))
+
+
+
+
+
+
+
+
+
