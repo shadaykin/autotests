@@ -6,7 +6,7 @@ import sys
 class Session:
     def get_sessionid(env):
 
-        link = env + 'cas/login'
+        link = env + '/cas/login'
         s = requests.Session()
         get_csrf = s.get(link)
         csrftoken = get_csrf.cookies['csrftoken']

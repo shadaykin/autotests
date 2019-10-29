@@ -3,18 +3,30 @@ from functions.params import Session as s
 import requests
 
 
-class Emails:
+class TestEmails:
 
 
-	link = env.options['test']
+	link = env.options['prod']
 	ep = env.endpoints
 	cookies = s.get_sessionid(link)
+	
 
-	def test_emails_list(self):
-		make_request = requests.get(self.link+self.ep['email_list'])
-		s_c = make_request.status_code
-		return s_c
+	def test_emails_permission(self):
+		make_request_200 = requests.get(self.link+self.ep['email'],cookies=self.cookies)
+		make_request_403 = requests.get(self.link+self.ep['email'])
+		success = make_request_200.status_code
+		denied = make_request_403.status_code	
+		assert success == 200
+		assert denied == 403
+	
+	def test_emails_add(self):
+		email_list = requests.get(self.link+self.ep['email'],cookies=self.cookies)
+		assert 'emails' in email_list.text
+		assert 'unconfirmed_emails' in email_list.text 
+				
 
-#object1 = Emails()
-#print(object1.emails_list())
+
+
+
+
 
