@@ -1,15 +1,13 @@
 import enviroments as env
 from functions.params import Session as s
 import requests
-
+import json
 
 class TestEmails:
 
-
 	link = env.options['prod']
 	ep = env.endpoints
-	cookies = s.get_sessionid(link)
-	
+	cookies = s.get_sessionid('prod')
 
 	def test_emails_permission(self):
 		make_request_200 = requests.get(self.link+self.ep['email'],cookies=self.cookies)
@@ -20,10 +18,19 @@ class TestEmails:
 		assert denied == 403
 	
 	def test_emails_add(self):
-		email_list = requests.get(self.link+self.ep['email'],cookies=self.cookies)
-		assert 'emails' in email_list.text
-		assert 'unconfirmed_emails' in email_list.text 
-				
+		email_list = requests.get(self.link+self.ep['email'], cookies=self.cookies)
+		json_parse = email_list.json()
+		empty = False
+
+		try:
+			email_conf = json_parse['emails']
+			email_unconf = json_parse['unconfirmed_emails']
+			print(email_unconf)
+			assert len(email_conf) == 0
+			assert len(email_unconf) == 0
+		except:
+			assert 1 == 2
+
 
 
 
