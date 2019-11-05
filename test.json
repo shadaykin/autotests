@@ -1,0 +1,16 @@
+{
+"emails":[
+	{"email":"pmtestov@yandex.ru",
+	"primary":"true"
+	},
+	{"email":"blazer.3@yandex.ru",
+	"primary":"false"
+	}
+	],
+"unconfirmed_emails":[
+	{
+	"email":"shadayka152@gmail.com",
+	"confirmation_second":"122"
+	}
+	]
+}

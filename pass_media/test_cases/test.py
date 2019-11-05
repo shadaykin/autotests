@@ -1,4 +1,4 @@
-from functions.params import Session
+from functions.params import Emails
 
-obj = Session()
-obj.emails_list('test','email')
+obj = Emails()
+email_count = obj.delete_conf_email()
