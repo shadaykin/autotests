@@ -18,40 +18,33 @@ class Session:
 		response = s.post(link, files=form_data, headers=headers, cookies=cookies)
 		session_id = {'sessionid': s.cookies['sessionid']}
 		return session_id
-		
+
+
 class Emails:
-	
+
 	cook = Session()
-	cookies = cook.get_sessionid('prod')
-	
-	def emails_list(self, env, endpoint):
-		count = 0
-		make_request = requests.get(e.options[env]+e.endpoints[endpoint], cookies=self.cookies)
+
+
+	def emails_list(self, env, *args):
+		cookies = self.cook.get_sessionid(env)
+		make_request = requests.get(e.options[env] + e.endpoints['email'], cookies=cookies)
 		st_code = make_request.text
 		emails = json.loads(st_code)
-		try:
-			unconf_emails = emails['unconfirmed_emails'][0]['email']
-			count += 1	
-		except:
-			pass
-		try:
-			conf_emails = emails['emails']['email']
-			count += 2
-		except:
-			pass
-		return count
-		
-	def delete_conf_email(self):
-		conf_emails = self.emails_list('prod','email')
-		print(conf_emails)
+		return emails
 
-'''
-	def delete_unconf_email(self):
-		conf_emails = data_test['emails']
-		for email in conf_emails:
-			print(email['email'])
-'''
+	def emails_confirmed_list(self, env):
+		em = self.emails_list(env)
+		conf_email = []
+		for email in em['emails']:
+			conf_email.append(email['email'])
+		return conf_email
 
+	def emails_unconfirmed_list(self, env):
+		em = self.emails_list(env)
+		unconf_email = []
+		for email in em['unconfirmed_emails']:
+			unconf_email.append(email['email'])
+		return unconf_email
 
 
 
