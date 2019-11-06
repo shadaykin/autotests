@@ -4,8 +4,12 @@ env = 'prod'
 endpoint = 'email'
 
 obj = Emails()
-email_con = obj.emails_confirmed_list(env)
-email_uncon = obj.emails_unconfirmed_list(env)
 
-print(email_con)
-print(email_uncon)
+email_count = obj.emails_count(env)
+print(email_count)
+
+email_delete = obj.delete_unconfirmed_email(env)
+
+email_count = obj.emails_count(env) 	
+print(email_count)
+

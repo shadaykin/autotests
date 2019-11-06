@@ -23,7 +23,7 @@ class Session:
 class Emails:
 
 	cook = Session()
-
+	
 
 	def emails_list(self, env, *args):
 		cookies = self.cook.get_sessionid(env)
@@ -31,6 +31,21 @@ class Emails:
 		st_code = make_request.text
 		emails = json.loads(st_code)
 		return emails
+
+	def emails_count(self,env):
+		count = 0
+		have = self.emails_list(env)
+		try:
+			have_conf_email = have['emails'][0]['email']
+			count += 1
+		except:
+			pass
+		try:
+			have_unconf_email = have['unconfirmed_emails'][0]['email']
+			count += 2
+		except:
+			pass
+		return count
 
 	def emails_confirmed_list(self, env):
 		em = self.emails_list(env)
@@ -45,7 +60,20 @@ class Emails:
 		for email in em['unconfirmed_emails']:
 			unconf_email.append(email['email'])
 		return unconf_email
-
+	
+	def delete_unconfirmed_email(self,env):
+		cookies = self.cook.get_sessionid(env)
+		unconf_emails = self.emails_unconfirmed_list(env)
+		for i in range(len(unconf_emails)):
+			email = unconf_emails[i]
+			data = {"email":email, "confirmed:":"false"}
+			headers = {'Content-Type':'application/json'}
+			print(data)
+			del_request = requests.delete(e.options[env]+e.endpoints['email_delete'],
+				data=data,cookies=cookies,headers=headers)
+			print(del_request.status_code)
+			print(del_request.text)
+			print(del_request.url)
 
 
 
