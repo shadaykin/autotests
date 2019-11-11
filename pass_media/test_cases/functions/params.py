@@ -61,19 +61,24 @@ class Emails:
 			unconf_email.append(email['email'])
 		return unconf_email
 	
-	def delete_unconfirmed_email(self,env):
+	def delete_unconfirmed_email(self, env):
 		cookies = self.cook.get_sessionid(env)
 		unconf_emails = self.emails_unconfirmed_list(env)
 		for i in range(len(unconf_emails)):
 			email = unconf_emails[i]
-			data = {"email":email, "confirmed:":"false"}
-			headers = {'Content-Type':'application/json'}
-			print(data)
-			del_request = requests.delete(e.options[env]+e.endpoints['email_delete'],
-				data=data,cookies=cookies,headers=headers)
-			print(del_request.status_code)
-			print(del_request.text)
-			print(del_request.url)
+			data = {"email": email, "confirmed": "false"}
+			url1 = e.options[env]+e.endpoints['email_delete']
+			del_request = requests.delete(url1, json=data, cookies=cookies)
+
+	def delete_confirmed_email(self, env):
+		cookies = self.cook.get_sessionid(env)
+		unconf_emails = self.emails_unconfirmed_list(env)
+		for i in range(len(unconf_emails)):
+			email = unconf_emails[i]
+			data = {"email": email, "confirmed": "false"}
+			url1 = e.options[env] + e.endpoints['email_delete']
+			del_request = requests.delete(url1, json=data, cookies=cookies)
+
 
 
 

@@ -12,5 +12,5 @@ options = dict(
 endpoints = dict(
 	email='/api/emails',
 	email_confirm='/api/emails/confirm',
-	email_delete='/api/emails/remove'
+	email_delete='/api/emails/remove/'
 )
