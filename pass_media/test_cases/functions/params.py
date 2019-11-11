@@ -72,12 +72,19 @@ class Emails:
 
 	def delete_confirmed_email(self, env):
 		cookies = self.cook.get_sessionid(env)
-		unconf_emails = self.emails_unconfirmed_list(env)
-		for i in range(len(unconf_emails)):
-			email = unconf_emails[i]
-			data = {"email": email, "confirmed": "false"}
+		conf_emails = self.emails_confirmed_list(env)
+		for i in range(len(conf_emails)):
+			email = conf_emails[i]
+			data = {"email": email, "confirmed": "true","password":e.options['password']}
 			url1 = e.options[env] + e.endpoints['email_delete']
 			del_request = requests.delete(url1, json=data, cookies=cookies)
+			
+	def add_email(self,env):
+		cookies = self.cook.get_sessionid(env)
+		link = e.options[env]+e.endpoints['email']
+		print(link)
+		data = {'email':e.options['email']}
+		add_request = requests.post(link, json=data, cookies=cookies)
 
 
 

@@ -1,15 +1,19 @@
 from functions.params import Emails
-
+from enviroments import options as o
 env = 'prod'
-endpoint = 'email'
 
 obj = Emails()
 
-email_count = obj.emails_count(env)
-print(email_count)
+#delete = obj.delete_unconfirmed_email(env)
 
-email_delete = obj.delete_unconfirmed_email(env)
+#add = obj.add_email(env)
 
-email_count = obj.emails_count(env) 	
-print(email_count)
+email = obj.emails_unconfirmed_list(env)
 
+em = [o['email']]
+print(em)
+if email == em: 	
+	print('success')
+else:
+	print('no')
+print(email)

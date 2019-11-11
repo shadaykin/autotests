@@ -18,19 +18,7 @@ class TestEmails:
 		assert denied == 403
 	
 	def test_emails_add(self):
-		email_list = requests.get(self.link+self.ep['email'], cookies=self.cookies)
-		json_parse = email_list.json()
-		empty = False
-
-		try:
-			email_conf = json_parse['emails']
-			email_unconf = json_parse['unconfirmed_emails']
-			print(email_unconf)
-			assert len(email_conf) == 0
-			assert len(email_unconf) == 0
-		except:
-			assert 1 == 2
-
+		
 
 
 
