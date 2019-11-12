@@ -1,7 +1,8 @@
 import requests
 import enviroments as e
 import json
-
+from selenium import webdriver
+import time
 
 class Session:
 
@@ -23,16 +24,15 @@ class Session:
 class Emails:
 
 	cook = Session()
-	
 
-	def emails_list(self, env, *args):
+	def emails_list(self, env):
 		cookies = self.cook.get_sessionid(env)
 		make_request = requests.get(e.options[env] + e.endpoints['email'], cookies=cookies)
 		st_code = make_request.text
 		emails = json.loads(st_code)
 		return emails
 
-	def emails_count(self,env):
+	def emails_count(self, env):
 		count = 0
 		have = self.emails_list(env)
 		try:
@@ -79,15 +79,28 @@ class Emails:
 			url1 = e.options[env] + e.endpoints['email_delete']
 			del_request = requests.delete(url1, json=data, cookies=cookies)
 			
-	def add_email(self,env):
+	def add_email(self, env):
 		cookies = self.cook.get_sessionid(env)
 		link = e.options[env]+e.endpoints['email']
 		print(link)
-		data = {'email':e.options['email']}
+		data = {'email': e.options['email']}
 		add_request = requests.post(link, json=data, cookies=cookies)
 
-
-
+	def confirm_email(self):
+		browser = webdriver.Chrome()
+		link = 'https://passport.yandex.ru/auth?from=mail&origin=hostroot_homer_auth_ru&retpath=https://mail.yandex.ru/?uid=121104012&backpath=https://mail.yandex.ru?noretpath=1'
+		browser.get(link)
+		email = browser.find_element_by_id('passp-field-login')
+		email.send_keys(e.options['email'])
+		enter = browser.find_element_by_tag_name('button')
+		enter.submit()
+		time.sleep(1)
+		pwd = browser.find_element_by_id('passp-field-passwd')
+		pwd.send_keys(e.options['password'])
+		enter = browser.find_element_by_css_selector('.passp-button.passp-sign-in-button button')
+		enter.submit()
+		mail_pm = browser.find_element_by_css_selector(".ns-view-container-desc.mail-MessagesList.js-messages-list [title='no-reply@pass.media']")
+		time.sleep(5)
 
 
 

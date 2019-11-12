@@ -1,23 +1,26 @@
 import enviroments as env
-from functions.params import Session as s
+from functions.params import Session
 import requests
 import json
 
 class TestEmails:
 
+	obj = Session()
 	link = env.options['prod']
 	ep = env.endpoints
-	cookies = s.get_sessionid('prod')
+
+	cookies = obj.get_sessionid('prod')
 
 	def test_emails_permission(self):
-		make_request_200 = requests.get(self.link+self.ep['email'],cookies=self.cookies)
-		make_request_403 = requests.get(self.link+self.ep['email'])
-		success = make_request_200.status_code
-		denied = make_request_403.status_code	
-		assert success == 200
-		assert denied == 403
+		for endpoint in self.ep:
+			make_request = requests.get(self.link + self.ep[endpoint])
+			print(make_request.status_code)
+			if make_request.status_code == 403:
+				assert 1 == 2, print(self.ep[endpoint] +' dont have restriction')
+
+
 	
-	def test_emails_add(self):
+
 		
 
 

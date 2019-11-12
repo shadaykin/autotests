@@ -1,7 +1,7 @@
 options = dict(
 	phone='+79096201687',
 	password='111111xX',
-	email='pmtestov@yandex.ru',
+	email='autotestpm@yandex.ru',
 	prod='https://pass.media',
 	test='https://passport.jw-test.zxz.su',
 	stage='https://passport.jw-test-301.zxz.su',
@@ -12,5 +12,6 @@ options = dict(
 endpoints = dict(
 	email='/api/emails/',
 	email_confirm='/api/emails/confirm/',
-	email_delete='/api/emails/remove/'
+	email_delete='/api/emails/remove/',
+	send_email_conf='/api/send_email_confirmation/'
 )
