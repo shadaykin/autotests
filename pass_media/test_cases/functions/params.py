@@ -61,7 +61,7 @@ class Emails:
 			unconf_email.append(email['email'])
 		return unconf_email
 	
-	def delete_unconfirmed_email(self, env):
+	def delete_unconfirmed_emails(self, env):
 		cookies = self.cook.get_sessionid(env)
 		unconf_emails = self.emails_unconfirmed_list(env)
 		for i in range(len(unconf_emails)):
@@ -70,7 +70,7 @@ class Emails:
 			url1 = e.options[env]+e.endpoints['email_delete']
 			del_request = requests.delete(url1, json=data, cookies=cookies)
 
-	def delete_confirmed_email(self, env):
+	def delete_confirmed_emails(self, env):
 		cookies = self.cook.get_sessionid(env)
 		conf_emails = self.emails_confirmed_list(env)
 		for i in range(len(conf_emails)):
@@ -79,14 +79,14 @@ class Emails:
 			url1 = e.options[env] + e.endpoints['email_delete']
 			del_request = requests.delete(url1, json=data, cookies=cookies)
 			
-	def add_email(self, env):
+	def add_emails(self, env):
 		cookies = self.cook.get_sessionid(env)
 		link = e.options[env]+e.endpoints['email']
 		print(link)
 		data = {'email': e.options['email']}
 		add_request = requests.post(link, json=data, cookies=cookies)
 
-	def confirm_email(self):
+	def confirm_emails(self):
 		browser = webdriver.Chrome()
 		link = 'https://passport.yandex.ru/auth?from=mail&origin=hostroot_homer_auth_ru&retpath=https://mail.yandex.ru/?uid=121104012&backpath=https://mail.yandex.ru?noretpath=1'
 		browser.get(link)

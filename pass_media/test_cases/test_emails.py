@@ -1,28 +1,38 @@
 import enviroments as env
 from functions.params import Session
+from functions.params import Emails
 import requests
 import json
 
 class TestEmails:
 
-	obj = Session()
-	link = env.options['prod']
+	stand = 'prod'
+	
+	s = Session()
+	e = Emails()
+	link = env.options[stand]
 	ep = env.endpoints
 
-	cookies = obj.get_sessionid('prod')
-
+	cookies = s.get_sessionid(stand)
+	
+	"""Проверка на закрытость API под авторизацию""" 
 	def test_emails_permission(self):
+		fail = []
 		for endpoint in self.ep:
 			make_request = requests.get(self.link + self.ep[endpoint])
-			print(make_request.status_code)
-			if make_request.status_code == 403:
-				assert 1 == 2, print(self.ep[endpoint] +' dont have restriction')
-
-
-	
-
+			if make_request.status_code != 403:
+				fail.append(self.ep[endpoint])
+		if len(fail) != 0:
+			assert 1==2, print('API who available without authorization: '+str(fail))
+			
+	"""Добавление неподтвержденного адреса"""
+	def test_add_unconfirmed_email(self):
+		self.e.delete_confirmed_emails(self.stand)		
+		self.e.delete_unconfirmed_emails(self.stand)
+		assert self.e.emails_count(self.stand) == 0
+		self.e.add_emails(self.stand)
+		#assert self.e.emails_count(self.stand) == 1
 		
-
 
 
 
