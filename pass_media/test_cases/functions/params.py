@@ -23,18 +23,15 @@ class Session:
 
 class Emails:
 
-	cook = Session()
-
-	def emails_list(self, env):
-		cookies = self.cook.get_sessionid(env)
+	def emails_list(self, env, cookies):
 		make_request = requests.get(e.options[env] + e.endpoints['email'], cookies=cookies)
 		st_code = make_request.text
 		emails = json.loads(st_code)
 		return emails
 
-	def emails_count(self, env):
+	def emails_count(self, env, cookies):
 		count = 0
-		have = self.emails_list(env)
+		have = self.emails_list(env, cookies)
 		try:
 			have_conf_email = have['emails'][0]['email']
 			count += 1
@@ -47,40 +44,37 @@ class Emails:
 			pass
 		return count
 
-	def emails_confirmed_list(self, env):
-		em = self.emails_list(env)
+	def emails_confirmed_list(self, env, cookies):
+		em = self.emails_list(env, cookies)
 		conf_email = []
 		for email in em['emails']:
 			conf_email.append(email['email'])
 		return conf_email
 
-	def emails_unconfirmed_list(self, env):
-		em = self.emails_list(env)
+	def emails_unconfirmed_list(self, env, cookies):
+		em = self.emails_list(env, cookies)
 		unconf_email = []
 		for email in em['unconfirmed_emails']:
 			unconf_email.append(email['email'])
 		return unconf_email
 	
-	def delete_unconfirmed_emails(self, env):
-		cookies = self.cook.get_sessionid(env)
-		unconf_emails = self.emails_unconfirmed_list(env)
+	def delete_unconfirmed_emails(self, env, cookies):
+		unconf_emails = self.emails_unconfirmed_list(env, cookies)
 		for i in range(len(unconf_emails)):
 			email = unconf_emails[i]
 			data = {"email": email, "confirmed": "false"}
-			url1 = e.options[env]+e.endpoints['email_delete']
-			del_request = requests.delete(url1, json=data, cookies=cookies)
+			url = e.options[env]+e.endpoints['email_delete']
+			del_request = requests.delete(url, json=data, cookies=cookies)
 
-	def delete_confirmed_emails(self, env):
-		cookies = self.cook.get_sessionid(env)
-		conf_emails = self.emails_confirmed_list(env)
+	def delete_confirmed_emails(self, env, cookies):
+		conf_emails = self.emails_confirmed_list(env, cookies)
 		for i in range(len(conf_emails)):
 			email = conf_emails[i]
 			data = {"email": email, "confirmed": "true","password":e.options['password']}
-			url1 = e.options[env] + e.endpoints['email_delete']
-			del_request = requests.delete(url1, json=data, cookies=cookies)
+			url = e.options[env] + e.endpoints['email_delete']
+			del_request = requests.delete(url, json=data, cookies=cookies)
 			
-	def add_emails(self, env):
-		cookies = self.cook.get_sessionid(env)
+	def add_emails(self, env, cookies):
 		link = e.options[env]+e.endpoints['email']
 		print(link)
 		data = {'email': e.options['email']}

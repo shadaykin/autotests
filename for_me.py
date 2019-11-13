@@ -1,17 +1,8 @@
-import json 
-with open('test.json','r') as f:
-	data_test = json.load(f)
+class TestA:
+	a = 1
+	def func_func(self):
+		b = self.a+1
+		print(b)
 
-def delete_conf_email():
-	conf_emails = data_test['emails']
-	for email in conf_emails:
-		print(email['email'])
-
-def delete_unconf_email():
-	conf_emails = data_test['emails']
-	for email in conf_emails:
-		print(email['email'])
-
-
-
-get_conf_email()
+obj = TestA()
+obj.func_func()

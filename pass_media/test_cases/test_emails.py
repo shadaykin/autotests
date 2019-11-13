@@ -27,11 +27,12 @@ class TestEmails:
 			
 	"""Добавление неподтвержденного адреса"""
 	def test_add_unconfirmed_email(self):
-		self.e.delete_confirmed_emails(self.stand)		
-		self.e.delete_unconfirmed_emails(self.stand)
-		assert self.e.emails_count(self.stand) == 0
-		self.e.add_emails(self.stand)
-		#assert self.e.emails_count(self.stand) == 1
+		self.e.delete_confirmed_emails(self.stand, self.cookies)
+		self.e.delete_unconfirmed_emails(self.stand, self.cookies)
+		assert self.e.emails_count(self.stand, self.cookies) == 0
+		self.e.add_emails(self.stand, self.cookies)
+		assert self.e.emails_count(self.stand, self.cookies) == 2
+
 		
 
 

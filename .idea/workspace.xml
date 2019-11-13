@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="490fc803-22e8-484c-88ac-b1f2c01f6130" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/session_id_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/functions/session_id_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/for_me.py" beforeDir="false" afterPath="$PROJECT_DIR$/for_me.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/TestCases.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/TestCases.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/params.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/functions/params.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/test_emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/test_emails.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,38 +20,45 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/enviroments.py">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/params.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/session_id_1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="136">
+              <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
               <folding>
-                <element signature="e#0#30#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/session_id_2.py">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_emails.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+            <state relative-caret-position="391">
+              <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pass_media/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/for_me.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pass_media/TestCases.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -80,7 +90,6 @@
         <option value="$PROJECT_DIR$/learn_stepik/lesson1_6_step7.py" />
         <option value="$PROJECT_DIR$/learn_stepik/lesson1_6_step8.py" />
         <option value="$PROJECT_DIR$/learn_stepik/lesson1_6_step9.py" />
-        <option value="$PROJECT_DIR$/learn_stepik/lesson1_6_step10.py" />
         <option value="$PROJECT_DIR$/learn_stepik/111.py" />
         <option value="$USER_HOME$/Downloads/lesson1_6.py" />
         <option value="$PROJECT_DIR$/learn_stepik/lesson1_6_step11.py" />
@@ -97,13 +106,20 @@
         <option value="$PROJECT_DIR$/pass_media/test_cases/functions/session_id.py" />
         <option value="$PROJECT_DIR$/pass_media/test_cases/functions/enviroments.py" />
         <option value="$PROJECT_DIR$/pass_media/test_cases/functions/session_id_2.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/test.py" />
+        <option value="$PROJECT_DIR$/pass_media/TestCases.txt" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/enviroments.py" />
+        <option value="$PROJECT_DIR$/learn_stepik/lesson1_6_step10.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/functions/params.py" />
+        <option value="$PROJECT_DIR$/for_me.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/test_emails.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="126" />
-    <option name="y" value="75" />
-    <option name="width" value="1387" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1084" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectView">
@@ -111,7 +127,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -141,6 +156,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,7 +284,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49913943" visible="true" weight="0.12697576" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49913943" visible="true" weight="0.1459431" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5008606" side_tool="true" weight="0.25203854" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -279,7 +295,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29035753" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.27193934" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -303,34 +319,7 @@
     <entry file="file://$PROJECT_DIR$/test_cases/components/authorization/test_auth_success.py" />
     <entry file="file://$PROJECT_DIR$/test_cases/components/authorization/test_auth_incorrect_pwd.py" />
     <entry file="file://$PROJECT_DIR$/functions/authorization.py" />
-    <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step7.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/learn_stepik/111.py" />
-    <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/learn_stepik/lesson2_1_step5.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -372,16 +361,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step8.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step11.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -392,10 +371,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/lesson1_6.py">
+    <entry file="file://$USER_HOME$/Downloads/lesson1_6.py" />
+    <entry file="file://$PROJECT_DIR$/pass.media/functions/password.py" />
+    <entry file="file://$PROJECT_DIR$/pass.media/functions/login.py" />
+    <entry file="file://$PROJECT_DIR$/pass.media/functions/authorization.py" />
+    <entry file="file://$PROJECT_DIR$/pass.media/test_cases/components/authorization/test_auth_success.py" />
+    <entry file="file://$PROJECT_DIR$/pass.media/test_cases/functions/session_id.py" />
+    <entry file="file://$PROJECT_DIR$/pass.media/enviroments.py" />
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/enviroments.py" />
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/session_id_1.py" />
+    <entry file="file://$PROJECT_DIR$/pass_media/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/session_id_2.py" />
+    <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state relative-caret-position="425">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step8.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
@@ -405,43 +422,61 @@
     <entry file="file://$PROJECT_DIR$/learn_stepik/lesson1_6_step10.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+          <caret line="7" column="57" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="62" />
           <folding>
             <element signature="e#55#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pass.media/functions/password.py" />
-    <entry file="file://$PROJECT_DIR$/pass.media/functions/login.py" />
-    <entry file="file://$PROJECT_DIR$/pass.media/functions/authorization.py" />
-    <entry file="file://$PROJECT_DIR$/pass.media/test_cases/components/authorization/test_auth_success.py" />
-    <entry file="file://$PROJECT_DIR$/pass.media/test_cases/functions/session_id.py" />
-    <entry file="file://$PROJECT_DIR$/pass.media/enviroments.py" />
-    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/enviroments.py">
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/session_id_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pass_media/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/session_id_2.py">
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/enviroments.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state relative-caret-position="255">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/TestCases.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/for_me.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_emails.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
