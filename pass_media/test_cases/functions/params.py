@@ -22,7 +22,11 @@ class Session:
 
 
 class Emails:
-
+	'''
+	cookie = Session.get_sessionid(
+	session = requests.Session()
+	session.cookies.update(
+	'''
 	def emails_list(self, env, cookies):
 		make_request = requests.get(e.options[env] + e.endpoints['email'], cookies=cookies)
 		st_code = make_request.text
