@@ -22,20 +22,22 @@ class Session:
 
 
 class Emails:
-	'''
-	cookie = Session.get_sessionid(
+
+	env = 'test'
+
+	cookie = Session().get_sessionid(env)
 	session = requests.Session()
-	session.cookies.update(
-	'''
-	def emails_list(self, env, cookies):
-		make_request = requests.get(e.options[env] + e.endpoints['email'], cookies=cookies)
+	session.cookies.update(cookie)
+
+	def emails_list(self):
+		make_request = self.session.get(e.options[self.env] + e.endpoints['email'])
 		st_code = make_request.text
 		emails = json.loads(st_code)
 		return emails
 
-	def emails_count(self, env, cookies):
+	def emails_count(self):
 		count = 0
-		have = self.emails_list(env, cookies)
+		have = self.emails_list()
 		try:
 			have_conf_email = have['emails'][0]['email']
 			count += 1
@@ -48,41 +50,43 @@ class Emails:
 			pass
 		return count
 
-	def emails_confirmed_list(self, env, cookies):
-		em = self.emails_list(env, cookies)
+	def emails_confirmed_list(self):
+		em = self.emails_list()
 		conf_email = []
 		for email in em['emails']:
 			conf_email.append(email['email'])
 		return conf_email
 
-	def emails_unconfirmed_list(self, env, cookies):
-		em = self.emails_list(env, cookies)
+	def emails_unconfirmed_list(self):
+		em = self.emails_list()
 		unconf_email = []
 		for email in em['unconfirmed_emails']:
 			unconf_email.append(email['email'])
 		return unconf_email
 	
-	def delete_unconfirmed_emails(self, env, cookies):
-		unconf_emails = self.emails_unconfirmed_list(env, cookies)
+	def delete_unconfirmed_emails(self):
+		unconf_emails = self.emails_unconfirmed_list()
 		for i in range(len(unconf_emails)):
 			email = unconf_emails[i]
 			data = {"email": email, "confirmed": "false"}
-			url = e.options[env]+e.endpoints['email_delete']
-			del_request = requests.delete(url, json=data, cookies=cookies)
+			url = e.options[self.env]+e.endpoints['email_delete']
+			del_request = self.session.delete(url, json=data)
 
-	def delete_confirmed_emails(self, env, cookies):
-		conf_emails = self.emails_confirmed_list(env, cookies)
+	def delete_confirmed_emails(self):
+		conf_emails = self.emails_confirmed_list()
 		for i in range(len(conf_emails)):
 			email = conf_emails[i]
 			data = {"email": email, "confirmed": "true","password":e.options['password']}
-			url = e.options[env] + e.endpoints['email_delete']
-			del_request = requests.delete(url, json=data, cookies=cookies)
+			url = e.options[self.env] + e.endpoints['email_delete']
+			del_request = self.session.delete(url, json=data)
 			
-	def add_emails(self, env, cookies):
-		link = e.options[env]+e.endpoints['email']
+	def add_emails(self):
+		link = e.options[self.env]+e.endpoints['email']
 		print(link)
 		data = {'email': e.options['email']}
-		add_request = requests.post(link, json=data, cookies=cookies)
+		add_request = self.session.post(link, json=data)
+		print(add_request.status_code)
+		#assert add_request.status_code == 200, 'Error add email'
 
 	def confirm_emails(self):
 		browser = webdriver.Chrome()
