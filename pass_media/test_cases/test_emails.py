@@ -22,27 +22,43 @@ class TestEmails:
 				fail.append(self.ep[endpoint])
 		if len(fail) != 0:
 			assert 1 == 2, print('API who available without authorization: '+str(fail))
+	'''
 
 	"""Добавление неподтвержденного адреса
-		Есть есть неподтвержденный email_count = 2
-	"""
+		Есть есть неподтвержденный email_count = 2"""
+		
 	def test_add_unconfirmed_email(self):
 		if self.e.emails_count() != 0:
-			self.e.delete_confirmed_emails()
-			self.e.delete_unconfirmed_emails()
+			self.e.emails_delete_confirmed()
+			self.e.emails_delete_unconfirmed()
 			print(self.e.emails_count())
 		assert self.e.emails_count() == 0
-		self.e.add_emails()
+		self.e.emails_add()
 		assert self.e.emails_count() == 2
+	'''
 
-	""" Удаление неподтвержденного адреса """
+	""" Удаление неподтвержденного адреса 
+		Добавляем адрес для удаления, если его нет"""
+	
 	def test_remove_unconfirmed_email(self):
-		if self.e.emails_count == 2:
-			self.e.delete_unconfirmed_emails()
-			self.e.emails_count()
-			assert self.e.emails_count() == 1
+		if len(self.e.emails_unconfirmed_list()) != 0:
+			self.e.emails_delete_unconfirmed()
+			assert len(self.e.emails_unconfirmed_list()) == 0
+		else:
+			self.e.emails_add()
+			assert len(self.e.emails_unconfirmed_list()) != 0
+			self.e.emails_delete_unconfirmed()
+			assert len(self.e.emails_unconfirmed_list()) == 0
 
-
+	""" Удаление подтвержденного адреса """
+	def test_remove_confirmed_email(self):
+		if len(self.e.emails_confirmed_list()) != 0:
+			self.e.emails_delete_confirmed()
+			assert len(self.e.emails_confirmed_list()) == 0
+	
+		#Нужно дописать!!!!!!!!!!!!!!!!!!!!!!!!!
+		
+	
 
 
 

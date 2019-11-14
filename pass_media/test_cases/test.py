@@ -4,5 +4,10 @@ from enviroments import options as o
 
 obj = Emails()
 
-a = obj.add_emails()
+a = obj.emails_unconfirmed_list()
+
+if len(a) == 0:
+	print('0')
+else:
+	print('HAVE')
 

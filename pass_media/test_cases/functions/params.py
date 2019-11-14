@@ -23,7 +23,7 @@ class Session:
 
 class Emails:
 
-	env = 'test'
+	env = 'prod'
 
 	cookie = Session().get_sessionid(env)
 	session = requests.Session()
@@ -64,15 +64,15 @@ class Emails:
 			unconf_email.append(email['email'])
 		return unconf_email
 	
-	def delete_unconfirmed_emails(self):
-		unconf_emails = self.emails_unconfirmed_list()
-		for i in range(len(unconf_emails)):
-			email = unconf_emails[i]
-			data = {"email": email, "confirmed": "false"}
-			url = e.options[self.env]+e.endpoints['email_delete']
-			del_request = self.session.delete(url, json=data)
+	def emails_delete_unconfirmed(self, *args):
+			unconf_emails = self.emails_unconfirmed_list()
+			for i in range(len(unconf_emails)):
+				email = unconf_emails[i]
+				data = {"email": email, "confirmed": "false"}
+				url = e.options[self.env]+e.endpoints['email_delete']
+				del_request = self.session.delete(url, json=data)
 
-	def delete_confirmed_emails(self):
+	def emails_delete_confirmed(self):
 		conf_emails = self.emails_confirmed_list()
 		for i in range(len(conf_emails)):
 			email = conf_emails[i]
@@ -80,7 +80,7 @@ class Emails:
 			url = e.options[self.env] + e.endpoints['email_delete']
 			del_request = self.session.delete(url, json=data)
 			
-	def add_emails(self):
+	def emails_add(self):
 		link = e.options[self.env]+e.endpoints['email']
 		print(link)
 		data = {'email': e.options['email']}
@@ -88,7 +88,7 @@ class Emails:
 		print(add_request.status_code)
 		#assert add_request.status_code == 200, 'Error add email'
 
-	def confirm_emails(self):
+	def emails_confirm(self):
 		browser = webdriver.Chrome()
 		link = 'https://passport.yandex.ru/auth?from=mail&origin=hostroot_homer_auth_ru&retpath=https://mail.yandex.ru/?uid=121104012&backpath=https://mail.yandex.ru?noretpath=1'
 		browser.get(link)
