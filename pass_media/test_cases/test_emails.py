@@ -12,7 +12,7 @@ class TestEmails:
 	e = Emails()
 	link = env.options[stand]
 	ep = env.endpoints
-
+	'''
 	"""Проверка на закрытость API под авторизацию""" 
 	def test_emails_permission(self):
 		fail = []
@@ -22,7 +22,7 @@ class TestEmails:
 				fail.append(self.ep[endpoint])
 		if len(fail) != 0:
 			assert 1 == 2, print('API who available without authorization: '+str(fail))
-	'''
+	
 
 	"""Добавление неподтвержденного адреса
 		Есть есть неподтвержденный email_count = 2"""
@@ -35,7 +35,7 @@ class TestEmails:
 		assert self.e.emails_count() == 0
 		self.e.emails_add()
 		assert self.e.emails_count() == 2
-	'''
+	
 
 	""" Удаление неподтвержденного адреса 
 		Добавляем адрес для удаления, если его нет"""
@@ -43,20 +43,39 @@ class TestEmails:
 	def test_remove_unconfirmed_email(self):
 		if len(self.e.emails_unconfirmed_list()) != 0:
 			self.e.emails_delete_unconfirmed()
+			assert e.emails_delete_confirmed().status_code == '200'
 			assert len(self.e.emails_unconfirmed_list()) == 0
 		else:
 			self.e.emails_add()
 			assert len(self.e.emails_unconfirmed_list()) != 0
 			self.e.emails_delete_unconfirmed()
+			assert e.emails_delete_confirmed().status_code == '200'
 			assert len(self.e.emails_unconfirmed_list()) == 0
 
 	""" Удаление подтвержденного адреса """
 	def test_remove_confirmed_email(self):
 		if len(self.e.emails_confirmed_list()) != 0:
 			self.e.emails_delete_confirmed()
+			assert e.emails_delete_confirmed().status_code == '200'
 			assert len(self.e.emails_confirmed_list()) == 0
 	
 		#Нужно дописать!!!!!!!!!!!!!!!!!!!!!!!!!
+	'''	
+	""" Удаление невалидного адреса """
+	def test_remove_invalid_email(self):
+		invalid = 'email@email'
+		error = 'Enter a valid email address.'
+		rm = self.e.emails_delete_unconfirmed(invalid)
+		assert error in rm.text 
+	
+	""" Удаление неподтвержденного
+		адреса, которого у пользователя """
+		
+	def test_remove_missing_email(self):
+		missing_em = 'email@email.ru'
+		error = 'User email not found'
+		rm = self.e.emails_delete_unconfirmed(missing_em)
+		assert error in rm.text 		
 		
 	
 

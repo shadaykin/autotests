@@ -65,12 +65,19 @@ class Emails:
 		return unconf_email
 	
 	def emails_delete_unconfirmed(self, *args):
+		try:
+			if "@" in args[0]:
+				data = {"email": args[0], "confirmed": "false"}
+				url = e.options[self.env]+e.endpoints['email_delete']
+				del_request = self.session.delete(url, json=data)
+		except:
 			unconf_emails = self.emails_unconfirmed_list()
 			for i in range(len(unconf_emails)):
 				email = unconf_emails[i]
 				data = {"email": email, "confirmed": "false"}
 				url = e.options[self.env]+e.endpoints['email_delete']
 				del_request = self.session.delete(url, json=data)
+		return del_request
 
 	def emails_delete_confirmed(self):
 		conf_emails = self.emails_confirmed_list()
