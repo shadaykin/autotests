@@ -70,6 +70,7 @@ class Emails:
 				data = {"email": args[0], "confirmed": "false"}
 				url = e.options[self.env]+e.endpoints['email_delete']
 				del_request = self.session.delete(url, json=data)
+				return del_request
 		except:
 			unconf_emails = self.emails_unconfirmed_list()
 			for i in range(len(unconf_emails)):
@@ -77,7 +78,7 @@ class Emails:
 				data = {"email": email, "confirmed": "false"}
 				url = e.options[self.env]+e.endpoints['email_delete']
 				del_request = self.session.delete(url, json=data)
-		return del_request
+				return del_request
 
 	def emails_delete_confirmed(self):
 		conf_emails = self.emails_confirmed_list()
@@ -86,13 +87,13 @@ class Emails:
 			data = {"email": email, "confirmed": "true","password":e.options['password']}
 			url = e.options[self.env] + e.endpoints['email_delete']
 			del_request = self.session.delete(url, json=data)
-			
+			return del_request			
 	def emails_add(self):
 		link = e.options[self.env]+e.endpoints['email']
 		print(link)
 		data = {'email': e.options['email']}
 		add_request = self.session.post(link, json=data)
-		print(add_request.status_code)
+		return add_request
 		#assert add_request.status_code == 200, 'Error add email'
 
 	def emails_confirm(self):
