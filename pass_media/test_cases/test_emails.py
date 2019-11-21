@@ -6,7 +6,7 @@ import json
 
 class TestEmails:
 
-	stand = 'prod'
+	stand = 'test'
 	
 	s = Session()
 	e = Emails()
@@ -55,13 +55,13 @@ class TestEmails:
 		
 		if len(unc_list) != 0:
 			remove = self.e.emails_delete_unconfirmed()
-			assert remove.status_code >= 200 and remove.status_code < 210
+			assert remove.status_code == 204
 			assert len(self.e.emails_unconfirmed_list()) == 0
 		else:
 			self.e.emails_add()
 			assert len(self.e.emails_unconfirmed_list()) != 0
 			remove = self.e.emails_delete_unconfirmed()
-			assert remove.status_code >= 200 and remove.status_code < 210
+			assert remove.status_code == 204
 			assert len(self.e.emails_unconfirmed_list()) == 0
 	'''
 	""" Удаление подтвержденного адреса """
@@ -90,8 +90,8 @@ class TestEmails:
 	
 	""" Добавление одинаковых адресов """	
 	def test_same_email(self):
-		address = self.env.options['email']
-		error = 'Email alredy exists.'
+		address = env.options['email']
+		error = 'User email already exists.'
 		if self.e.emails_count() == 0:
 			self.e.emails_add()
 			assert address in self.e.emails_unconfirmed_list()
@@ -105,3 +105,25 @@ class TestEmails:
 			same = self.e.emails_add()
 			assert error in same.text
 
+	""" Добавление больше 5 адресов """
+	def test_excess_email(self):
+		error = 'User emails limit exceeded.'
+		if self.e.emails_count() == 0:
+			pass
+		if self.e.emails_count() == 2:
+			self.e.emails_delete_unconfirmed()
+			assert self.e.emails_count() == 0
+			for email in range(len(env.emails_excess)):
+				self.e.emails_add(env.emails_excess[email])
+			assert len(self.e.emails_unconfirmed_list[4]) != 0
+			fail = self.e.emails_add()
+			assert error in fail.text
+		else:
+			self.e.emails_delete_unconfirmed()
+			self.e.emails_delete_confirmed()
+			assert self.e.emails_count() == 0
+			for email in range(len(env.emails_excess)):
+				self.e.emails_add(env.emails_excess[email])
+			assert len(self.e.emails_unconfirmed_list[4]) != 0
+			fail = self.e.emails_add()
+			assert error in fail.text

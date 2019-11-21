@@ -16,3 +16,11 @@ endpoints = dict(
 	email_delete='/api/emails/remove/',
 	send_email_conf='/api/send_email_confirmation/'
 )
+
+emails_excess = dict(
+	email1='shadayka152+1@gmail.com',
+	email2='shadayka152+2@gmail.com',
+	email3='shadayka152+3@gmail.com',
+	email4='shadayka152+4@gmail.com',
+	email5='shadayka152+5@gmail.com'
+)

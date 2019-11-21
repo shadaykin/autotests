@@ -23,7 +23,7 @@ class Session:
 
 class Emails:
 
-	env = 'prod'
+	env = 'test'
 
 	cookie = Session().get_sessionid(env)
 	session = requests.Session()
