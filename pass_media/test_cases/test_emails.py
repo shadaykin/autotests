@@ -1,14 +1,13 @@
 import enviroments as env
-from functions.params import Session
-from functions.params import Emails
-import requests
-import json
+from functions.cookies import Sessions
+from functions.emails import Emails
+import requests, json
 
 class TestEmails:
 
 	stand = 'test'
 	
-	s = Session()
+	s = Sessions()
 	e = Emails()
 	link = env.options[stand]
 	ep = env.endpoints
@@ -98,8 +97,8 @@ class TestEmails:
 			same = self.e.emails_add()
 			assert error in same.text
 		else:
-			self.emails_delete_unconfirmed()
-			self.emails_delete_confirmed()
+			self.e.emails_delete_unconfirmed()
+			self.e.emails_delete_confirmed()
 			self.e.emails_add()
 			assert address in self.e.emails_unconfirmed_list()
 			same = self.e.emails_add()
@@ -109,21 +108,26 @@ class TestEmails:
 	def test_excess_email(self):
 		error = 'User emails limit exceeded.'
 		if self.e.emails_count() == 0:
-			pass
+			for email in env.emails_excess:
+				self.e.emails_add(env.emails_excess[email])
+			assert len(self.e.emails_unconfirmed_list()[4]) != 0
+			fail = self.e.emails_add()
+			assert error in fail.text
+
 		if self.e.emails_count() == 2:
 			self.e.emails_delete_unconfirmed()
 			assert self.e.emails_count() == 0
-			for email in range(len(env.emails_excess)):
+			for email in env.emails_excess:
 				self.e.emails_add(env.emails_excess[email])
-			assert len(self.e.emails_unconfirmed_list[4]) != 0
+			assert len(self.e.emails_unconfirmed_list()[4]) != 0
 			fail = self.e.emails_add()
 			assert error in fail.text
 		else:
 			self.e.emails_delete_unconfirmed()
 			self.e.emails_delete_confirmed()
 			assert self.e.emails_count() == 0
-			for email in range(len(env.emails_excess)):
+			for email in env.emails_excess:
 				self.e.emails_add(env.emails_excess[email])
-			assert len(self.e.emails_unconfirmed_list[4]) != 0
+			assert len(self.e.emails_unconfirmed_list()[4]) != 0
 			fail = self.e.emails_add()
 			assert error in fail.text

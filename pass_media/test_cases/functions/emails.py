@@ -1,31 +1,13 @@
-import requests
+import requests, json, time
 import enviroments as e
-import json
 from selenium import webdriver
-import time
-
-class Session:
-
-
-	def get_sessionid(self, env):
-
-		link = e.options[env] + '/cas/login'
-		s = requests.Session()
-		get_csrf = s.get(link)
-		csrftoken = get_csrf.cookies['csrftoken']
-		cookies = {'csrftoken': csrftoken}
-		headers = {'X-CSRFToken': csrftoken, 'Referer': link}
-		form_data = {'username': (None, e.options['phone']), 'password': (None, e.options['password'])}
-		response = s.post(link, files=form_data, headers=headers, cookies=cookies)
-		session_id = {'sessionid': s.cookies['sessionid']}
-		return session_id
-
+from functions.cookies import Sessions
 
 class Emails:
 
-	env = 'test'
+	env = 'prod'
 
-	cookie = Session().get_sessionid(env)
+	cookie = Sessions().get_sessionid(env)
 	session = requests.Session()
 	session.cookies.update(cookie)
 
@@ -87,15 +69,23 @@ class Emails:
 			data = {"email": email, "confirmed": "true","password":e.options['password']}
 			url = e.options[self.env] + e.endpoints['email_delete']
 			del_request = self.session.delete(url, json=data)
-			return del_request			
-	def emails_add(self):
-		link = e.options[self.env]+e.endpoints['email']
-		print(link)
-		data = {'email': e.options['email']}
-		add_request = self.session.post(link, json=data)
-		return add_request
-		#assert add_request.status_code == 200, 'Error add email'
+			return del_request
+		
+	def emails_add(self,*args):
+		try:
+			'@' in args[0]
+			link = e.options[self.env]+e.endpoints['email']
+			data = {'email': args[0]}
+			add_request = self.session.post(link, json=data)
+			return add_request
+		except:
+			link = e.options[self.env]+e.endpoints['email']
+			data = {'email': e.options['email']}
+			add_request = self.session.post(link, json=data)
+			return add_request
 
+	
+		
 	def emails_confirm(self):
 		browser = webdriver.Chrome()
 		link = 'https://passport.yandex.ru/auth?from=mail&origin=hostroot_homer_auth_ru&retpath=https://mail.yandex.ru/?uid=121104012&backpath=https://mail.yandex.ru?noretpath=1'

@@ -1,5 +1,6 @@
-from enviroments import emails_excess as em
+from functions.cookies import Sessions
+from functions.emails import Emails
 
+obj = Emails().emails_unconfirmed_list()
 
-for email in range(len(em)):
-	print(em[email])
+print(obj[4])
