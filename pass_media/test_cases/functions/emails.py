@@ -5,7 +5,7 @@ from functions.cookies import Sessions
 
 class Emails:
 
-	env = 'prod'
+	env = e.stand_for_test
 
 	cookie = Sessions().get_sessionid(env)
 	session = requests.Session()

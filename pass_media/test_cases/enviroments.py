@@ -1,14 +1,18 @@
+
+stand_for_test = 'test'
+
 options = dict(
 	phone='+79096201687',
 	password='111111xX',
 	email='autotestpm@yandex.ru',
-	fail_email = 'fail@email',
+	email_busy='shadayka152+test@gmail.com',
 	prod='https://pass.media',
 	test='https://passport.jw-test.zxz.su',
 	stage='https://passport.jw-test-301.zxz.su',
 	extra='https://passport.jw-test-202.zxz.su'
 
 )
+
 
 endpoints = dict(
 	email='/api/emails/',

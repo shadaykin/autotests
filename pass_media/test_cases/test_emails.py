@@ -5,7 +5,7 @@ import requests, json
 
 class TestEmails:
 
-	stand = 'test'
+	stand = env.stand_for_test
 	
 	s = Sessions()
 	e = Emails()
@@ -17,7 +17,7 @@ class TestEmails:
 		fail = []
 		for endpoint in self.ep:
 			make_request = requests.get(self.link + self.ep[endpoint])
-			if make_request.status_code >= 500 :
+			if make_request.status_code >= 500:
 				fail.append(self.ep[endpoint])
 		if len(fail) != 0:
 			assert 1 == 2, print('API with server errors: '+str(fail))
@@ -34,7 +34,7 @@ class TestEmails:
 	
 
 	"""Добавление неподтвержденного адреса
-		Есть есть неподтвержденный email_count = 2"""
+		Если есть неподтвержденный email_count = 2"""
 		
 	def test_add_unconfirmed_email(self):
 		if self.e.emails_count() != 0:
@@ -66,11 +66,10 @@ class TestEmails:
 	""" Удаление подтвержденного адреса """
 	def test_remove_confirmed_email(self):
 		if len(self.e.emails_confirmed_list()) != 0:
-			self.e.emails_delete_confirmed()
-			assert e.emails_delete_confirmed().status_code == '200'
-			assert len(self.e.emails_confirmed_list()) == 0
+			del = self.e.emails_delete_confirmed()
+			assert del.status_code == 204
+			assert len(self.e.emails_confirmed_list()) == 0 
 	
-		#Нужно дописать!!!!!!!!!!!!!!!!!!!!!!!!!
 	'''
 	""" Удаление невалидного адреса """
 	def test_remove_invalid_email(self):
@@ -131,3 +130,13 @@ class TestEmails:
 			assert len(self.e.emails_unconfirmed_list()[4]) != 0
 			fail = self.e.emails_add()
 			assert error in fail.text
+
+		"""Добавление адреса, который подтвержден у другого пользователя"""
+	def test_add_busy_confirmed_email(self):
+		error = 'Email already confirmed.'
+		if self.e.emails_count() != 0:
+			self.e.emails_delete_confirmed()
+			self.e.emails_delete_unconfirmed()
+		busy = self.e.emails_add(env.options['email_busy'])
+		assert error in busy.status_code
+		assert busy.status_code == 403
