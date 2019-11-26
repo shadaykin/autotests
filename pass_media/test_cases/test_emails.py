@@ -138,5 +138,5 @@ class TestEmails:
 			self.e.emails_delete_confirmed()
 			self.e.emails_delete_unconfirmed()
 		busy = self.e.emails_add(env.options['email_busy'])
-		assert error in busy.status_code
-		assert busy.status_code == 403
+		assert error in busy.text
+		assert busy.status_code == 400

@@ -3,4 +3,5 @@ from functions.emails import Emails
 
 obj = Emails().emails_unconfirmed_list()
 
-print(obj[4])
+for email in obj:
+	print(email)
