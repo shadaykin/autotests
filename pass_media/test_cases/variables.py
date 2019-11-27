@@ -14,7 +14,7 @@ options = dict(
 )
 
 
-endpoints = dict(
+endpoints_email = dict(
 	email='/api/emails/',
 	email_confirm='/api/emails/confirm/',
 	email_delete='/api/emails/remove/',
@@ -28,3 +28,9 @@ emails_excess = dict(
 	email4='shadayka152+4@gmail.com',
 	email5='shadayka152+5@gmail.com'
 )
+
+endpoints_account =dict(
+	edit='/api/accounts/edit/',
+	change_pwd='/api/accounts/edit/change_password/',
+	check_pwd='/api/actions/check_restore_password/'
+	)

@@ -1,7 +1,6 @@
-from functions.cookies import Sessions
-from functions.emails import Emails
+from inspect import signature
 
-obj = Emails().emails_unconfirmed_list()
+def qq(*args):
+	print(len(args))
 
-for email in obj:
-	print(email)
+qq()

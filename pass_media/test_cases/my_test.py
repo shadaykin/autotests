@@ -1,33 +1,5 @@
-my_dict = {"phone":"",
-	"first_name":"",
-	"last_name":"sad",
-	"nickname":"",
-	"emails_confirmed":[],
-	"emails_unconfirmed":[],
-	"gender":"",
-	"phone_country":"",
-	"city":"",
-	"city_guid":"",
-	"birthdate":"",
-	"age":"",
-	"required_fields":[],
-	"optional_fields":[],
-	"required_empty_only":""}
+from functions.accounts import Accounts
 
-you_dict = {"phone":"",
-	"first_name":"",
-	"last_name":"",
-	"nickname":"",
-	"emails_confirmed":[],
-	"emails_unconfirmed":[],
-	"gender":"",
-	"phone_country":"RU",
-	"city":"",
-	"city_guid":"sdas",
-	"birthdate":"",
-	"age":"",
-	"required_fields":[],
-	"optional_fields":[],
-	"required_empty_only":""}
-
-assert set(my_dict) == set(you_dict)
+obj = Accounts().delete_account('111111cC')
+print(obj.text)
+                                                                                
