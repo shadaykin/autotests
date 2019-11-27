@@ -1,4 +1,4 @@
-import enviroments as env
+import variables as env
 from functions.cookies import Sessions
 from functions.emails import Emails
 import requests, json

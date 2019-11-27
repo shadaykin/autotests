@@ -1,5 +1,5 @@
 import requests
-import enviroments as e
+import variables as e
 
 
 class Sessions:

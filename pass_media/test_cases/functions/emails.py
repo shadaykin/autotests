@@ -1,5 +1,5 @@
 import requests, json, time
-import enviroments as e
+import variables as e
 from selenium import webdriver
 from functions.cookies import Sessions
 
