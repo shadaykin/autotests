@@ -17,8 +17,12 @@ class Accounts:
 		return info
 		
 	def check_restore_password(self):
-		data = {"password":e.options['password']}
-		check = self.session.post(self.link+self.endpoint['check_pwd'],json=data)
+		if len(args) == 0:
+			data = {"password":e.options['password']}
+			check = self.session.post(self.link+self.endpoint['check_pwd'],json=data)
+		else:
+			data = {"password":args[0]}
+			check = self.session.post(self.link+self.endpoint['check_pwd'],json=data)
 		return check
 		
 	def change_password(self,*args):

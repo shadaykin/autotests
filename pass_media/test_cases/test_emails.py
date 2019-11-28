@@ -1,16 +1,16 @@
-import variables as env
+import variables as var
 from functions.cookies import Sessions
 from functions.emails import Emails
 import requests, json
 
 class TestEmails:
 
-	stand = env.stand_for_test
+	stand = var.stand_for_test
 	
 	s = Sessions()
 	e = Emails()
-	link = env.options[stand]
-	ep = env.endpoints_email
+	link = var.options[stand]
+	ep = var.endpoints_email
 	
 	""" Проверка на доступность API  """
 	def test_email_available_api(self):
@@ -88,7 +88,7 @@ class TestEmails:
 	
 	""" Добавление одинаковых адресов """	
 	def test_same_email(self):
-		address = env.options['email']
+		address = var.options['email']
 		error = 'User email already exists.'
 		if self.e.emails_count() == 0:
 			self.e.emails_add()
@@ -107,8 +107,8 @@ class TestEmails:
 	def test_excess_email(self):
 		error = 'User emails limit exceeded.'
 		if self.e.emails_count() == 0:
-			for email in env.emails_excess:
-				self.e.emails_add(env.emails_excess[email])
+			for email in var.emails_excess:
+				self.e.emails_add(var.emails_excess[email])
 			assert len(self.e.emails_unconfirmed_list()[4]) != 0
 			fail = self.e.emails_add()
 			assert error in fail.text
@@ -116,8 +116,8 @@ class TestEmails:
 		if self.e.emails_count() == 2:
 			self.e.emails_delete_unconfirmed()
 			assert self.e.emails_count() == 0
-			for email in env.emails_excess:
-				self.e.emails_add(env.emails_excess[email])
+			for email in var.emails_excess:
+				self.e.emails_add(var.emails_excess[email])
 			assert len(self.e.emails_unconfirmed_list()[4]) != 0
 			fail = self.e.emails_add()
 			assert error in fail.text
@@ -125,8 +125,8 @@ class TestEmails:
 			self.e.emails_delete_unconfirmed()
 			self.e.emails_delete_confirmed()
 			assert self.e.emails_count() == 0
-			for email in env.emails_excess:
-				self.e.emails_add(env.emails_excess[email])
+			for email in var.emails_excess:
+				self.e.emails_add(var.emails_excess[email])
 			assert len(self.e.emails_unconfirmed_list()[4]) != 0
 			fail = self.e.emails_add()
 			assert error in fail.text
@@ -137,6 +137,6 @@ class TestEmails:
 		if self.e.emails_count() != 0:
 			self.e.emails_delete_confirmed()
 			self.e.emails_delete_unconfirmed()
-		busy = self.e.emails_add(env.options['email_busy'])
+		busy = self.e.emails_add(var.options['email_busy'])
 		assert error in busy.text
 		assert busy.status_code == 400

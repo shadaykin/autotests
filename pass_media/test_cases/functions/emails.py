@@ -52,7 +52,6 @@ class Emails:
 				data = {"email": args[0], "confirmed": "false"}
 				url = e.options[self.env]+e.endpoints_email['email_remove']
 				del_request = self.session.delete(url, json=data)
-				return del_request
 			else:
 				assert 1 == 2, "Args is not email"
 		unconf_emails = self.emails_unconfirmed_list()
@@ -60,7 +59,7 @@ class Emails:
 			data = {"email": email, "confirmed": "false"}
 			url = e.options[self.env]+e.endpoints_email['email_remove']
 			del_request = self.session.delete(url, json=data)
-			return del_request
+		return del_request
 
 	def emails_delete_confirmed(self):
 		conf_emails = self.emails_confirmed_list()
@@ -68,7 +67,7 @@ class Emails:
 			data = {"email": email, "confirmed": "true","password":e.options['password']}
 			url = e.options[self.env] + e.endpoints_email['email_remove']
 			del_request = self.session.delete(url, json=data)
-			return del_request
+		return del_request
 		
 	def emails_add(self, *args):
 		try:

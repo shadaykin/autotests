@@ -1,5 +1,5 @@
 
-stand_for_test = 'test'
+stand_for_test = 'prod'
 
 options = dict(
 	phone='+79096201687',

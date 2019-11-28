@@ -4,20 +4,25 @@ from selenium import webdriver
 from functions.cookies import Sessions
 from functions.emails import Emails
 
-env = e.stand_for_test
+var = e.stand_for_test
 
-cookie = Sessions().get_sessionid(env)
+cookie = Sessions().get_sessionid(var)
 session = requests.Session()
 session.cookies.update(cookie)
 
 Emails().emails_unconfirmed_list()
-Emails().emails_delete_unconfirmed()
+delete = Emails().emails_delete_unconfirmed()
 unconf_emails2 = Emails().emails_unconfirmed_list()
 print(unconf_emails2)
-"""
-for email in unconf_emails:
-	data = {"email": email, "confirmed": "false"}
-	url = e.options[env]+e.endpoints_email['email_remove']
-	print(data)
-	print(url)
-"""
+print(delete.status_code)
+'''
+
+def qq():
+	data = {}
+	for i in range(2):
+		req = requests.get('https://ya.ru')
+	return req
+	
+print(qq().status_code)
+'''
+
