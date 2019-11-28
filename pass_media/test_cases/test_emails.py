@@ -10,7 +10,7 @@ class TestEmails:
 	s = Sessions()
 	e = Emails()
 	link = env.options[stand]
-	ep = env.endpoints
+	ep = env.endpoints_email
 	
 	""" Проверка на доступность API  """
 	def test_email_available_api(self):

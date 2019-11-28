@@ -1,5 +1,5 @@
 
-stand_for_test = 'prod'
+stand_for_test = 'test'
 
 options = dict(
 	phone='+79096201687',
@@ -17,7 +17,7 @@ options = dict(
 endpoints_email = dict(
 	email='/api/emails/',
 	email_confirm='/api/emails/confirm/',
-	email_delete='/api/emails/remove/',
+	email_remove='/api/emails/remove/',
 	send_email_conf='/api/send_email_confirmation/'
 )
 

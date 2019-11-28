@@ -12,7 +12,7 @@ class Emails:
 	session.cookies.update(cookie)
 
 	def emails_list(self):
-		make_request = self.session.get(e.options[self.env] + e.endpoint_email['email'])
+		make_request = self.session.get(e.options[self.env] + e.endpoints_email['email'])
 		st_code = make_request.text
 		emails = json.loads(st_code)
 		return emails
@@ -47,37 +47,38 @@ class Emails:
 		return unconf_email
 	
 	def emails_delete_unconfirmed(self, *args):
-		try:
+		if len(args) > 0:
 			if "@" in args[0]:
 				data = {"email": args[0], "confirmed": "false"}
-				url = e.options[self.env]+e.endpoint_email['email_delete']
+				url = e.options[self.env]+e.endpoints_email['email_remove']
 				del_request = self.session.delete(url, json=data)
 				return del_request
-		except:
-			unconf_emails = self.emails_unconfirmed_list()
-			for email in unconf_emails:
-				data = {"email": email, "confirmed": "false"}
-				url = e.options[self.env]+e.endpoint_email['email_delete']
-				del_request = self.session.delete(url, json=data)
-				return del_request
-				
+			else:
+				assert 1 == 2, "Args is not email"
+		unconf_emails = self.emails_unconfirmed_list()
+		for email in unconf_emails:
+			data = {"email": email, "confirmed": "false"}
+			url = e.options[self.env]+e.endpoints_email['email_remove']
+			del_request = self.session.delete(url, json=data)
+			return del_request
+
 	def emails_delete_confirmed(self):
 		conf_emails = self.emails_confirmed_list()
 		for email in conf_emails:
 			data = {"email": email, "confirmed": "true","password":e.options['password']}
-			url = e.options[self.env] + e.endpoint_email['email_delete']
+			url = e.options[self.env] + e.endpoints_email['email_remove']
 			del_request = self.session.delete(url, json=data)
 			return del_request
 		
-	def emails_add(self,*args):
+	def emails_add(self, *args):
 		try:
 			'@' in args[0]
-			link = e.options[self.env]+e.endpoint_email['email']
+			link = e.options[self.env]+e.endpoints_email['email']
 			data = {'email': args[0]}
 			add_request = self.session.post(link, json=data)
 			return add_request
 		except:
-			link = e.options[self.env]+e.endpoint_email['email']
+			link = e.options[self.env]+e.endpoints_email['email']
 			data = {'email': e.options['email']}
 			add_request = self.session.post(link, json=data)
 			return add_request
