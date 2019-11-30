@@ -47,6 +47,7 @@ class Emails:
 		return unconf_email
 	
 	def emails_delete_unconfirmed(self, *args):
+		del_request = ''
 		if len(args) > 0:
 			if "@" in args[0]:
 				data = {"email": args[0], "confirmed": "false"}
@@ -62,6 +63,7 @@ class Emails:
 		return del_request
 
 	def emails_delete_confirmed(self):
+		del_request = ''
 		conf_emails = self.emails_confirmed_list()
 		for email in conf_emails:
 			data = {"email": email, "confirmed": "true","password":e.options['password']}

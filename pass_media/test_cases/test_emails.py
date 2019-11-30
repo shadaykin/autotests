@@ -140,3 +140,5 @@ class TestEmails:
 		busy = self.e.emails_add(var.options['email_busy'])
 		assert error in busy.text
 		assert busy.status_code == 400
+		
+	

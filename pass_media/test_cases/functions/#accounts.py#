@@ -81,4 +81,6 @@ class Accounts:
 		del_education = self.session.delete(self.link+self.endpoint['ed'])
 		return del_education
 	
-	def put_account_education(self,*args)
+	def put_account_education(self,*args):
+		#Добавление информации по образованию"
+		

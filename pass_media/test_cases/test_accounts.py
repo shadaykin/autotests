@@ -20,3 +20,5 @@ class TestAccounts:
 				fail.append(self.ep[endpoint])
 		if len(fail) != 0:
 			assert 1 == 2, print('API with server errors: '+str(fail))
+			
+	
