@@ -13,6 +13,9 @@ cookie = Sessions().get_sessionid(env)
 session = requests.Session()
 session.cookies.update(cookie)
 
-data = data_tests.account
+ff = Accounts().get_account_info()
+first_name = 'TEST_name'
 
-print(data[])
+if ff.json()['first_name'] != first_name:
+	print('success')
+print(ff.json()['first_name'])

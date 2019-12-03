@@ -38,3 +38,16 @@ class TestAccounts:
 		if len(fail) != 0:
 			assert 1 == 2, print('API who available without authorization: '+str(fail))
 	
+	def test_update_account_info(self):
+		first_name = 'TEST_name'
+		nickname = 'TEST_nickname'
+		info = self.acc.get_account_info()
+		if info.json()['first_name'] != first_name and info.json()['nickname'] != nickname:
+			self.acc.update_account_info(first_name, nickname)
+		else:
+			self.acc.update_account_info('','')
+			assert self.acc.get_account_info().json()['first_name'] != first_name
+			assert self.acc.get_account_info().json()['nickname'] != nickname
+			self.acc.update_account_info(first_name, nickname)
+		assert self.acc.get_account_info().json()['first_name'] == first_name
+		assert self.acc	.get_account_info().json()['nickname'] == nickname

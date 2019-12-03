@@ -32,7 +32,7 @@ class Accounts:
 			patch = self.session.patch(self.link+self.endpoint['edit'],json=data)
 			return patch
 		if len(args) == 2:
-			frirst_name = args[0]
+			first_name = args[0]
 			nickname = args[1]
 			data = {"first_name":first_name,"nickname":nickname}
 			patch = self.session.patch(self.link+self.endpoint['edit'],json=data)
@@ -40,8 +40,15 @@ class Accounts:
 			
 	def update_all_account_info(self, *args):
 		#Обновление всех данных профиля
-		pass
-	
+		if len(args) == 1:
+			data = dt.account_empty
+			put = self.session.put(self.link+self.endpoint['edit'],json=data)
+			return put
+		else:
+			data = dt.account
+			put = self.session.put(self.link+self.endpoint['edit'],json=data)
+			return put
+			
 	def check_restore_password(self):
 		#Проверка текущего пароля/кода восстановления
 		if len(args) == 0:
