@@ -80,6 +80,12 @@ class TestAccounts:
 		nickname = 'Хуй'
 		self.acc.update_account_info(first_name, nickname)
 	'''	
+	
+	def test_check_birthdate(self): 
+		more_100 = 
+		less_16 =
+		
+		
 	def test_success_check_password(self):
 		"""Успешная проверка текущего пароля"""
 		body = {"status":"ok","change_seconds":300} 

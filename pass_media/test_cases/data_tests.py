@@ -8,12 +8,12 @@ account = {
 	"gender":"m",
 	"phone_country":"RU",
 	"city":"Moscow",
-	"city_guid":"",
+	"city_guid":None,
 	"birthdate":"11.01.1990",
-	"age":"null",
+	"age":29,
 	"required_fields":[],
 	"optional_fields":[],
-	"required_empty_only":"false"}
+	"required_empty_only":False}
 
 account_empty = {
 	"phone":"+79096201687",
@@ -25,12 +25,12 @@ account_empty = {
 	"gender":"",
 	"phone_country":"RU",
 	"city":"",
-	"city_guid":"",
+	"city_guid":None,
 	"birthdate":None,
-	"age":"",
+	"age":None,
 	"required_fields":[],
 	"optional_fields":[],
-	"required_empty_only":"false"}
+	"required_empty_only":False}
 
 higher_ed = {
 	"level":"higher",
