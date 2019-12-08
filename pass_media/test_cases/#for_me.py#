@@ -18,9 +18,9 @@ service='https://matchtv.ru'
 
 ff1 = Accounts().get_account_info(service)
 req = ff1.json()['required_fields']
-r = req
-print(r)
-#assert req == r
+r = '[emails_unconfirmed', 'gender', 'nickname', 'phone]'
+print(req)
+assert req == r
 '''
 #.strftime("%d.%m.%Y")
 now = datetime.now().date() 

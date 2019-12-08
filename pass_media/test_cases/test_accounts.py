@@ -80,6 +80,16 @@ class TestAccounts:
 		nickname = 'Хуй'
 		self.acc.update_account_info(first_name, nickname)
 	'''	
+	
+	def test_required_fields_cas(self):
+		"""Обязательные поля для сервисов CAS"""
+		service='https://localhost'
+		req_fields = 'emails_unconfirmed', 'gender', 'nickname', 'phone'
+		info = self.acc.get_account_info(service)
+		required = 	info.json()['required_fields']
+		
+	
+	
 	def test_success_check_password(self):
 		"""Успешная проверка текущего пароля"""
 		body = {"status":"ok","change_seconds":300} 
@@ -90,7 +100,7 @@ class TestAccounts:
 	def test_unsuccessful_check_password(self):
 		"""Неуспешная проверка текущего пароля"""
 		error = "Wrong current password." 
-		check = self.acc.check_restore_password('111111')
+		check = self.acc.check_restore_password('1111111')
 		assert check.status_code == 400
 		assert error in check.text 
 			
@@ -100,7 +110,7 @@ class TestAccounts:
 		self.acc.check_restore_password()
 		change = self.acc.change_password()
 		assert change.status_code == 200
-		assert chenge.json() == body
+		assert change.json() == body
 		
 	def test_change_differents_pwd(self):
 		"""Несовпадающие пароли"""
@@ -111,3 +121,12 @@ class TestAccounts:
 		assert change.status_code == 400
 		assert error in change.text
 	
+	def test_pwd_have_account_data(self):
+		"""Пароль содержит данные профиля"""
+		pwd = 'Test_name1'
+		error = 'The password is too similar to the first_name'
+		self.acc.update_account_info('Test_name')
+		self.acc.check_restore_password()
+		change = self.acc.change_password(pwd)
+		assert change.status_code == 400
+		assert error in change.text

@@ -21,7 +21,8 @@ class Accounts:
 			service = args[0]
 			if 'http' in args[0]:
 				info = self.session.get(self.link+self.endpoint['edit']+'?service='+service)
-			info = self.session.get(self.link+self.endpoint['edit']+'?clientid='+service)
+			else:
+				info = self.session.get(self.link+self.endpoint['edit']+'?clientid='+service)
 		return info
 		
 	def update_account_info(self, *args):
