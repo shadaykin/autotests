@@ -40,20 +40,14 @@ class TestAccounts:
 	
 	def test_update_account_info(self):
 		"""Проверка обновления отдельных полей"""
-		first_name = 'TEST_name'
-		nickname = 'TEST_nickname'
-		info = self.acc.get_account_info()
-		if info.json()['first_name'] != first_name and info.json()['nickname'] != nickname:
-			self.acc.update_account_info(first_name, nickname)
-		else:
-			self.acc.update_account_info('','')
-			info = self.acc.get_account_info().json()
-			assert info['first_name'] != first_name
-			assert info['nickname'] != nickname
-			self.acc.update_account_info(first_name, nickname)
+		
+		data = {"first_name":"TEST_name","nickname":"TEST_nickname"}
+		data_clear = {"first_name":"","nickname":""}nd info.json()['nickname'] != nickname:
+		self.acc.update_account_info(data_clear)
 		info = self.acc.get_account_info().json()	
-		assert info['first_name'] == first_name
-		assert info['nickname'] == nickname
+		assert info['first_name'] == '' and info['nickname'] == ''
+		info = self.acc.update_account_info(data)
+		assert info['first_name'] == 'TEST_name' and info['nickname'] == 'TEST_nickname'
 		
 	def test_update_all_account_info(self):
 		"""Обновеление всех данных пользователя"""
@@ -80,16 +74,22 @@ class TestAccounts:
 		nickname = 'Хуй'
 		self.acc.update_account_info(first_name, nickname)
 	'''	
-	
-	def test_required_fields_cas(self):
-		"""Обязательные поля для сервисов CAS"""
-		service='https://localhost'
-		req_fields = 'emails_unconfirmed', 'gender', 'nickname', 'phone'
-		info = self.acc.get_account_info(service)
-		required = 	info.json()['required_fields']
 		
-	
-	
+	def test_account_birthdate(self):
+		"""Проверка поля дата рождения"""
+		data1 = {"birthdate":"11.01.1910"}
+		data2 = {"birthdate":"11.01.2020"}
+		data3 = {"birthdate":"11.01.2000"}
+		err_more100 = 'Wrong date. Max age: 100.'
+		err_less16 = 'You should be over 16 years old.'
+		more_100 = self.acc.update_account_info(data1)
+		less_16 = self.acc.update_account_info(data2)
+		ok = self.acc.update_account_info(data3)
+		assert err_more100 in more_100.text
+		assert err_less16 in less_16
+		assert '11.01.2000' == ok.json()['birthdate']
+		
+
 	def test_success_check_password(self):
 		"""Успешная проверка текущего пароля"""
 		body = {"status":"ok","change_seconds":300} 

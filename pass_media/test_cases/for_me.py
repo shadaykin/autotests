@@ -14,12 +14,14 @@ session = requests.Session()
 session.cookies.update(cookie)
 
 
-service='https://matchtv.ru'
 
-ff1 = Accounts().get_account_info(service)
-req = ff1.json()['required_fields']
-r = req
-print(r)
+data1 = {"birthdate":"11.01.1910"}
+data2 = {"birthdate":"11.01.2000"}
+
+a = Accounts().update_account_info(data2)
+print(a.text)
+b = Accounts().get_account_info()
+print(b.json()['birthdate'])
 #assert req == r
 '''
 #.strftime("%d.%m.%Y")

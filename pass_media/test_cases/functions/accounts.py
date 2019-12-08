@@ -28,16 +28,9 @@ class Accounts:
 	def update_account_info(self, *args):
 		#Обновление конкретных полей
 		if len(args) == 1:
-			first_name = args[0]
-			data = {"first_name":first_name}
+			data = args[0]
 			patch = self.session.patch(self.link+self.endpoint['edit'],json=data)
-			return patch
-		if len(args) == 2:
-			first_name = args[0]
-			nickname = args[1]
-			data = {"first_name":first_name,"nickname":nickname}
-			patch = self.session.patch(self.link+self.endpoint['edit'],json=data)
-			return patch
+			return patch	
 			
 	def update_all_account_info(self, *args):
 		#Обновление всех данных профиля
