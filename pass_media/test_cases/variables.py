@@ -33,10 +33,9 @@ endpoints_account =dict(
 	edit='/api/accounts/edit/',
 	change_pwd='/api/accounts/edit/change_password/',
 	check_pwd='/api/actions/check_restore_password/',
-	citi='/api/cities/autocomplete/',#?q=Мос
+	city='/api/cities/autocomplete/',#?q=Мос
 	ed='/api/education/profiles/',
 	ed_country='/api/education/countries/',#?q=Рос
-	ed_citi='/api/education/cities/',#?q=Мос&country=2
+	ed_city='/api/education/cities/',#?q=Мос&country=2
 	ed_univ='/api/education/universities/',#?q=ниу мэи&country_id=2
-	
 	)

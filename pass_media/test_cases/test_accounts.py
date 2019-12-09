@@ -8,10 +8,13 @@ class TestAccounts:
 
 	stand = var.stand_for_test
 	
-	s = Sessions()
 	acc = Accounts()
 	link = var.options[stand]
 	ep = var.endpoints_account
+	
+	cookie = Sessions().get_sessionid(link)
+	session = requests.Session()
+	session.cookies.update(cookie)
 	
 	def test_accounts_available_api(self):
 		"""Проверка доступности API"""
@@ -90,6 +93,19 @@ class TestAccounts:
 		assert '11.01.2000' == ok.json()['birthdate']
 		
 
+	def test_city_autocomplete(self):
+		msc = 'q=Мос'
+		spb = 'q=Санк'
+		ekb = 'q=Ека'
+		req_msc = self.session.get(self.link+self.ep['city'],params = msc)
+		req_spb = self.session.get(self.link+self.ep['city'],params = spb)
+		req_ekb = self.session.get(self.link+self.ep['city'],params = ekb)
+		moscow = req_msc.json()[0]['full_name']
+		piter = req_msc.json()[0]['full_name']
+		ekater = req_msc.json()[0]['full_name']
+		assert 
+		
+		
 	def test_success_check_password(self):
 		"""Успешная проверка текущего пароля"""
 		body = {"status":"ok","change_seconds":300} 

@@ -13,16 +13,9 @@ cookie = Sessions().get_sessionid(env)
 session = requests.Session()
 session.cookies.update(cookie)
 
-
-
-data1 = {"birthdate":"11.01.1910"}
-data2 = {"birthdate":"11.01.2000"}
-
-a = Accounts().update_account_info(data2)
-print(a.text)
-b = Accounts().get_account_info()
-print(b.json()['birthdate'])
-#assert req == r
+msc = 'q=Моск'
+req_msc = session.get(var.options[env]+var.endpoints_account['city'],params = msc)
+print(req_msc.text)
 '''
 #.strftime("%d.%m.%Y")
 now = datetime.now().date() 
