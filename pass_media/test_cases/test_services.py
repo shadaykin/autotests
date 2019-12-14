@@ -1,7 +1,6 @@
 import variables as var
 from functions.cookies import Sessions
 from functions.accounts import Accounts
-import data_tests as dt
 import requests, json
 
 class TestServices:

@@ -1,6 +1,6 @@
 import requests, json, time
 import variables as var
-import data_tests as dt
+import data_request as dr
 from functions.cookies import Sessions
 
 class Accounts:
@@ -30,16 +30,18 @@ class Accounts:
 		if len(args) == 1:
 			data = args[0]
 			patch = self.session.patch(self.link+self.endpoint['edit'],json=data)
-			return patch	
+			return patch
+		else:
+			assert 1 == 2, 'Dont have data'
 			
 	def update_all_account_info(self, *args):
 		#Обновление всех данных профиля
 		if len(args) == 1:
-			data = dt.account_empty
+			data = dr.account_empty
 			put = self.session.put(self.link+self.endpoint['edit'],json=data)
 			return put
 		else:
-			data = dt.account
+			data = dr.account
 			put = self.session.put(self.link+self.endpoint['edit'],json=data)
 			return put
 			
@@ -86,6 +88,6 @@ class Accounts:
 	
 	def put_account_education(self,level):
 		#Добавление информации по образованию"
-		data = dt.a
-		add_ed = session.put(self.link+endpoint['ed'],json=data)
+		data = getattr(dr, level)
+		add_ed = self.session.put(self.link+self.endpoint['ed'],json=data)
 		return add_ed 
