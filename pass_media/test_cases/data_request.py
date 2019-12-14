@@ -13,7 +13,8 @@ account = {
 	"age":29,
 	"required_fields":[],
 	"optional_fields":[],
-	"required_empty_only":False}
+	"required_empty_only":False
+	"change_password_date":"0"}
 
 account_empty = {
 	"phone":"+79096201687",
@@ -30,7 +31,8 @@ account_empty = {
 	"age":None,
 	"required_fields":[],
 	"optional_fields":[],
-	"required_empty_only":False}
+	"required_empty_only":False
+	"change_password_date":"0"}
 
 
 higher_ed = {

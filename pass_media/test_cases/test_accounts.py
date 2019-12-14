@@ -1,7 +1,7 @@
 import variables as var
 from functions.cookies import Sessions
 from functions.accounts import Accounts
-import data_request as dr
+import data_request as dt
 import data_response as d_res
 import requests, json
 
@@ -60,14 +60,16 @@ class TestAccounts:
 		#empty = self.acc.get_account_info().json()
 		empty = self.acc.update_all_account_info('empty').json()
 		for key in empty.keys():
-			if key == 'emails_unconfirmed' or key == 'emails_confirmed':
+			if key == 'emails_unconfirmed' or key == 'emails_confirmed' or
+			key == 'change_password_date':
 				pass
 			else:
 				assert data_empty[key] == empty[key]
 				
 		upd = self.acc.update_all_account_info().json()
 		for key in upd.keys():
-			if key == 'emails_unconfirmed' or key == 'emails_confirmed':
+			if key == 'emails_unconfirmed' or key == 'emails_confirmed' or
+			key == 'change_password_date':
 				pass
 			else:
 				assert data_field[key] == upd[key]
@@ -114,7 +116,7 @@ class TestAccounts:
 		levels = ['higher_ed','higher_unf_ed','general_ed','general_unf_ed',
 		'special_ed','special_unf_ed']
 		for level in levels:
-			add = self.acc.put_account_education(level)
+			add = self.acc.add_account_education(level)
 			get = self.acc.get_account_education().json()
 			exp_response = getattr(d_res,level)
 			exp_response_inst = exp_response['institutions'][0]
@@ -126,7 +128,15 @@ class TestAccounts:
 				else:
 					assert  get_inst[key]== exp_response_inst[key]
 
-		
+	def test_delete_educations(self):
+		"""Удаление образования пользователя"""
+		add = self.acc.add_account_education('higher_ed')
+		get = self.acc.get_account_education()
+		assert get.json()['level'] != None 
+		delete = self.acc.delete_account_education()
+		assert delete.status_code == 204
+		get = self.acc.get_account_education()
+		assert get.text == ''
 		
 	def test_success_check_password(self):
 		"""Успешная проверка текущего пароля"""

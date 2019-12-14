@@ -86,8 +86,8 @@ class Accounts:
 		del_education = self.session.delete(self.link+self.endpoint['ed'])
 		return del_education
 	
-	def put_account_education(self,level):
+	def add_account_education(self,level):
 		#Добавление информации по образованию"
 		data = getattr(dr, level)
 		add_ed = self.session.put(self.link+self.endpoint['ed'],json=data)
-		return add_ed 
+		return add_ed
