@@ -14,7 +14,7 @@ class Accounts:
 	endpoint = var.endpoints_account
 	
 	def get_account_info(self, *args):
-		#Получение данных по профилю
+		"""Получение данных по профилю"""
 		if len(args) == 0:
 			info = self.session.get(self.link+self.endpoint['edit'])
 		else:
@@ -22,11 +22,11 @@ class Accounts:
 			if 'http' in args[0]:
 				info = self.session.get(self.link+self.endpoint['edit']+'?service='+service)
 			else:
-				info = self.session.get(self.link+self.endpoint['edit']+'?clientid='+service)
+				info = self.session.get(self.link+self.endpoint['edit']+'?'+service)
 		return info
 		
 	def update_account_info(self, *args):
-		#Обновление конкретных полей
+		"""Обновление конкретных полей"""
 		if len(args) == 1:
 			data = args[0]
 			patch = self.session.patch(self.link+self.endpoint['edit'],json=data)
@@ -35,7 +35,7 @@ class Accounts:
 			assert 1 == 2, 'Dont have data'
 			
 	def update_all_account_info(self, *args):
-		#Обновление всех данных профиля
+		"""Обновление всех данных профиля"""
 		if len(args) == 1:
 			data = dr.account_empty
 			put = self.session.put(self.link+self.endpoint['edit'],json=data)
@@ -46,7 +46,7 @@ class Accounts:
 			return put
 			
 	def check_restore_password(self,*args):
-		#Проверка текущего пароля/кода восстановления
+		"""Проверка текущего пароля/кода восстановления"""
 		if len(args) == 0:
 			data = {"password":var.options['password']}
 			check = self.session.post(self.link+self.endpoint['check_pwd'],json=data)
@@ -56,7 +56,7 @@ class Accounts:
 		return check
 		
 	def change_password(self, *args):
-		#Смена пароля
+		"""Смена пароля"""
 		if len(args) == 1:
 			data={"password":args[0],"password_confirm":args[0]}
 		if len(args) == 0:
@@ -67,7 +67,7 @@ class Accounts:
 		return change
 		
 	def delete_account(self, *args):
-		#Удаление профиля пользователя
+		"""Удаление профиля пользователя"""
 		if len(args) == 0:
 			password = var.options['password']
 		else:
@@ -77,17 +77,17 @@ class Accounts:
 		return delete
 	
 	def get_account_education(self):
-		#Получение данных по образованию пользователя
+		"""Получение данных по образованию пользователя"""
 		education = self.session.get(self.link+self.endpoint['ed'])
 		return education
 	
 	def delete_account_education(self):
-		#Удаление образования
+		"""Удаление образования"""
 		del_education = self.session.delete(self.link+self.endpoint['ed'])
 		return del_education
 	
-	def add_account_education(self,level):
-		#Добавление информации по образованию"
+	def add_account_education(self, level):
+		"""Добавление информации по образованию"""
 		data = getattr(dr, level)
-		add_ed = self.session.put(self.link+self.endpoint['ed'],json=data)
+		add_ed = self.session.put(self.link+self.endpoint['ed'], json=data)
 		return add_ed

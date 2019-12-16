@@ -1,5 +1,5 @@
 
-stand_for_test = 'prod'
+stand_for_test = 'test'
 
 options = dict(
 	phone='+79096201687',
@@ -9,7 +9,11 @@ options = dict(
 	prod='https://pass.media',
 	test='https://passport.jw-test.zxz.su',
 	stage='https://passport.jw-test-301.zxz.su',
-	extra='https://passport.jw-test-202.zxz.su'
+	extra='https://passport.jw-test-202.zxz.su',
+	cas='https://localhost111',
+	oauth_pub='client_id=3sKYH0pUqZ8bkOG0RGn9aHXrN8pervq89XAP9TMa',
+	oauth_conf='client_id=XTEOEH9aM80A46ZMUojVahecHG5yVwHz8wtnlwak' +
+			   '&client_secret=vYOS9J5oFMpcuTcZfk6J8uJNfERegieDC96jSxM6EbFOHBbouB2vZFE4hXxxSh5gtgbVAgrzt8Nq3GRMCLhrpX1t7HTlYooFEIFkfm3APEY6UGlqXySVahDR5IK4U1ys'
 
 )
 

@@ -1,21 +1,21 @@
-higher_ed =	{
-	"level":"higher",
-	"institutions":[
-		{"id":20327,"year":2020,"speciality":"спец",
-		"country":{"id":2,"title":"Россия","code":"RU"},
-		"city":{"id":375,"country":2,"title":"Москва","area":None,"region":None},
-		"degree":"Бакалавр","education":20259,
-		"university":{"id":602,"title":"НИУ МЭИ","country":2,"city":375}}
+higher_ed = {
+	"level": "higher",
+	"institutions": [
+		{"id": 20327, "year": 2020, "speciality": "спец",
+		"country": {"id": 1, "title": "Россия", "code": "RU"},
+		"city": {"id": 375, "country" : 1, "title": "Москва", "area": None, "region": None},
+		"degree": "Бакалавр", "education": 20259,
+		"university": {"id": 602, "title": "НИУ МЭИ", "country": 1, "city": 375}}
 	]}
 	
 higher_unf_ed =	{
-	"level":"higher_unfinished",
-	"institutions":[
-		{"id":20327,"year":2020,"speciality":"спец",
-		"country":{"id":2,"title":"Россия","code":"RU"},
-		"city":{"id":375,"country":2,"title":"Москва","area":None,"region":None},
-		"degree":"Бакалавр","education":20259,
-		"university":{"id":602,"title":"НИУ МЭИ","country":2,"city":375}}
+	"level": "higher_unfinished",
+	"institutions": [
+		{"id":20327,"year": 2020, "speciality": "спец",
+		"country": {"id": 1, "title": "Россия", "code": "RU"},
+		"city":{"id": 375, "country": 1, "title": "Москва", "area": None, "region": None},
+		"degree": "Бакалавр", "education": 20259,
+		"university": {"id": 602, "title": "НИУ МЭИ", "country": 1, "city": 375}}
 	]}
 	
 general_ed = {
