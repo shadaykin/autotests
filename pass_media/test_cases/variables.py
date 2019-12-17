@@ -1,5 +1,5 @@
 
-stand_for_test = 'test'
+stand_for_test = 'prod'
 
 options = dict(
 	phone='+79096201687',
@@ -43,3 +43,9 @@ endpoints_account =dict(
 	ed_city='/api/education/cities/',#?q=Мос&country=2
 	ed_univ='/api/education/universities/',#?q=ниу мэи&country_id=2
 	)
+
+endpoints_service = dict(
+	service_info='/api/service_info/?service=',
+	pmid='/api/accounts/pass_id/',
+	api_key='/api/users/'
+)
