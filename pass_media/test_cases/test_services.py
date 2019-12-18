@@ -53,6 +53,8 @@ class TestServices:
 
 	def test_service_info_cas(self):
 		"""Проверка отдачи полей по сервисам CAS"""
+		cookie = Sessions().get_sessionid(self.stand)
+		Services().session.cookies.update(cookie)
 		service = var.options['cas']
 		service_info = {"service_name": "AutoTest CAS", "service_branding": False, "service_logo": "", "return_url": "https://localhost111"}
 		info = self.srv.get_service_info(service)
