@@ -11,13 +11,13 @@ from functions.services import Services
 
 
 env = var.stand_for_test
-
+'''
 cookie = Sessions().get_sessionid(env)
 session = requests.Session()
 session.cookies.update(cookie)
+'''
 
-service = 'https://localhost'
-pmid = Services().get_pmid()
-print(pmid)
-api = Services().get_api_key(pmid)
-print(api.text)
+service = var.options['oauth_pub']
+info = Services().get_service_info(service)
+
+print(info.text)

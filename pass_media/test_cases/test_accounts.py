@@ -36,7 +36,10 @@ class TestAccounts:
 		"""Проверка закрытости api под авторизацию"""
 		fail = []
 		for endpoint in self.ep:
-			make_request = requests.get(self.link + self.ep[endpoint])
+			if endpoint == 'logout':
+				pass
+			else:
+				make_request = requests.get(self.link + self.ep[endpoint])
 			if make_request.status_code != 403:
 				fail.append(self.ep[endpoint])
 		if len(fail) != 0:
@@ -132,14 +135,15 @@ class TestAccounts:
 					pass
 				else:
 					assert get_inst[key] == exp_response_inst[key]
-		
+
 	def test_success_check_password(self):
 		"""Успешная проверка текущего пароля"""
 		body = {"status": "ok", "change_seconds":300}
 		check = self.acc.check_restore_password()
 		assert check.status_code == 200
 		assert check.json() == body
-			
+
+
 	def test_unsuccessful_check_password(self):
 		"""Неуспешная проверка текущего пароля"""
 		error = "Wrong current password." 
@@ -174,6 +178,24 @@ class TestAccounts:
 		change = self.acc.change_password(pwd)
 		assert change.status_code == 400
 		assert error in change.text
+
+	def test_logout(self):
+		"""Логаут пользователя на РМ"""
+		info = self.acc.get_account_info()
+		assert info.status_code == 200
+		logout = self.acc.logout_account()
+		assert logout.status_code == 200
+		after = self.acc.get_account_info()
+		assert after.status_code == 403
+		cookie = Sessions().get_sessionid(self.stand)
+		self.acc.session.cookies.update(cookie)
+
+	def test_unsuccess_delete_account(self):
+		"""Неуспешное удаление пользователя"""
+		error = "Wrong password."
+		delete = self.acc.delete_account('111111')
+		assert delete.status_code == 400
+		assert error in delete.text
 		
 		
 		

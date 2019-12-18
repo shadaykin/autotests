@@ -72,10 +72,15 @@ class Accounts:
 			password = var.options['password']
 		else:
 			password = args[0]
-		data = {"password":password}
+		data = {"password": password}
 		delete = self.session.delete(self.link+self.endpoint['edit'],json=data)
 		return delete
-	
+
+	def logout_account(self):
+		"""Логаут пользователя"""
+		logout = self.session.get(self.link+self.endpoint['logout'])
+		return logout
+
 	def get_account_education(self):
 		"""Получение данных по образованию пользователя"""
 		education = self.session.get(self.link+self.endpoint['ed'])

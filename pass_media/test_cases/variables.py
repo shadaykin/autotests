@@ -1,5 +1,5 @@
 
-stand_for_test = 'prod'
+stand_for_test = 'test'
 
 options = dict(
 	phone='+79096201687',
@@ -35,6 +35,7 @@ emails_excess = dict(
 
 endpoints_account =dict(
 	edit='/api/accounts/edit/',
+	logout='/cas/logout/',
 	change_pwd='/api/accounts/edit/change_password/',
 	check_pwd='/api/actions/check_restore_password/',
 	city='/api/cities/autocomplete/',#?q=Мос

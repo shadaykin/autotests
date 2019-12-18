@@ -6,8 +6,11 @@ import requests, json
 class TestEmails:
 
 	stand = var.stand_for_test
-	
-	s = Sessions()
+
+	cookie = Sessions().get_sessionid(stand)
+	session = requests.Session()
+	session.cookies.update(cookie)
+
 	e = Emails()
 	link = var.options[stand]
 	ep = var.endpoints_email
@@ -37,6 +40,8 @@ class TestEmails:
 		Если есть неподтвержденный email_count = 2"""
 		
 	def test_add_unconfirmed_email(self):
+		cookie = Sessions().get_sessionid(self.stand)
+		Emails().session.cookies.update(cookie)
 		if self.e.emails_count() != 0:
 			self.e.emails_delete_confirmed()
 			self.e.emails_delete_unconfirmed()

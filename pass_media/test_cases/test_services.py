@@ -1,6 +1,7 @@
 import variables as var
 from functions.cookies import Sessions
 from functions.accounts import Accounts
+from functions.services import Services
 import requests, json
 
 
@@ -10,6 +11,7 @@ class TestServices:
 	
 	s = Sessions()
 	acc = Accounts()
+	srv = Services()
 	link = var.options[stand]
 	ep = var.endpoints_account
 
@@ -48,3 +50,14 @@ class TestServices:
 		optional = info.json()['optional_fields']
 		for opt in range(len(optional)):
 			assert optional[opt] in opt_fields
+
+	def test_service_info_cas(self):
+		"""Проверка отдачи полей по сервисам CAS"""
+		service = var.options['cas']
+		service_info = {"service_name": "AutoTest CAS", "service_branding": False, "service_logo": "", "return_url": "https://localhost111"}
+		info = self.srv.get_service_info(service)
+		assert info.status_code == 200
+		assert service_info == info.json()
+
+
+
