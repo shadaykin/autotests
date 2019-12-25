@@ -1,5 +1,5 @@
 
-stand_for_test = 'test'
+stand_for_test = 'prod'
 
 options = dict(
 	phone='+79096201687',
@@ -8,9 +8,9 @@ options = dict(
 	email='autotestpm@yandex.ru',
 	email_busy='shadayka152+test@gmail.com',
 	prod='https://pass.media',
-	test='https://passport.jw-test.zxz.su',
-	stage='https://passport.jw-test-301.zxz.su',
-	extra='https://passport.jw-test-202.zxz.su',
+	test='https://passport.test-201.zxz.su',
+	stage='https://passport.test-301.zxz.su',
+	extra='https://passport.test-202.zxz.su',
 	cas='https://localhost111',
 	oauth_pub='client_id=3sKYH0pUqZ8bkOG0RGn9aHXrN8pervq89XAP9TMa',
 	oauth_conf='client_id=XTEOEH9aM80A46ZMUojVahecHG5yVwHz8wtnlwak' +
@@ -45,7 +45,7 @@ endpoints_account =dict(
 	ed_country='/api/education/countries/',#?q=Рос
 	ed_city='/api/education/cities/',#?q=Мос&country=2
 	ed_univ='/api/education/universities/',#?q=ниу мэи&country_id=2,
-	check_phone='/api/check_phone/?phone='
+	check_phone='/api/actions/check_phone/?phone='
 	)
 
 endpoints_service = dict(

@@ -105,3 +105,18 @@ class Accounts:
 			phone = args[0]
 		check = requests.get(self.link+self.endpoint['check_phone']+phone)
 		return check
+		
+	def generate_account_data(self,*args):
+		"""Генерация данных пользователя"""
+		if len(args) != 0:
+			data = {}
+			for field in args[0]:
+				if field == 'birthdate':
+					data[field] = '11.01.2000'
+				elif field == 'gender':
+					data[field] = 'm'
+				elif field == 'email_unconfirmed':
+					data[field] = var.options['email']
+				else:
+					data[field] = field
+			return data
