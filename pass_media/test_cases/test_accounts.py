@@ -36,12 +36,12 @@ class TestAccounts:
 		"""Проверка закрытости api под авторизацию"""
 		fail = []
 		for endpoint in self.ep:
-			if endpoint == 'logout':
+			if endpoint == 'logout' or endpoint == 'check_phone':
 				pass
 			else:
 				make_request = requests.get(self.link + self.ep[endpoint])
-			if make_request.status_code != 403:
-				fail.append(self.ep[endpoint])
+				if make_request.status_code != 403:
+					fail.append(self.ep[endpoint])
 		if len(fail) != 0:
 			assert 1 == 2, print('API who available without authorization: '+str(fail))
 	
