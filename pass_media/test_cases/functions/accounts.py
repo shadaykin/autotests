@@ -96,3 +96,12 @@ class Accounts:
 		data = getattr(dr, level)
 		add_ed = self.session.put(self.link+self.endpoint['ed'], json=data)
 		return add_ed
+		
+	def check_phone(self,*args):
+		"""Проверка номера телефона"""
+		if len(args) == 0:
+			phone = var.options['phone']
+		else:
+			phone = args[0]
+		check = requests.get(self.link+self.endpoint['check_phone']+phone)
+		return check

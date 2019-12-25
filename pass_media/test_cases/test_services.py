@@ -2,6 +2,7 @@ import variables as var
 from functions.cookies import Sessions
 from functions.accounts import Accounts
 from functions.services import Services
+import response_service as resp_srv
 import requests, json
 
 
@@ -61,5 +62,15 @@ class TestServices:
 		assert info.status_code == 200
 		assert service_info == info.json()
 
-
-
+	def test_get_api_key(self):
+		"""Проверка передачи данных через api-key"""
+		data = resp_srv.api_key
+		pmid = self.srv.get_pmid()
+		info = self.srv.get_api_key(pmid)
+		assert info.status_code == 200
+		for key in info.json().keys():
+			if key == 'pm_id':
+				pass
+			else:
+				assert data[key] == info.json().[key]
+		

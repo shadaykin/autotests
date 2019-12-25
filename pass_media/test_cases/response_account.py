@@ -45,3 +45,14 @@ special_unf_ed = {
 		{'country': None, 'id': 20366, 'speciality': 'спец',
 		'degree': None, 'education': 20291, 'university': None,
 		'city': None, 'year': 2020}]}
+		
+
+check_phone = {
+}
+
+check_phone_no_pwd = {
+}
+
+
+check_unreg_phone = {
+}

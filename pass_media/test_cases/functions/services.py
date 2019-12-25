@@ -29,9 +29,9 @@ class Services:
         """Получение передаваемых полей по api-key"""
         url = self.link+var.endpoints_service['api_key']
         if self.env == 'prod':
-            headers = {'api-key': '96618d5e24e19e760600296fb3d9dad1f529e08caa8c18f17c1a3b0f410a48cb'}
+            headers = {'api-key': var.options['api_key_prod']}
         else:
-            headers = {'api-key': 'c41350d8e80f15e2dca47fc5637cf208ac9b015feecdcdff8ea319f68ed89a51'}
+            headers = {'api-key': var.options['api_key']}
         api_key = self.session.get(url+pmid, headers=headers)
         return api_key
 

@@ -3,6 +3,7 @@ stand_for_test = 'test'
 
 options = dict(
 	phone='+79096201687',
+	phone_no_pwd = '',
 	password='111111xX',
 	email='autotestpm@yandex.ru',
 	email_busy='shadayka152+test@gmail.com',
@@ -13,8 +14,9 @@ options = dict(
 	cas='https://localhost111',
 	oauth_pub='client_id=3sKYH0pUqZ8bkOG0RGn9aHXrN8pervq89XAP9TMa',
 	oauth_conf='client_id=XTEOEH9aM80A46ZMUojVahecHG5yVwHz8wtnlwak' +
-			   '&client_secret=vYOS9J5oFMpcuTcZfk6J8uJNfERegieDC96jSxM6EbFOHBbouB2vZFE4hXxxSh5gtgbVAgrzt8Nq3GRMCLhrpX1t7HTlYooFEIFkfm3APEY6UGlqXySVahDR5IK4U1ys'
-
+			   '&client_secret=vYOS9J5oFMpcuTcZfk6J8uJNfERegieDC96jSxM6EbFOHBbouB2vZFE4hXxxSh5gtgbVAgrzt8Nq3GRMCLhrpX1t7HTlYooFEIFkfm3APEY6UGlqXySVahDR5IK4U1ys',
+	api_key_prod='96618d5e24e19e760600296fb3d9dad1f529e08caa8c18f17c1a3b0f410a48cb',
+	api_key='c41350d8e80f15e2dca47fc5637cf208ac9b015feecdcdff8ea319f68ed89a51'
 )
 
 
@@ -42,7 +44,8 @@ endpoints_account =dict(
 	ed='/api/education/profiles/',
 	ed_country='/api/education/countries/',#?q=Рос
 	ed_city='/api/education/cities/',#?q=Мос&country=2
-	ed_univ='/api/education/universities/',#?q=ниу мэи&country_id=2
+	ed_univ='/api/education/universities/',#?q=ниу мэи&country_id=2,
+	check_phone='/api/check_phone/?phone='
 	)
 
 endpoints_service = dict(

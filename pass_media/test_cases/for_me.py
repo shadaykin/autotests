@@ -1,7 +1,7 @@
 import requests, json, time
 from datetime import datetime, timedelta
 import data_request as dr
-import data_response as d_res
+import response_service as resp_acc
 import variables as var
 from functions.cookies import Sessions
 from selenium import webdriver

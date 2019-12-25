@@ -2,7 +2,7 @@ import variables as var
 from functions.cookies import Sessions
 from functions.accounts import Accounts
 import data_request as dt
-import data_response as d_res
+import response_service as resp_acc
 import requests, json
 
 class TestAccounts:
@@ -126,7 +126,7 @@ class TestAccounts:
 		for level in levels:
 			add = self.acc.add_account_education(level)
 			get = self.acc.get_account_education().json()
-			exp_response = getattr(d_res, level)
+			exp_response = getattr(resp_acc, level)
 			exp_response_inst = exp_response['institutions'][0]
 			get_inst = get['institutions'][0]
 			assert exp_response['level'] == get['level']
@@ -197,5 +197,27 @@ class TestAccounts:
 		assert delete.status_code == 400
 		assert error in delete.text
 		
+	def test_auth_phone(self):
+		"""Проверка зарегистрированного номера с паролем"""
+		response = resp_acc.check_phone
+		check = self.acc.check_phone()
+		assert check.status_code == 200
+		assert check.json() == response
+		
+	def test_auth_phone(self):
+		"""Проверка зарегистрированного номера без пароля"""
+		phone = var.options['phone_no_pwd']
+		response = resp_acc.check_phone_no_pwd
+		check = self.acc.check_phone(phone)
+		assert check.status_code == 200
+		assert check.json() == response
+		
+	def test_unreg_phone(self):
+		"""Проверка незарегистрированного номера"""
+		phone = var.options['phone_no_pwd']
+		response = resp_acc.check_unreg_phone
+		check = self.acc.check_phone(phone)
+		assert check.status_code == 200
+		assert check.json() == response		
 		
 		
