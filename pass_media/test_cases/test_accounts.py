@@ -179,6 +179,33 @@ class TestAccounts:
 		assert change.status_code == 400
 		assert error in change.text
 
+	def test_pwd_no_lowercase_letter(self):
+		"""Пароль не содержит строчной буквы"""
+		pwd = '111111XX'
+		error = 'The password must contain at least 1 lowercase letter.'
+		self.acc.check_restore_password()
+		change = self.acc.change_password(pwd)
+		assert change.status_code == 400
+		assert error in change.text
+
+	def test_pwd_no_capital_letter(self):
+		"""Пароль не содержит заглавной буквы"""
+		pwd = '111111xx'
+		error = 'The password must contain at least 1 capital letter.'
+		self.acc.check_restore_password()
+		change = self.acc.change_password(pwd)
+		assert change.status_code == 400
+		assert error in change.text
+
+	def test_pwd_less_8_characters(self):
+		"""Пароль содержит менее 8 символов"""
+		pwd = '1111xX'
+		error = 'This password is too short. It must contain at least 8 characters.'
+		self.acc.check_restore_password()
+		change = self.acc.change_password(pwd)
+		assert change.status_code == 400
+		assert error in change.text
+
 	def test_logout(self):
 		"""Логаут пользователя на РМ"""
 		info = self.acc.get_account_info()
@@ -196,7 +223,18 @@ class TestAccounts:
 		delete = self.acc.delete_account('111111')
 		assert delete.status_code == 400
 		assert error in delete.text
-		
+	
+	'''
+	def test_success_delete_account(self):
+		"""Успешное удаление пользователя"""
+		pwd = var.options['password']
+		response = resp_acc.check_unreg_phone
+		delete = self.acc.delete_account(pwd)
+		assert delete.status_code == 200
+		check = self.acc.check_phone()
+		assert check.json() == response
+	'''
+	
 	def test_auth_phone(self):
 		"""Проверка зарегистрированного номера с паролем"""
 		response = resp_acc.check_phone
