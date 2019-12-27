@@ -45,17 +45,17 @@ special_unf_ed = {
 		{'country': None, 'id': 20366, 'speciality': 'спец',
 		'degree': None, 'education': 20291, 'university': None,
 		'city': None, 'year': 2020}]}
-		
 
 check_phone = {
-	"success":True,"confirmed":True,"inactive":False,"has_password":True,
-	"restore_password_window":0}
+	"success": True, "confirmed": True, "inactive": False,
+	"has_password": True, "restore_password_window": 0}
 
-check_phone_no_pwd = {"success":True,"confirmed":True,"inactive":False,
-	"has_password":False, "restore_password_window":0}
+check_phone_no_pwd = {
+	"success": True, "confirmed": False, "inactive": False,
+	"has_password": False, "restore_password_window": 0}
 
+check_unreg_phone = {
+	"success": False, "confirmed": False, "inactive": False,
+	"has_password": False, "restore_password_window": 0}
 
-
-check_unreg_phone = {"success":False,"confirmed":False,"inactive":False,
-	"has_password":False, "restore_password_window":0}
 

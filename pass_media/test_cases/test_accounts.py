@@ -241,7 +241,7 @@ class TestAccounts:
 		check = self.acc.check_phone()
 		#assert check.status_code == 200
 		assert check.json() == response
-	'''	
+
 	def test_auth_phone(self):
 		"""Проверка зарегистрированного номера без пароля"""
 		phone = var.options['phone_no_pwd']
@@ -249,7 +249,7 @@ class TestAccounts:
 		check = self.acc.check_phone(phone)
 		assert check.status_code == 200
 		assert check.json() == response
-	'''	
+
 	def test_unreg_phone(self):
 		"""Проверка незарегистрированного номера"""
 		phone = '%2B80098900077'

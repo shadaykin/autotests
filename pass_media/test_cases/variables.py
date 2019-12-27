@@ -1,9 +1,9 @@
 
-stand_for_test = 'prod'
+stand_for_test = 'test'
 
 options = dict(
 	phone='+79096201687',
-	phone_no_pwd = '',
+	phone_no_pwd='%2B80036985214',
 	password='111111xX',
 	email='autotestpm@yandex.ru',
 	email_busy='shadayka152+test@gmail.com',
