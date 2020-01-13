@@ -66,7 +66,7 @@ class Emails:
 		del_request = ''
 		conf_emails = self.emails_confirmed_list()
 		for email in conf_emails:
-			data = {"email": email, "confirmed": "true","password":e.options['password']}
+			data = {"email": email, "confirmed": "true", "password": e.options['password']}
 			url = e.options[self.env] + e.endpoints_email['email_remove']
 			del_request = self.session.delete(url, json=data)
 		return del_request

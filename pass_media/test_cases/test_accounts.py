@@ -1,6 +1,8 @@
 import variables as var
 from functions.cookies import Sessions
 from functions.accounts import Accounts
+from functions.emails import Emails
+from functions.services import Services
 import data_request as dt
 import response_account as resp_acc
 import requests, json
@@ -10,6 +12,8 @@ class TestAccounts:
 	stand = var.stand_for_test
 	
 	acc = Accounts()
+	em = Emails()
+	srv = Services()
 	link = var.options[stand]
 	ep = var.endpoints_account
 	
@@ -143,7 +147,6 @@ class TestAccounts:
 		assert check.status_code == 200
 		assert check.json() == body
 
-
 	def test_unsuccessful_check_password(self):
 		"""Неуспешная проверка текущего пароля"""
 		error = "Wrong current password." 
@@ -206,6 +209,31 @@ class TestAccounts:
 		assert change.status_code == 400
 		assert error in change.text
 
+	def test_profile_fullness(self):
+		"""Проверка заполненности полей пользователя"""
+		pmid = self.srv.get_pmid()
+		field_90 = ['first_name', 'last_name', 'nickname', 'city', 'gender', 'birthdate', 'email']
+		field_50 = ['first_name', 'last_name', 'email']
+
+		data_90 = self.acc.generate_account_data(field_90)
+		data_50 = self.acc.generate_account_data(field_50)
+
+		self.acc.update_all_account_info('empty')
+		self.em.emails_delete_unconfirmed()
+		self.em.emails_delete_confirmed()
+
+		self.acc.update_account_info(data_50)
+		fullness_50 = self.acc.get_profile_fullness(pmid)
+
+		self.acc.update_all_account_info('empty')
+		self.em.emails_delete_unconfirmed()
+		self.em.emails_delete_confirmed()
+		self.acc.update_account_info(data_90)
+		fullness_90 = self.acc.get_profile_fullness(pmid)
+
+		assert 50 == fullness_50.json()['rate']
+		assert 90 == fullness_90.json()['rate']
+
 	def test_logout(self):
 		"""Логаут пользователя на РМ"""
 		info = self.acc.get_account_info()
@@ -257,5 +285,4 @@ class TestAccounts:
 		check = self.acc.check_phone(phone)
 		assert check.status_code == 200
 		assert check.json() == response		
-	
-		
+

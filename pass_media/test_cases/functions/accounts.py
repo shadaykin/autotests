@@ -29,7 +29,7 @@ class Accounts:
 		"""Обновление конкретных полей"""
 		if len(args) == 1:
 			data = args[0]
-			patch = self.session.patch(self.link+self.endpoint['edit'],json=data)
+			patch = self.session.patch(self.link+self.endpoint['edit'], json=data)
 			return patch
 		else:
 			assert 1 == 2, 'Dont have data'
@@ -48,22 +48,22 @@ class Accounts:
 	def check_restore_password(self,*args):
 		"""Проверка текущего пароля/кода восстановления"""
 		if len(args) == 0:
-			data = {"password":var.options['password']}
+			data = {"password": var.options['password']}
 			check = self.session.post(self.link+self.endpoint['check_pwd'],json=data)
 		else:
-			data = {"password":args[0]}
+			data = {"password": args[0]}
 			check = self.session.post(self.link+self.endpoint['check_pwd'],json=data)
 		return check
 		
 	def change_password(self, *args):
 		"""Смена пароля"""
 		if len(args) == 1:
-			data={"password":args[0],"password_confirm":args[0]}
+			data={"password": args[0],"password_confirm":args[0]}
 		if len(args) == 0:
-			data={"password":var.options['password'],"password_confirm":var.options['password']}
+			data={"password": var.options['password'],"password_confirm":var.options['password']}
 		if len(args) == 2:
-			data={"password":args[0],"password_confirm":args[1]}
-		change = self.session.put(self.link+self.endpoint['change_pwd'],json=data)
+			data={"password": args[0],"password_confirm":args[1]}
+		change = self.session.put(self.link+self.endpoint['change_pwd'], json=data)
 		return change
 		
 	def delete_account(self, *args):
@@ -73,7 +73,7 @@ class Accounts:
 		else:
 			password = args[0]
 		data = {"password": password}
-		delete = self.session.delete(self.link+self.endpoint['edit'],json=data)
+		delete = self.session.delete(self.link+self.endpoint['edit'], json=data)
 		return delete
 
 	def logout_account(self):
@@ -115,8 +115,15 @@ class Accounts:
 					data[field] = '11.01.2000'
 				elif field == 'gender':
 					data[field] = 'm'
-				elif field == 'email_unconfirmed':
+				elif field == 'email_unconfirmed' or field == 'email':
 					data[field] = var.options['email']
 				else:
 					data[field] = field
 			return data
+
+	def get_profile_fullness(self, pmid):
+		"""Заполненность профиля"""
+		url = self.link + var.endpoints_service['api_key'] + pmid + '/profile_fullness/'
+		headers = {'api-key': var.options['api_key']}
+		fullness = requests.get(url, headers=headers)
+		return fullness
