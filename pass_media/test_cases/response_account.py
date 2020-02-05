@@ -20,31 +20,23 @@ higher_unf_ed =	{
 	
 general_ed = {
 	'institutions': [
-		{'city': None, 'id': 20363, 'degree': None, 
-		'university': None, 'country': None, 'speciality': None,
-		'year': 2020, 'education': 20291}],
+		{'id': 20363, 'year': 2020, 'education': 20291}],
 	'level': 'general'}
 	
 general_unf_ed = {
 	'institutions': [
-		{'city': None, 'id': 20363, 'degree': None, 
-		'university': None, 'country': None, 'speciality': None,
-		'year': 2020, 'education': 20291}],
+		{'id': 20363, 'year': 2020, 'education': 20291}],
 	'level': 'general_unfinished'}
 
 special_ed = {
 	'level': 'special',
 	'institutions': [
-		{'country': None, 'id': 20366, 'speciality': 'спец',
-		'degree': None, 'education': 20291, 'university': None,
-		'city': None, 'year': 2020}]}
+		{'id': 20366, 'speciality': 'спец', 'education': 20291, 'year': 2020}]}
 
 special_unf_ed = {
 	'level': 'special_unfinished',
 	'institutions': [
-		{'country': None, 'id': 20366, 'speciality': 'спец',
-		'degree': None, 'education': 20291, 'university': None,
-		'city': None, 'year': 2020}]}
+		{'id': 20366, 'speciality': 'спец', 'education': 20291, 'year': 2020}]}
 
 check_phone = {
 	"success": True, "confirmed": True, "inactive": False,

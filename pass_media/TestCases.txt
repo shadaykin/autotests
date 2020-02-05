@@ -20,8 +20,8 @@ Email:
 	Установка primary для подтвержденных адресов
 
 Account:
-    заполненность профиля (/api/users/<pass_id>/profile_fullness/)
 
+    заполненность профиля (/api/users/<pass_id>/profile_fullness/)
     LOGOUT
     неуспешное удаление пользователя
 	Проверка доступности апишек
@@ -55,11 +55,13 @@ Authorization:
 
 
 Services:
+    Получение /api/jwt/ (Authorization: Bearer h5Mrj44AgC9wY0ppWJu3C1rZLPvFF6)
+	Обновление /api/jwt/refresh/ (Bearer + в теле указать refresh полученный)
+
 	Проверка required_field для сервисов
 	Проверка optional_field для сервисов
 	Информация по сервису(/api/service_info/?service)
 	api/services
 	api-key (PM id: api/accounts/pass_id/)
-	Получение /api/jwt/ (Authorization: Bearer h5Mrj44AgC9wY0ppWJu3C1rZLPvFF6)
-	Обновление /api/jwt/refresh/ (Bearer + в теле указать refresh полученный)
+
 

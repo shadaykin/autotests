@@ -65,7 +65,7 @@ class TestServices:
 	def test_get_api_key(self):
 		"""Проверка передачи данных через api-key"""
 		data = resp_srv.api_key
-		pmid = self.srv.get_pmid()
+		pmid = self.srv.get_pmid(self.session)
 		info = self.srv.get_api_key(pmid)
 		assert info.status_code == 200
 		for key in info.json().keys():

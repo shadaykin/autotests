@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="490fc803-22e8-484c-88ac-b1f2c01f6130" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/for_me.py" beforeDir="false" afterPath="$PROJECT_DIR$/for_me.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pass_media/TestCases.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/TestCases.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/params.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/functions/params.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/for_me.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/for_me.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/functions/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/response_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/response_account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/test_accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/test_accounts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pass_media/test_cases/test_emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/test_emails.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/test_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/test_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/variables.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,43 +24,109 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/params.py">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_accounts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+            <state relative-caret-position="539">
+              <caret line="178" column="47" lean-forward="true" selection-start-line="178" selection-start-column="47" selection-end-line="178" selection-end-column="47" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/response_account.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_services.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1066">
+              <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/data_request.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/for_me.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/variables.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_emails.py">
+        <entry file="file://$PROJECT_DIR$/pass_media/TestCases.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+            <state relative-caret-position="-85">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/accounts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/for_me.py">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_emails.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            <state relative-caret-position="1411">
+              <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pass_media/TestCases.txt">
+        <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/services.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            <state relative-caret-position="272">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,6 +139,15 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>enviroments</find>
+      <find>generate</find>
+    </findStrings>
+    <dirStrings>
+      <dir>C:\Users\isadretdinov\Desktop\python\autotests</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -106,19 +185,32 @@
         <option value="$PROJECT_DIR$/pass_media/test_cases/functions/session_id.py" />
         <option value="$PROJECT_DIR$/pass_media/test_cases/functions/enviroments.py" />
         <option value="$PROJECT_DIR$/pass_media/test_cases/functions/session_id_2.py" />
-        <option value="$PROJECT_DIR$/pass_media/test_cases/test.py" />
-        <option value="$PROJECT_DIR$/pass_media/TestCases.txt" />
-        <option value="$PROJECT_DIR$/pass_media/test_cases/enviroments.py" />
         <option value="$PROJECT_DIR$/learn_stepik/lesson1_6_step10.py" />
-        <option value="$PROJECT_DIR$/pass_media/test_cases/functions/params.py" />
         <option value="$PROJECT_DIR$/for_me.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/functions/params.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/enviroments.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/my_test.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/functions/cookies.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/functions/profile.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/test.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/data_response.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/functions/emails.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/functions/accounts.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/data_request.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/functions/services.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/test_services.py" />
         <option value="$PROJECT_DIR$/pass_media/test_cases/test_emails.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/response_account.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/variables.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/for_me.py" />
+        <option value="$PROJECT_DIR$/pass_media/test_cases/test_accounts.py" />
+        <option value="$PROJECT_DIR$/pass_media/TestCases.txt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="498" />
+    <option name="y" value="119" />
     <option name="width" value="1084" />
     <option name="height" value="1000" />
   </component>
@@ -186,7 +278,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.session_id">
+  <component name="RunManager" selected="Python tests.pytest for test_accounts.TestAccounts.test_profile_fullness">
+    <configuration name="for_me" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pass_media/test_cases/for_me.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="session_id" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -229,8 +342,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_accounts.TestAccounts.test_profile_fullness" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_accounts.TestAccounts.test_profile_fullness&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_profile_fullness" />
+        <item itemvalue="Python.for_me" />
         <item itemvalue="Python.session_id" />
         <item itemvalue="Python.test_auth_cas" />
       </list>
@@ -271,6 +401,14 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_for_test_accounts_TestAccounts_test_profile_fullness - 2020.01.13 at 19h 00m 39s.xml">
+      <configuration name="pytest for test_accounts.TestAccounts.test_profile_fullness" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_test_accounts_TestAccounts_test_profile_fullness - 2020.01.14 at 10h 39m 40s.xml">
+      <configuration name="pytest for test_accounts.TestAccounts.test_profile_fullness" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -282,9 +420,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49913943" visible="true" weight="0.1459431" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49913943" visible="true" weight="0.1406744" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5008606" side_tool="true" weight="0.25203854" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -293,10 +430,10 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.27193934" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49947312" visible="true" weight="0.2535211" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50052685" side_tool="true" weight="0.27193934" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -308,12 +445,17 @@
     <MESSAGE value="oauth" />
     <option name="LAST_COMMIT_MESSAGE" value="oauth" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pass_media/test_cases/for_me.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test_cases/components/authorization/geckodriver.log" />
-    <entry file="file://$PROJECT_DIR$/test_cases/components/authorization/test_auth_cas.py" />
-    <entry file="file://$PROJECT_DIR$/functions/check_token.py" />
-    <entry file="file://$PROJECT_DIR$/functions/clear_cash.py" />
-    <entry file="file://$PROJECT_DIR$/functions/login.py" />
     <entry file="file://$PROJECT_DIR$/functions/password.py" />
     <entry file="file://$PROJECT_DIR$/test_cases/components/authorization/test_auth_OAuth.py" />
     <entry file="file://$PROJECT_DIR$/test_cases/components/authorization/test_auth_success.py" />
@@ -429,54 +571,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test.py">
+    <entry file="file://$PROJECT_DIR$/for_me.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        <state relative-caret-position="153">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/params.py" />
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/data.json" />
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/profile.py" />
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/my_test.py" />
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test.py" />
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/data_response.py" />
+    <entry file="file://$PROJECT_DIR$/../tests/selenium_UI/tests/functions/authorization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/enviroments.py">
+    <entry file="file://$PROJECT_DIR$/../tests/selenium_UI/tests/functions/check_token.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pass_media/TestCases.txt">
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/cookies.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/for_me.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/params.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/response_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/exm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/emails.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="68" column="57" selection-start-line="68" selection-start-column="57" selection-end-line="68" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/response_account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/data_request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/accounts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_emails.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+        <state relative-caret-position="1411">
+          <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/functions/services.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/variables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/for_me.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_services.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1066">
+          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/test_cases/test_accounts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="178" column="47" lean-forward="true" selection-start-line="178" selection-start-column="47" selection-end-line="178" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pass_media/TestCases.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>

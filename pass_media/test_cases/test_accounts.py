@@ -106,9 +106,9 @@ class TestAccounts:
 		req_msc = self.session.get(self.link+self.ep['city'],params='q=Мос')
 		req_spb = self.session.get(self.link+self.ep['city'],params='q=Санк')
 		req_ekb = self.session.get(self.link+self.ep['city'],params='q=Ека')
-		moscow = req_msc.json()[0]['full_name']
-		piter = req_spb.json()[0]['full_name']
-		ekater = req_ekb.json()[0]['full_name']
+		moscow = req_msc.json()["results"][0]['full_name']
+		piter = req_spb.json()["results"][0]['full_name']
+		ekater = req_ekb.json()["results"][0]['full_name']
 		assert msc in moscow
 		assert spb in piter
 		assert ekb in ekater
@@ -152,7 +152,32 @@ class TestAccounts:
 		error = "Wrong current password." 
 		check = self.acc.check_restore_password('1111111')
 		assert check.status_code == 400
-		assert error in check.text 
+		assert error in check.text
+
+	def test_profile_fullness(self):
+		"""Проверка заполненности полей пользователя"""
+		pmid = self.srv.get_pmid(self.session)
+		field_90 = ['first_name', 'last_name', 'nickname', 'city', 'gender', 'birthdate', 'email']
+		field_50 = ['first_name', 'last_name', 'email']
+
+		data_90 = self.acc.generate_account_data(field_90)
+		data_50 = self.acc.generate_account_data(field_50)
+
+		self.acc.update_all_account_info('empty')
+		self.em.emails_delete_unconfirmed()
+		self.em.emails_delete_confirmed()
+
+		self.acc.update_account_info(data_50)
+		fullness_50 = self.acc.get_profile_fullness(pmid)
+
+		self.acc.update_all_account_info('empty')
+		self.em.emails_delete_unconfirmed()
+		self.em.emails_delete_confirmed()
+		self.acc.update_account_info(data_90)
+		fullness_90 = self.acc.get_profile_fullness(pmid)
+
+		assert 50 == fullness_50.json()['rate']
+		assert 90 == fullness_90.json()['rate']
 			
 	def test_success_change_pwd(self):
 		"""Успешная смена пароля"""
@@ -209,30 +234,6 @@ class TestAccounts:
 		assert change.status_code == 400
 		assert error in change.text
 
-	def test_profile_fullness(self):
-		"""Проверка заполненности полей пользователя"""
-		pmid = self.srv.get_pmid()
-		field_90 = ['first_name', 'last_name', 'nickname', 'city', 'gender', 'birthdate', 'email']
-		field_50 = ['first_name', 'last_name', 'email']
-
-		data_90 = self.acc.generate_account_data(field_90)
-		data_50 = self.acc.generate_account_data(field_50)
-
-		self.acc.update_all_account_info('empty')
-		self.em.emails_delete_unconfirmed()
-		self.em.emails_delete_confirmed()
-
-		self.acc.update_account_info(data_50)
-		fullness_50 = self.acc.get_profile_fullness(pmid)
-
-		self.acc.update_all_account_info('empty')
-		self.em.emails_delete_unconfirmed()
-		self.em.emails_delete_confirmed()
-		self.acc.update_account_info(data_90)
-		fullness_90 = self.acc.get_profile_fullness(pmid)
-
-		assert 50 == fullness_50.json()['rate']
-		assert 90 == fullness_90.json()['rate']
 
 	def test_logout(self):
 		"""Логаут пользователя на РМ"""

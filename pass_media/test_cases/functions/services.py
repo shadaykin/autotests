@@ -13,10 +13,10 @@ class Services:
     link = var.options[env]
     endpoint = var.endpoints_account
 
-    def get_pmid(self):
+    def get_pmid(self, session):
         """Получение pass.media_id"""
         url = self.link + var.endpoints_service['pmid']
-        pmid = self.session.get(url)
+        pmid = session.get(url)
         return pmid.json()['id']
 
     def get_service_info(self, service):

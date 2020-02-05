@@ -84,7 +84,7 @@ class TestEmails:
 		assert error in rm.text 
 	
 	""" Удаление неподтвержденного
-		адреса, которого у пользователя """
+		адреса, которого нет у пользователя """
 	def test_remove_missing_email(self):
 		missing_em = 'email@email.ru'
 		error = 'User email not found'
