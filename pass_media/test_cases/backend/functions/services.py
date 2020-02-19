@@ -1,7 +1,7 @@
 import requests, json, time
 import variables as var
-import data_request as dr
-from functions.cookies import Sessions
+import backend.data_request as dr
+from backend.functions.cookies import Sessions
 
 class Services:
 

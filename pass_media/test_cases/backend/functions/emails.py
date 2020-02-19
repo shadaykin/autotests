@@ -1,7 +1,7 @@
 import requests, json, time
 import variables as e
 from selenium import webdriver
-from functions.cookies import Sessions
+from backend.functions.cookies import Sessions
 
 class Emails:
 

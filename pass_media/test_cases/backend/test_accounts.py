@@ -1,10 +1,10 @@
 import variables as var
-from functions.cookies import Sessions
-from functions.accounts import Accounts
-from functions.emails import Emails
-from functions.services import Services
-import data_request as dt
-import response_account as resp_acc
+from backend.functions.cookies import Sessions
+from backend.functions.accounts import Accounts
+from backend.functions.emails import Emails
+from backend.functions.services import Services
+import backend.data_request as dt
+import backend.response_account as resp_acc
 import requests, json
 
 class TestAccounts:
@@ -103,15 +103,23 @@ class TestAccounts:
 		msc = 'Москва'
 		spb = 'Санкт-Петербург'
 		ekb = 'Екатеринбург'
-		req_msc = self.session.get(self.link+self.ep['city'],params='q=Мос')
-		req_spb = self.session.get(self.link+self.ep['city'],params='q=Санк')
-		req_ekb = self.session.get(self.link+self.ep['city'],params='q=Ека')
-		moscow = req_msc.json()["results"][0]['full_name']
-		piter = req_spb.json()["results"][0]['full_name']
-		ekater = req_ekb.json()["results"][0]['full_name']
-		assert msc in moscow
-		assert spb in piter
-		assert ekb in ekater
+		req_msc = self.session.get(self.link+self.ep['city'], params='q=Мос')
+		req_spb = self.session.get(self.link+self.ep['city'], params='q=Санк')
+		req_ekb = self.session.get(self.link+self.ep['city'], params='q=Ека')
+		req_top = self.session.get(self.link+self.ep['city'])
+		"""Проверка параметров элемента массива"""
+		assert req_msc.json()['results'][0]['title'] == msc
+		assert req_msc.json()['results'][0]['region'] == None
+		assert req_msc.json()['results'][0]['area'] == None
+		assert len(req_msc.json()['results'][0]['city_guid']) != 0
+		assert req_ekb.json()['results'][0]['region'] == 'обл Свердловская'
+		"""Проверка на сортировку городов по весу - первые элементы списка"""
+		assert req_spb.json()['results'][0]['title'] == spb
+		assert req_ekb.json()['results'][0]['title'] == ekb
+		"""Вывод топа при запросе без параметров"""
+		assert req_top.json()['results'][0]['title'] == msc
+		assert req_top.json()['results'][1]['title'] == spb
+		assert req_top.json()['results'][2]['title'] == ekb
 
 	def test_delete_educations(self):
 		"""Удаление образования пользователя"""
@@ -268,10 +276,10 @@ class TestAccounts:
 		"""Проверка зарегистрированного номера с паролем"""
 		response = resp_acc.check_phone
 		check = self.acc.check_phone()
-		#assert check.status_code == 200
+		assert check.status_code == 200
 		assert check.json() == response
 
-	def test_auth_phone(self):
+	def test_auth_phone_without_pwd(self):
 		"""Проверка зарегистрированного номера без пароля"""
 		phone = var.options['phone_no_pwd']
 		response = resp_acc.check_phone_no_pwd
@@ -285,5 +293,4 @@ class TestAccounts:
 		response = resp_acc.check_unreg_phone
 		check = self.acc.check_phone(phone)
 		assert check.status_code == 200
-		assert check.json() == response		
-
+		assert check.json() == response

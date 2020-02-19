@@ -1,6 +1,6 @@
 import variables as var
-from functions.cookies import Sessions
-from functions.emails import Emails
+from backend.functions.cookies import Sessions
+from backend.functions.emails import Emails
 import requests, json
 
 class TestEmails:
@@ -145,5 +145,3 @@ class TestEmails:
 		busy = self.e.emails_add(var.options['email_busy'])
 		assert error in busy.text
 		assert busy.status_code == 400
-		
-	

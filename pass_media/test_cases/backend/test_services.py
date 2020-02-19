@@ -1,8 +1,8 @@
 import variables as var
-from functions.cookies import Sessions
-from functions.accounts import Accounts
-from functions.services import Services
-import response_service as resp_srv
+from backend.functions.cookies import Sessions
+from backend.functions.accounts import Accounts
+from backend.functions.services import Services
+import backend.response_service as resp_srv
 import requests, json
 
 
