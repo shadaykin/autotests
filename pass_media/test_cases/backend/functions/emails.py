@@ -1,18 +1,18 @@
 import requests, json, time
-import variables as e
+import variables as var
 from selenium import webdriver
 from backend.functions.cookies import Sessions
 
 class Emails:
 
-	env = e.stand_for_test
+	env = var.stand_for_test
 
 	cookie = Sessions().get_sessionid(env)
 	session = requests.Session()
 	session.cookies.update(cookie)
 
 	def emails_list(self):
-		make_request = self.session.get(e.options[self.env] + e.endpoints_email['email'])
+		make_request = self.session.get(var.options[self.env] + var.endpoints_email['email'])
 		st_code = make_request.text
 		emails = json.loads(st_code)
 		return emails
@@ -51,14 +51,14 @@ class Emails:
 		if len(args) > 0:
 			if "@" in args[0]:
 				data = {"email": args[0], "confirmed": "false"}
-				url = e.options[self.env]+e.endpoints_email['email_remove']
+				url = var.options[self.env]+var.endpoints_email['email_remove']
 				del_request = self.session.delete(url, json=data)
 			else:
 				assert 1 == 2, "Args is not email"
 		unconf_emails = self.emails_unconfirmed_list()
 		for email in unconf_emails:
 			data = {"email": email, "confirmed": "false"}
-			url = e.options[self.env]+e.endpoints_email['email_remove']
+			url = var.options[self.env]+var.endpoints_email['email_remove']
 			del_request = self.session.delete(url, json=data)
 		return del_request
 
@@ -67,42 +67,30 @@ class Emails:
 		conf_emails = self.emails_confirmed_list()
 		for email in conf_emails:
 			data = {"email": email, "confirmed": "true", "password": e.options['password']}
-			url = e.options[self.env] + e.endpoints_email['email_remove']
+			url = var.options[self.env] + var.endpoints_email['email_remove']
 			del_request = self.session.delete(url, json=data)
 		return del_request
 		
 	def emails_add(self, *args):
 		try:
 			'@' in args[0]
-			link = e.options[self.env]+e.endpoints_email['email']
+			link = var.options[self.env]+var.endpoints_email['email']
 			data = {'email': args[0]}
 			add_request = self.session.post(link, json=data)
 			return add_request
 		except:
-			link = e.options[self.env]+e.endpoints_email['email']
-			data = {'email': e.options['email']}
+			link = var.options[self.env]+var.endpoints_email['email']
+			data = {'email': var.options['email']}
 			add_request = self.session.post(link, json=data)
 			return add_request
 
 	
-		
-	def emails_confirm(self):
-		browser = webdriver.Chrome()
-		link = 'https://passport.yandex.ru/auth?from=mail&origin=hostroot_homer_auth_ru&retpath=https://mail.yandex.ru/?uid=121104012&backpath=https://mail.yandex.ru?noretpath=1'
-		browser.get(link)
-		email = browser.find_element_by_id('passp-field-login')
-		email.send_keys(e.options['email'])
-		enter = browser.find_element_by_tag_name('button')
-		enter.submit()
-		time.sleep(1)
-		pwd = browser.find_element_by_id('passp-field-passwd')
-		pwd.send_keys(e.options['password'])
-		enter = browser.find_element_by_css_selector('.passp-button.passp-sign-in-button button')
-		enter.submit()
-		mail_pm = browser.find_element_by_css_selector(".ns-view-container-desc.mail-MessagesList.js-messages-list [title='no-reply@pass.media']")
-		time.sleep(5)
-
-
+	"""Подтверждение адреса с помощью кода"""
+	def emails_confirm_key(self, email, code):
+		endpoint = var.endpoints_email['email_confirm']
+		data={"email": email, "confirmation_key": code}
+		confirm = self.session.post(var.options[self.env]+endpoint, data=data)
+		return confirm
 
 
 

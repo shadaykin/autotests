@@ -38,7 +38,6 @@ class TestEmails:
 
 	"""Добавление неподтвержденного адреса
 		Если есть неподтвержденный email_count = 2"""
-		
 	def test_add_unconfirmed_email(self):
 		cookie = Sessions().get_sessionid(self.stand)
 		Emails().session.cookies.update(cookie)
@@ -49,11 +48,26 @@ class TestEmails:
 		add = self.e.emails_add()
 		assert add.status_code == 201
 		assert self.e.emails_count() == 2
-	
+
+	"""Попытка подтвердить адрес, используя неверный код"""
+	def test_confirm_email_by_key(self):
+		unc_list = self.e.emails_unconfirmed_list()
+		error = 'Invalid confirmation key.'
+		if len(unc_list) != 0:
+			confirm = self.e.emails_confirm_key(unc_list[0],'000000')
+			assert confirm.status_code == 400
+			assert error in confirm.text
+		else:
+			self.e.emails_add()
+			unc_list = self.e.emails_unconfirmed_list()
+			assert len(unc_list) != 0
+			confirm = self.e.emails_confirm_key(unc_list[0], '000000')
+			assert confirm.status_code == 400
+			assert error in confirm.text
+
 
 	""" Удаление неподтвержденного адреса 
 		Добавляем адрес для удаления, если его нет"""
-	
 	def test_remove_unconfirmed_email(self):
 		unc_list = self.e.emails_unconfirmed_list()
 		

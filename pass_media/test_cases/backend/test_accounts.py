@@ -5,7 +5,7 @@ from backend.functions.emails import Emails
 from backend.functions.services import Services
 import backend.data_request as dt
 import backend.response_account as resp_acc
-import requests, json
+import requests, json, pytest
 
 class TestAccounts:
 

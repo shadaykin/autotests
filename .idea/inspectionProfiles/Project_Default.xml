@@ -9,7 +9,7 @@
         </list>
       </option>
     </inspection_tool>
-    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="ignoredIdentifiers">
         <list>
           <option value="pass_media.test_cases.test_accounts.*" />
@@ -17,6 +17,8 @@
           <option value="response_account" />
           <option value="variables" />
           <option value="pass_media.test_cases.backend.test_accounts.*" />
+          <option value="pass_media.test_cases.backend.test_services.*" />
+          <option value="pass_media.test_cases.backend.test_emails.*" />
         </list>
       </option>
     </inspection_tool>

@@ -2,35 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490fc803-22e8-484c-88ac-b1f2c01f6130" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/data_request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/accounts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/cookies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/emails.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/response_account.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/response_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/test_accounts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/test_emails.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/test_services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/autotests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/autotests.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/authorization/phone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/data_request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/emails.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/backend/test_accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/test_accounts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/backend/test_emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/test_emails.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pass_media/test_cases/for_me.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/for_me.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/accounts.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/cookies.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/emails.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/exm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/functions/services.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/response_account.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/response_service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/test_accounts.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/test_emails.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/test_services.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pass_media/test_cases/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/variables.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,8 +72,8 @@
       <recent name="C:\Users\isadretdinov\Desktop\autotests\pass.media\test_cases\functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_accounts.TestAccounts.test_profile_fullness">
-    <configuration name="for_me" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python tests.pytest for test_accounts.TestAccounts.test_accounts_available_api">
+    <configuration name="for_me" type="PythonConfigurationType" factoryName="Python">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -114,7 +94,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="session_id" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="session_id" type="PythonConfigurationType" factoryName="Python">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -135,7 +115,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_auth_cas" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_auth_cas" type="PythonConfigurationType" factoryName="Python">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -156,13 +136,43 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_accounts.TestAccounts.test_profile_fullness" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_accounts.TestAccounts.test_accounts_available_api" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases/backend" />
       <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_accounts.TestAccounts.test_accounts_available_api&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_accounts.TestAccounts.test_correct_accounts_fields" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases/backend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_accounts.TestAccounts.test_correct_accounts_fields&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_accounts.TestAccounts.test_profile_fullness" type="tests" factoryName="py.test" nameIsGenerated="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
@@ -171,12 +181,35 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_accounts.TestAccounts.test_unsuccessful_check_password" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases/backend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_accounts.TestAccounts.test_unsuccessful_check_password&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.for_me" />
+      <item itemvalue="Python.session_id" />
+      <item itemvalue="Python.test_auth_cas" />
+      <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_profile_fullness" />
+      <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_unsuccessful_check_password" />
+      <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_correct_accounts_fields" />
+      <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_accounts_available_api" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_profile_fullness" />
-        <item itemvalue="Python.for_me" />
-        <item itemvalue="Python.session_id" />
-        <item itemvalue="Python.test_auth_cas" />
+        <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_accounts_available_api" />
+        <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_correct_accounts_fields" />
+        <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_unsuccessful_check_password" />
       </list>
     </recent_temporary>
   </component>
@@ -215,14 +248,6 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="pytest_for_test_accounts_TestAccounts_test_profile_fullness - 2020.01.13 at 19h 00m 39s.xml">
-      <configuration name="pytest for test_accounts.TestAccounts.test_profile_fullness" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_accounts_TestAccounts_test_profile_fullness - 2020.01.14 at 10h 39m 40s.xml">
-      <configuration name="pytest for test_accounts.TestAccounts.test_profile_fullness" configurationId="tests" />
-    </history-entry>
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -239,17 +264,44 @@
     <option name="LAST_COMMIT_MESSAGE" value="oauth" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="221" y="69" key="SettingsEditor" timestamp="1582140068320">
-      <screen x="0" y="23" width="1440" height="812" />
-    </state>
-    <state x="221" y="69" key="SettingsEditor/0.23.1440.812@0.23.1440.812" timestamp="1582140068320" />
-    <state x="397" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1582139135570">
+    <state x="184" y="92" width="1071" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582198564847">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state x="397" y="262" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1582139135570" />
-    <state x="450" y="349" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1582148354598">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state x="184" y="92" width="1071" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.814@0.23.1440.814" timestamp="1582198564847" />
+    <state x="474" y="202" key="EnvironmentVariablesDialog" timestamp="1582198476554">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
+    <state x="474" y="202" key="EnvironmentVariablesDialog/0.23.1440.814@0.23.1440.814" timestamp="1582198476554" />
+    <state width="1379" height="196" key="GridCell.Tab.0.bottom" timestamp="1582198879079">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state width="1379" height="196" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1582198879079" />
+    <state width="1379" height="196" key="GridCell.Tab.0.center" timestamp="1582198879078">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state width="1379" height="196" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1582198879078" />
+    <state width="1379" height="196" key="GridCell.Tab.0.left" timestamp="1582198879077">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state width="1379" height="196" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1582198879077" />
+    <state width="1379" height="196" key="GridCell.Tab.0.right" timestamp="1582198879078">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state width="1379" height="196" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1582198879078" />
+    <state x="221" y="69" key="SettingsEditor" timestamp="1582198980216">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="221" y="69" key="SettingsEditor/0.23.1440.812@0.23.1440.812" timestamp="1582140068320" />
+    <state x="221" y="69" key="SettingsEditor/0.23.1440.814@0.23.1440.814" timestamp="1582198980216" />
+    <state x="221" y="69" key="SettingsEditor/0.23.1440.816@0.23.1440.816" timestamp="1582149868123" />
+    <state x="397" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1582192199455">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="397" y="262" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1582192199455" />
+    <state x="450" y="348" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1582192868696">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="450" y="348" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1440.814@0.23.1440.814" timestamp="1582192868696" />
     <state x="450" y="349" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1440.816@0.23.1440.816" timestamp="1582148354598" />
   </component>
   <component name="XDebuggerManager">
