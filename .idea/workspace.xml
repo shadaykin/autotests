@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490fc803-22e8-484c-88ac-b1f2c01f6130" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/authorization/phone.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/authorization/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/test_front.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/functions/emails.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/backend/test_accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/test_accounts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/backend/test_emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/backend/test_emails.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pass_media/test_cases/for_me.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/for_me.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/variables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/frontend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/frontend/authorization/phone.py" beforeDir="false" afterPath="$PROJECT_DIR$/pass_media/test_cases/frontend/authorization/phone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass_media/test_cases/frontend/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -201,9 +199,9 @@
       <item itemvalue="Python.session_id" />
       <item itemvalue="Python.test_auth_cas" />
       <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_profile_fullness" />
-      <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_unsuccessful_check_password" />
-      <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_correct_accounts_fields" />
       <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_accounts_available_api" />
+      <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_correct_accounts_fields" />
+      <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_unsuccessful_check_password" />
     </list>
     <recent_temporary>
       <list>
@@ -272,46 +270,40 @@
       <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="474" y="202" key="EnvironmentVariablesDialog/0.23.1440.814@0.23.1440.814" timestamp="1582198476554" />
-    <state width="1379" height="196" key="GridCell.Tab.0.bottom" timestamp="1582198879079">
+    <state width="1379" height="196" key="GridCell.Tab.0.bottom" timestamp="1582199275352">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state width="1379" height="196" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1582198879079" />
-    <state width="1379" height="196" key="GridCell.Tab.0.center" timestamp="1582198879078">
+    <state width="1379" height="196" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1582199275352" />
+    <state width="1379" height="196" key="GridCell.Tab.0.center" timestamp="1582199275350">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state width="1379" height="196" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1582198879078" />
-    <state width="1379" height="196" key="GridCell.Tab.0.left" timestamp="1582198879077">
+    <state width="1379" height="196" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1582199275350" />
+    <state width="1379" height="196" key="GridCell.Tab.0.left" timestamp="1582199275350">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state width="1379" height="196" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1582198879077" />
-    <state width="1379" height="196" key="GridCell.Tab.0.right" timestamp="1582198879078">
+    <state width="1379" height="196" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1582199275350" />
+    <state width="1379" height="196" key="GridCell.Tab.0.right" timestamp="1582199275351">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state width="1379" height="196" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1582198879078" />
+    <state width="1379" height="196" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1582199275351" />
     <state x="221" y="69" key="SettingsEditor" timestamp="1582198980216">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="221" y="69" key="SettingsEditor/0.23.1440.812@0.23.1440.812" timestamp="1582140068320" />
     <state x="221" y="69" key="SettingsEditor/0.23.1440.814@0.23.1440.814" timestamp="1582198980216" />
     <state x="221" y="69" key="SettingsEditor/0.23.1440.816@0.23.1440.816" timestamp="1582149868123" />
-    <state x="397" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1582192199455">
+    <state x="397" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1582219792856">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state x="397" y="262" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1582192199455" />
+    <state x="397" y="262" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1582219792856" />
+    <state x="385" y="161" width="670" height="676" key="search.everywhere.popup" timestamp="1582223427800">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="385" y="161" width="670" height="676" key="search.everywhere.popup/0.23.1440.814@0.23.1440.814" timestamp="1582223427800" />
     <state x="450" y="348" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1582192868696">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="450" y="348" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1440.814@0.23.1440.814" timestamp="1582192868696" />
     <state x="450" y="349" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1440.816@0.23.1440.816" timestamp="1582148354598" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pass_media/test_cases/for_me.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
