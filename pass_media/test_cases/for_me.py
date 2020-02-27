@@ -1,18 +1,12 @@
 import requests, json, time
 import variables as var
-from frontend.authorization.phone import Test
+#from frontend.functions.phone import Test
 #from functions.cookies import Sessions
 from selenium import webdriver
 #from functions.emails import Emails
 #from functions.accounts import Accounts
 #from functions.services import Services
 
-
-
-
-obj = Test().get()
-
-print(obj)
 '''
 env = var.stand_for_test
 
@@ -24,6 +18,6 @@ req = session.get('https://passport.test-201.zxz.su/api/cities/autocomplete/')
 print(req.text)
 '''
 
+browser = webdriver.Chrome()
 
-
-#print(data["results"][1]["full_name"])
+print(cookie)

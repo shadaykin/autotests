@@ -33,7 +33,7 @@ class TestEmails:
 			if make_request.status_code != 403:
 				fail.append(self.ep[endpoint])
 		if len(fail) != 0:
-			assert 1 == 2, print('API who available without authorization: '+str(fail))
+			assert 1 == 2, print('API who available without functions: '+str(fail))
 	
 
 	"""Добавление неподтвержденного адреса
