@@ -15,6 +15,21 @@ class Authorization:
         except Exception:
             print("Error enter phone")
 
+    def set_phone(self, browser):
+        phone = var.options['phone'][2:12]
+        try:
+            browser.get(self.domain + '/cas/login/')
+            time.sleep(2)
+            self.enter_phone_number(browser, phone)
+            time.sleep(1)
+            next_button = browser.find_element_by_css_selector('.form-controls button')
+            next_button.click()
+            return browser
+        except Exception:
+            browser.close()
+            assert 1 == 2
+
+    '''Устанавливаем куку с сессией'''
     def set_cookie(self, browser):
         try:
             browser.get(self.domain + '/cas/login/')
@@ -23,4 +38,6 @@ class Authorization:
             browser.refresh()
         except Exception:
             print("Can`t add cookie")
+
+
 

@@ -9,10 +9,20 @@ class Test:
 
     domain = var.options[var.stand_for_test]
     auth = Authorization()
-    browser = 'Chrome()'
 
+    '''Выбираем используемый для тестов браузер. Устаналивается в variables'''
+    def set_browser(self):
+        browser = var.browser
+        if browser == 'chrome':
+            driver = webdriver.Chrome()
+        if browser == 'firefox':
+            driver = webdriver.Firefox()
+        return driver
+
+    '''Проверка приветственной страницы, без валидного
+        номера кнопка "Далее" не активна'''
     def test_welcome(self):
-        browser = webdriver.
+        browser = self.set_browser()
         try:
             browser.get(self.domain + '/cas/login/')
             time.sleep(2)
@@ -26,22 +36,90 @@ class Test:
             browser.close()
             assert 1 == 2
 
-    def test_enter_phone(self, browser):
+    '''Ввод валидного номера телефона'''
+    def test_enter_phone(self):
         phone = var.options['phone'][2:12]
+        browser = self.set_browser()
         try:
             browser.get(self.domain + '/cas/login/')
             time.sleep(2)
             enter = self.auth.enter_phone_number(browser, phone)
-            time.sleep(2)
+            time.sleep(1)
             next_button = browser.find_element_by_css_selector('.form-controls button')
             status_btn = next_button.get_attribute('class')
             assert "is-disabled" not in status_btn, "button is dasabled!"
+            browser.close()
         except Exception:
             browser.close()
             assert 1 == 2
-    '''
-    def test_cookie(self):
+
+    '''Ввод корректного пароля'''
+    def test_enter_correct_pwd(self):
+        phone = var.options['phone'][2:12]
+        pwd = var.options['password']
+        browser = self.set_browser()
         try:
-            browser = webdriver.Chrome()
-            self.auth.set_cookie()
-    '''
+            self.auth.set_phone(browser)
+            time.sleep(1)
+            password = browser.find_element_by_name('password')
+            password.send_keys(pwd)
+            password.submit()
+            time.sleep(1)
+            assert browser.current_url == self.domain + '/accounts/edit'
+            browser.close()
+        except Exception:
+            browser.close()
+            assert 1 == 2
+
+    '''Ввод некорректного пароля'''
+    def test_enter_incorrect_pwd(self):
+        browser = self.set_browser()
+        try:
+            self.auth.set_phone(browser)
+            time.sleep(1)
+            password = browser.find_element_by_name('password')
+            password.send_keys('qwerty12')
+            password.submit()
+            time.sleep(1)
+            error = browser.find_element_by_class_name('form-message.form-message--error')
+            assert error.text == 'Неверный пароль'
+            browser.close()
+        except Exception:
+            browser.close()
+            assert 1 == 2
+
+    '''Отображение пароля при нажатии на глазик'''
+    def test_show_pwd(self):
+        browser = self.set_browser()
+        try:
+            self.auth.set_phone(browser)
+            time.sleep(1)
+            password = browser.find_element_by_name('password')
+            password.send_keys('qwerty12')
+            eye = browser.find_element_by_class_name('eye')
+            eye.click()
+            assert password.get_attribute('value') == 'qwerty12'
+            time.sleep(1)
+            browser.close()
+        except Exception:
+            browser.close()
+            assert 1 == 2
+
+    '''Смена номера по клику при вводе пароля'''
+    def test_change_phone(self):
+        browser = self.set_browser()
+        try:
+            self.auth.set_phone(browser)
+            time.sleep(1)
+            phone = browser.find_element_by_class_name('container-phone')
+            phone.click()
+            welcome = browser.find_element_by_css_selector('.form-title h2')
+            assert welcome.text == 'Добро пожаловать!'
+            time.sleep(1)
+            browser.close()
+        except Exception:
+            browser.close()
+            assert 1 == 2
+
+
+

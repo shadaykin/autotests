@@ -1,6 +1,8 @@
 
 stand_for_test = 'test'
 
+browser = 'chrome'
+
 options = dict(
 	phone='+79096201687',
 	phone_no_pwd='%2B80036985214',
