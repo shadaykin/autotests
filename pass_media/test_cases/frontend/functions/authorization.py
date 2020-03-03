@@ -19,7 +19,7 @@ class Authorization:
         phone = var.options['phone'][2:12]
         try:
             browser.get(self.domain + '/cas/login/')
-            time.sleep(2)
+            time.sleep(0.5)
             self.enter_phone_number(browser, phone)
             time.sleep(1)
             next_button = browser.find_element_by_css_selector('.form-controls button')

@@ -121,5 +121,76 @@ class Test:
             browser.close()
             assert 1 == 2
 
+    '''Кнопка Войти недоступна при пустом инпуте'''
+    def test_disable_button(self):
+        browser = self.set_browser()
+        try:
+            self.auth.set_phone(browser)
+            time.sleep(1)
+            enter = browser.find_element_by_css_selector('.form-controls button')
+            status_enter = enter.get_attribute('class')
+            assert "is-disabled" in status_enter, "button is dasabled!"
+            password = browser.find_element_by_name('password')
+            password.send_keys('qwerty12')
+            enter = browser.find_element_by_css_selector('.form-controls button')
+            status_enter = enter.get_attribute('class')
+            assert "is-disabled" not in status_enter, "button is dasabled!"
+            time.sleep(1)
+            browser.close()
+        except Exception:
+            browser.close()
+            assert 1 == 2
 
+    '''Успешная отправка одноразового пароля'''
+    def test_success_login_by_otp(self):
+        browser = self.set_browser()
+        msg = 'Одноразовый код для входа был отправлен на ваш номер.'
+        timer_text = 'Повторно код можно получить через'
+        try:
+            self.auth.set_phone(browser)
+            time.sleep(1)
+            links = browser.find_elements_by_css_selector('button.link')
+            for link in links:
+                if link.text == 'Войти по одноразовому коду':
+                    otp = link
+                    break
+            otp.click()
+            time.sleep(1)
+            message = browser.find_element_by_class_name('form-message')
+            assert message.text == msg
+            timer = browser.find_element_by_class_name('form-message.form-message--color')
+            assert timer_text in timer.text
+            browser.close()
+        except Exception:
+            browser.close()
+            assert 1 == 2
 
+    def test_retry_send_otp(self):
+        browser = self.set_browser()
+        msg = 'Одноразовый код для входа был отправлен на ваш номер.'
+        timer_text = 'Повторно код можно получить через '
+        try:
+            self.auth.set_phone(browser)
+            time.sleep(1)
+            links = browser.find_elements_by_css_selector('button.link')
+            for link in links:
+                if link.text == 'Войти по одноразовому коду':
+                    otp = link
+                    break
+            otp.click()
+            time.sleep(1)
+            message = browser.find_element_by_class_name('form-message')
+            assert message.text == msg
+            timer = browser.find_element_by_class_name('form-message.form-message--color')
+            assert timer_text in timer.text
+            time.sleep(60)
+            retry = browser.find_element_by_css_selector('button.link')
+            assert retry.text == 'Получить код повторно'
+            retry.click()
+            time.sleep(2)
+            timer = browser.find_element_by_class_name('form-message.form-message--color')
+            assert timer_text in timer.text
+            browser.close()
+        except Exception:
+            browser.close()
+            assert 1 == 2
