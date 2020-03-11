@@ -52,6 +52,7 @@ endpoints_account =dict(
 
 endpoints_service = dict(
 	service_info='/api/service_info/?service=',
+	app_info='/api/application_info/?',
 	pmid='/api/accounts/pass_id/',
 	api_key='/api/users/'
 )

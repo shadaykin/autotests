@@ -22,7 +22,7 @@ class Services:
     def get_service_info(self, service):
         """Получение данных по сервису"""
         url = self.link + var.endpoints_service['service_info']
-        info = self.session.get(url+service)
+        info = requests.get(url+service)
         return info
 
     def get_api_key(self, pmid):

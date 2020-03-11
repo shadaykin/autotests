@@ -54,11 +54,21 @@ class TestServices:
 
 	def test_service_info_cas(self):
 		"""Проверка отдачи полей по сервисам CAS"""
-		cookie = Sessions().get_sessionid(self.stand)
-		Services().session.cookies.update(cookie)
 		service = var.options['cas']
 		service_info = {"service_name": "AutoTest CAS", "service_branding": False, "service_logo": "", "return_url": "https://localhost111"}
 		info = self.srv.get_service_info(service)
+		assert info.status_code == 200
+		assert service_info == info.json()
+
+	def test_app_info(self):
+		"""Проверка отдачи полей по сервисам CAS"""
+		service = var.options['oauth_pub']
+		link = var.options[var.stand_for_test]
+		endpoint = var.endpoints_service['app_info']
+		service_info = {"service_name": "AutoTest Oauth Pub",
+						"service_logo": "",
+						"service_branding": False, "return_url": "https://localhost111"}
+		info = requests.get(link+endpoint+service)
 		assert info.status_code == 200
 		assert service_info == info.json()
 	'''

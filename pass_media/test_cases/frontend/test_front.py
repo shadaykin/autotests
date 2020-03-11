@@ -165,6 +165,7 @@ class Test:
             browser.close()
             assert 1 == 2
 
+    '''Повторная отправка ОТР'''
     def test_retry_send_otp(self):
         browser = self.set_browser()
         msg = 'Одноразовый код для входа был отправлен на ваш номер.'
@@ -191,6 +192,18 @@ class Test:
             timer = browser.find_element_by_class_name('form-message.form-message--color')
             assert timer_text in timer.text
             browser.close()
+        except Exception:
+            browser.close()
+            assert 1 == 2
+
+    '''Авторизация с добавлением кук'''
+    def test_cookie(self):
+        browser = self.set_browser()
+        try:
+            self.auth.set_cookie(browser)
+            assert '/accounts/edit' in browser.current_url
+            personal = browser.find_element_by_tag_name('h2')
+            assert personal.text == 'Личные данные'
         except Exception:
             browser.close()
             assert 1 == 2
