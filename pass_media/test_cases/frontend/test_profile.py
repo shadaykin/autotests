@@ -13,12 +13,12 @@ class TestProfile:
     auth = Authorization()
     acc = Accounts()
 
-    first_name = "first_name"
-    last_name = "last_name"
-    nickname = "nickname"
-    gender = "label[for='genderMale']"
-    birthdate = "birthdate"
-    city = "input[data-vv-as='Город']"
+
+    first_name = 'Name test'
+    last_name = 'Last name test'
+    nickname = 'Nickname test'
+    birthdate = '11.01.1999'
+    city = 'New York'
 
     '''Выбираем используемый для тестов браузер. Устаналивается в variables'''
     def set_browser(self):
@@ -28,6 +28,26 @@ class TestProfile:
         if browser == 'firefox':
             driver = webdriver.Firefox()
         return driver
+
+    def find_field(self, driver, name):
+        location = ''
+        fields = dict(first_name="first_name",
+                      last_name="last_name",
+                      nickname="nickname",
+                      gender="label[for='genderMale']",
+                      birthdate="birthdate",
+                      city="input[data-vv-as='Город']")
+        for field in fields.keys():
+            if field == name:
+                location = fields[field]
+                break
+            else:
+                BaseException('ERROR')
+        if name == 'gender' or name =='city':
+            return driver.find_element_by_css_selector(location)
+        else:
+            return driver.find_element_by_id(location)
+
 
     '''Проверка заполнения личных данных в ЛК'''
     def test_welcome(self):
@@ -41,24 +61,27 @@ class TestProfile:
             assert personal.text == 'Личные данные'
             edit = browser.find_element_by_class_name('link__icon.icon.icon-edit')
             edit.click()
-            first_name = browser.find_element_by_id(self.first_name)
-            last_name = browser.find_element_by_id(self.last_name)
-            nickname = browser.find_element_by_id(self.nickname)
-            gender = browser.find_element_by_css_selector(self.gender)
-            birthdate = browser.find_element_by_id(self.birthdate)
-            city = browser.find_element_by_css_selector(self.city)
-            first_name.clear()
-            first_name.send_keys('Name test')
-            last_name.clear()
-            last_name.send_keys('Last name test')
-            nickname.clear()
-            nickname.send_keys('Nickname test')
-            gender.click()
-            birthdate.clear()
-            birthdate.send_keys('11.01.1999')
-            city.send_keys(Keys.CONTROL + "a")
-            city.send_keys(Keys.DELETE)
-            city.send_keys('New York')
+            first_name_el = self.find_field(browser, 'first_name')
+            first_name_el.clear()
+            first_name_el.send_keys(self.first_name)
+            last_name_el = self.find_field(browser, 'last_name')
+            last_name_el.clear()
+            last_name_el.send_keys(self.last_name)
+            nickname_el = self.find_field(browser,'nickname')
+            nickname_el.clear()
+            nickname_el.send_keys(self.nickname)
+            gender_el = self.find_field(browser,'gender')
+            gender_el.click()
+            birthdate_el = self.find_field(browser,'birthdate')
+            birthdate_el.clear()
+            birthdate_el.send_keys(self.birthdate)
+            city_el = self.find_field(browser,'city')
+            city_el.send_keys(Keys.CONTROL + 'a')
+            time.sleep(3)
+            city_el.send_keys(Keys.DELETE)
+            city_el.send_keys(self.city)
+            save = browser.find_element_by_css_selector("button[type='submit']")
+            #save.click()
             time.sleep(3)
         except Exception:
             browser.close()
