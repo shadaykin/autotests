@@ -15,8 +15,10 @@ class Test:
         browser = var.browser
         if browser == 'chrome':
             driver = webdriver.Chrome()
+            driver.implicitly_wait(5)
         if browser == 'firefox':
             driver = webdriver.Firefox()
+            driver.implicitly_wait(5)
         return driver
 
     '''Проверка приветственной страницы, без валидного
@@ -60,7 +62,6 @@ class Test:
         browser = self.set_browser()
         try:
             self.auth.set_phone(browser)
-            time.sleep(1)
             password = browser.find_element_by_name('password')
             password.send_keys(pwd)
             password.submit()
@@ -76,11 +77,9 @@ class Test:
         browser = self.set_browser()
         try:
             self.auth.set_phone(browser)
-            time.sleep(1)
             password = browser.find_element_by_name('password')
             password.send_keys('qwerty12')
             password.submit()
-            time.sleep(1)
             error = browser.find_element_by_class_name('form-message.form-message--error')
             assert error.text == 'Неверный пароль'
             browser.close()
@@ -93,13 +92,11 @@ class Test:
         browser = self.set_browser()
         try:
             self.auth.set_phone(browser)
-            time.sleep(1)
             password = browser.find_element_by_name('password')
             password.send_keys('qwerty12')
             eye = browser.find_element_by_class_name('eye')
             eye.click()
             assert password.get_attribute('value') == 'qwerty12'
-            time.sleep(1)
             browser.close()
         except Exception:
             browser.close()
@@ -110,12 +107,10 @@ class Test:
         browser = self.set_browser()
         try:
             self.auth.set_phone(browser)
-            time.sleep(1)
             phone = browser.find_element_by_class_name('container-phone')
             phone.click()
             welcome = browser.find_element_by_css_selector('.form-title h2')
             assert welcome.text == 'Добро пожаловать!'
-            time.sleep(1)
             browser.close()
         except Exception:
             browser.close()
@@ -126,7 +121,6 @@ class Test:
         browser = self.set_browser()
         try:
             self.auth.set_phone(browser)
-            time.sleep(1)
             enter = browser.find_element_by_css_selector('.form-controls button')
             status_enter = enter.get_attribute('class')
             assert "is-disabled" in status_enter, "button is dasabled!"
@@ -155,7 +149,6 @@ class Test:
                     otp = link
                     break
             otp.click()
-            time.sleep(1)
             message = browser.find_element_by_class_name('form-message')
             assert message.text == msg
             timer = browser.find_element_by_class_name('form-message.form-message--color')
@@ -179,7 +172,6 @@ class Test:
                     otp = link
                     break
             otp.click()
-            time.sleep(1)
             message = browser.find_element_by_class_name('form-message')
             assert message.text == msg
             timer = browser.find_element_by_class_name('form-message.form-message--color')
@@ -202,7 +194,7 @@ class Test:
         try:
             self.auth.set_cookie(browser)
             assert '/accounts/edit' in browser.current_url
-            personal = browser.find_element_by_tag_name('h2')
+            personal = browser.find_element_by_class_name('form-title')
             assert personal.text == 'Личные данные'
         except Exception:
             browser.close()

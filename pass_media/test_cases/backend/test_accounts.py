@@ -150,7 +150,7 @@ class TestAccounts:
 
 	def test_success_check_password(self):
 		"""Успешная проверка текущего пароля"""
-		body = {"status": "ok", "change_seconds":300}
+		body = {"status": "ok", "change_seconds": 299}
 		check = self.acc.check_restore_password()
 		assert check.status_code == 200
 		assert check.json() == body
