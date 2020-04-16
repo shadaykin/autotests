@@ -115,8 +115,10 @@ class Accounts:
 					data[field] = '11.01.2000'
 				elif field == 'gender':
 					data[field] = 'm'
-				elif field == 'email_unconfirmed' or field == 'email':
-					data[field] = var.options['email']
+				elif field == 'emails_unconfirmed' or field == 'email':
+					data['email'] = var.options['email']
+				elif field == 'phone':
+					pass
 				else:
 					data[field] = field
 			return data

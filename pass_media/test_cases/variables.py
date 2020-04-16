@@ -1,10 +1,11 @@
 
-stand_for_test = 'test'
+stand_for_test = 'test'  # ['stage', 'test', 'extra', 'prod']
 
-browser = 'chrome'
+browser = 'chrome'  # ['chrome', 'firefox', 'safari']
 
 options = dict(
 	phone='+79096201687',
+	phone2='80012345678',
 	phone_no_pwd='%2B80036985214',
 	password='111111xX',
 	email='autotestpm@yandex.ru',

@@ -7,20 +7,17 @@ import time
 class Authorization:
 
     domain = var.options[var.stand_for_test]
-
-    def enter_phone_number(self, browser, phone):
+    '''Ввод номера телефона в инпут'''
+    def set_phone(self, browser, phone, *args):
+        phone_num = phone[2:12]
         try:
-            phone_input = browser.find_element_by_class_name('phone__number')
-            phone_input.send_keys(phone)
-        except Exception:
-            print("Error enter phone")
-
-    def set_phone(self, browser):
-        phone = var.options['phone'][2:12]
-        try:
-            browser.get(self.domain + '/cas/login/')
+            if len(args) == 0:
+                browser.get(self.domain + '/cas/login/')
+            else:
+                browser.get(self.domain + '/cas/login/?service=' + args[0])
             time.sleep(0.5)
-            self.enter_phone_number(browser, phone)
+            phone_input = browser.find_element_by_class_name('phone__number')
+            phone_input.send_keys(phone_num)
             time.sleep(1)
             next_button = browser.find_element_by_css_selector('.form-controls button')
             next_button.click()
@@ -28,10 +25,10 @@ class Authorization:
             return browser
         except Exception:
             browser.close()
+            print("Error enter phone")
             assert 1 == 2
 
     '''Устанавливаем куку с сессией'''
-
     def set_cookie(self, browser):
         try:
             browser.get(self.domain + '/cas/login/')

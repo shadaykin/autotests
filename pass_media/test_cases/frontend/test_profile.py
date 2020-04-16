@@ -206,3 +206,35 @@ class TestProfile:
         except:
             browser.close()
             assert 1 == 2
+
+    '''Выход из личного кабинета'''
+    def test_logout_profile(self):
+        browser = self.set_browser()
+        yes_btn = ''
+        no_btn = ''
+        try:
+            self.auth.set_cookie(browser)
+            assert browser.current_url == self.domain + '/accounts/edit'
+            exit = browser.find_element_by_css_selector('.icon-exit')
+            browser.execute_script('arguments[0].scrollIntoView(true);', exit)
+            browser.execute_script("arguments[0].click();", exit)
+            buttons = browser.find_elements_by_tag_name('button')
+            for button in buttons:
+                if button.text == 'Нет':
+                    no_btn = button
+            no_btn.click()
+            assert '/accounts/edit' in browser.current_url
+            exit = browser.find_element_by_css_selector('.icon-exit')
+            browser.execute_script('arguments[0].scrollIntoView(true);', exit)
+            browser.execute_script("arguments[0].click();", exit)
+            time.sleep(1)
+            buttons = browser.find_elements_by_tag_name('button')
+            for button in buttons:
+                if button.text == 'Да':
+                    yes_btn = button
+            yes_btn.click()
+            assert '/cas/login' in browser.current_url
+            browser.close()
+        except:
+            browser.close()
+            assert 1 == 2
