@@ -15,8 +15,8 @@ class TestEmails:
 	link = var.options[stand]
 	ep = var.endpoints_email
 	
-	""" Проверка на доступность API  """
 	def test_email_available_api(self):
+		""" Проверка на доступность API  """
 		fail = []
 		for endpoint in self.ep:
 			make_request = requests.get(self.link + self.ep[endpoint])
@@ -25,8 +25,8 @@ class TestEmails:
 		if len(fail) != 0:
 			assert 1 == 2, print('API with server errors: '+str(fail))
 	
-	"""Проверка на закрытость API под авторизацию""" 
 	def test_emails_permission(self):
+		"""Проверка на закрытость API под авторизацию"""
 		fail = []
 		for endpoint in self.ep:
 			make_request = requests.get(self.link + self.ep[endpoint])
@@ -34,11 +34,10 @@ class TestEmails:
 				fail.append(self.ep[endpoint])
 		if len(fail) != 0:
 			assert 1 == 2, print('API who available without functions: '+str(fail))
-	
 
-	"""Добавление неподтвержденного адреса
-		Если есть неподтвержденный email_count = 2"""
 	def test_add_unconfirmed_email(self):
+		"""Добавление неподтвержденного адреса
+			Если есть неподтвержденный email_count = 2"""
 		cookie = Sessions().get_sessionid(self.stand)
 		Emails().session.cookies.update(cookie)
 		if self.e.emails_count() != 0:
@@ -49,8 +48,8 @@ class TestEmails:
 		assert add.status_code == 201
 		assert self.e.emails_count() == 2
 
-	"""Попытка подтвердить адрес, используя неверный код"""
 	def test_confirm_email_by_key(self):
+		"""Попытка подтвердить адрес, используя неверный код"""
 		unc_list = self.e.emails_unconfirmed_list()
 		error = 'Invalid confirmation key.'
 		if len(unc_list) != 0:
@@ -65,10 +64,9 @@ class TestEmails:
 			assert confirm.status_code == 400
 			assert error in confirm.text
 
-
-	""" Удаление неподтвержденного адреса 
-		Добавляем адрес для удаления, если его нет"""
 	def test_remove_unconfirmed_email(self):
+		""" Удаление неподтвержденного адреса
+			Добавляем адрес для удаления, если его нет"""
 		unc_list = self.e.emails_unconfirmed_list()
 		
 		if len(unc_list) != 0:
@@ -90,8 +88,9 @@ class TestEmails:
 			assert len(self.e.emails_confirmed_list()) == 0 
 	
 	'''
-	""" Удаление невалидного адреса """
+
 	def test_remove_invalid_email(self):
+		""" Удаление невалидного адреса """
 		invalid = 'email@email'
 		error = 'Enter a valid email address.'
 		rm = self.e.emails_delete_unconfirmed(invalid)

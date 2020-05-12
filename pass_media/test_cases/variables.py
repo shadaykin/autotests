@@ -1,5 +1,5 @@
 
-stand_for_test = 'test'  # ['stage', 'test', 'extra', 'prod']
+stand_for_test = 'stage'  # ['stage', 'test', 'extra', 'prod']
 
 browser = 'chrome'  # ['chrome', 'firefox', 'safari']
 
@@ -7,6 +7,7 @@ options = dict(
 	phone='+79096201687',
 	phone2='80012345678',
 	phone_no_pwd='%2B80036985214',
+	birthdate='11.04.2000',
 	password='111111xX',
 	email='autotestpm@yandex.ru',
 	email_busy='shadayka152+test@gmail.com',
@@ -40,6 +41,7 @@ emails_excess = dict(
 
 endpoints_account =dict(
 	edit='/api/accounts/edit/',
+	register='/api/accounts/register/',
 	logout='/cas/logout/',
 	change_pwd='/api/accounts/edit/change_password/',
 	check_pwd='/api/actions/check_restore_password/',
@@ -48,7 +50,9 @@ endpoints_account =dict(
 	ed_country='/api/education/countries/',#?q=Рос
 	ed_city='/api/education/cities/',#?q=Мос&country=2
 	ed_univ='/api/education/universities/',#?q=ниу мэи&country_id=2,
-	check_phone='/api/actions/check_phone/?phone='
+	check_phone='/api/actions/check_phone/?phone=',
+	subcription='/api/subscriptions/',
+	promo='/api/promos/'
 	)
 
 endpoints_service = dict(

@@ -4,9 +4,9 @@ from backend.functions.cookies import Sessions
 from backend.functions.accounts import Accounts
 from selenium import webdriver
 import variables as var
-import time
+import time, pytest
 
-
+@pytest.mark.usefixtures('disable_recaptcha')
 class Test:
 
     domain = var.options[var.stand_for_test]
@@ -16,25 +16,13 @@ class Test:
     auth = Authorization()
     acc = Accounts()
 
-    '''Выбираем используемый для тестов браузер. Устаналивается в variables'''
-    def set_browser(self):
-        browser = var.browser
-        if browser == 'chrome':
-            driver = webdriver.Chrome()
-            WebDriverWait(driver, 2000)
-        if browser == 'firefox':
-            driver = webdriver.Firefox()
-            WebDriverWait(driver, 500)
-        return driver
-
-    '''Проверка приветственной страницы, без валидного
-        номера кнопка "Далее" не активна'''
     def test_welcome(self):
-        browser = self.set_browser()
+        """Проверка приветственной страницы, без валидного
+                номера кнопка "Далее" не активна"""
+        browser = self.auth.set_browser()
         try:
             browser.get(self.domain + '/cas/login/')
             time.sleep(2)
-            print(browser.title)
             assert browser.title == 'Pass.Media – единый аккаунт для вселенной развлекательных сервисов'
             next_button = browser.find_element_by_css_selector('.form-controls button')
             status_btn = next_button.get_attribute('class')
@@ -44,49 +32,50 @@ class Test:
             browser.close()
             assert 1 == 2
 
-    '''Проверка доступности кнопки Далее при вводе валидного номера'''
     def test_enter_phone(self):
-        browser = self.set_browser()
+        """Проверка доступности кнопки Далее при вводе валидного номера"""
+        browser = self.auth.set_browser()
         try:
             browser.get(self.domain + '/cas/login/')
-            browser.implicitly_wait(5)
+            time.sleep(2)
             next_button = browser.find_element_by_css_selector('.form-controls button')
             status_btn = next_button.get_attribute('class')
-            assert "is-disabled" in status_btn, "button is dasabled!"
-            enter = browser.find_element_by_class_name('phone__number').send_keys(self.phone)
+            assert "is-disabled" in status_btn, "button is not disabled!"
+            browser.find_element_by_class_name('phone__number').send_keys(self.phone[2:12])
             time.sleep(1)
             next_button = browser.find_element_by_css_selector('.form-controls button')
             status_btn = next_button.get_attribute('class')
-            assert "is-disabled" not in status_btn, "button is dasabled!"
+            assert "is-disabled" not in status_btn, "button is disabled!"
             browser.close()
         except Exception:
             browser.close()
             assert 1 == 2
 
-    '''Ввод корректного пароля'''
     def test_enter_correct_pwd(self):
+        """Ввод корректного пароля"""
         pwd = var.options['password']
-        browser = self.set_browser()
+        browser = self.auth.set_browser()
         try:
             self.auth.set_phone(browser, self.phone)
             password = browser.find_element_by_name('password')
             password.send_keys(pwd)
             password.submit()
-            time.sleep(1)
+            time.sleep(2)
             assert browser.current_url == self.domain + '/accounts/edit'
             browser.close()
         except Exception:
             browser.close()
             assert 1 == 2
 
-    '''Ввод некорректного пароля'''
     def test_enter_incorrect_pwd(self):
-        browser = self.set_browser()
+        """Ввод некорректного пароля"""
+        browser = self.auth.set_browser()
         try:
             self.auth.set_phone(browser, self.phone)
             password = browser.find_element_by_name('password')
             password.send_keys('qwerty12')
             password.submit()
+            browser.implicitly_wait(5)
             error = browser.find_element_by_class_name('form-message.form-message--error')
             assert error.text == 'Неверный пароль'
             browser.close()
@@ -94,21 +83,18 @@ class Test:
             browser.close()
             assert 1 == 2
 
-    '''Отображение страницы регистрации при вводе незареганного номера'''
     def test_show_registration_page(self):
-        browser = self.set_browser()
-        phone = '+79990000000'
+        """Отображение страницы регистрации при вводе незареганного номера"""
+        browser = self.auth.set_browser()
+        phone = '+80012387654'
         lbl = 0
         try:
-            self.auth.set_phone(browser, phone)
+            self.auth.set_phone(browser, phone, 'test')
             title = browser.find_element_by_tag_name('h2')
             browser.implicitly_wait(3)
-            assert '/accounts/register/' in browser.current_url
             assert title.text == 'Регистрация'
             phone_num = browser.find_element_by_css_selector("input[type='hidden']")
             assert phone_num.get_attribute('value') == phone
-            info = browser.find_element_by_class_name('form-message.info')
-            assert info.text == 'Проверьте номер телефона, на него будет отправлен код подтверждения'
             checkboxes = browser.find_elements_by_css_selector("input[type='checkbox']")
             for checkbox in checkboxes:
                 assert not checkbox.is_selected(), "checkbox is selected"
@@ -121,12 +107,14 @@ class Test:
             assert lbl == 2, "не указаны оба пункта регистрации"
             next = browser.find_element_by_css_selector("button[type=submit]")
             assert 'is-disabled' in next.get_attribute('class'), "Кнопка далее доступна для нажатия"
+            browser.close()
         except Exception:
             browser.close()
             assert 1 == 2
 
     def test_authorization_cas_service(self):
-        browser = self.set_browser()
+        """Авторизация в CAS-сервисе"""
+        browser = self.auth.set_browser()
         try:
             #Дозаполняем обязательные поля
             response = self.acc.get_account_info(self.cas_service).json()
@@ -154,10 +142,9 @@ class Test:
             browser.close()
             assert 1 == 2
 
-
-    '''Отображение пароля при нажатии на глазик'''
     def test_show_pwd(self):
-        browser = self.set_browser()
+        """Отображение пароля при нажатии на глазик"""
+        browser = self.auth.set_browser()
         try:
             self.auth.set_phone(browser, self.phone)
             password = browser.find_element_by_name('password')
@@ -170,9 +157,9 @@ class Test:
             browser.close()
             assert 1 == 2
 
-    '''Смена номера по клику при вводе пароля'''
     def test_change_phone(self):
-        browser = self.set_browser()
+        '''Смена номера по клику при вводе пароля'''
+        browser = self.auth.set_browser()
         try:
             self.auth.set_phone(browser, self.phone)
             phone = browser.find_element_by_class_name('container-phone')
@@ -184,9 +171,9 @@ class Test:
             browser.close()
             assert 1 == 2
 
-    '''Кнопка Войти недоступна при пустом инпуте'''
     def test_disable_button(self):
-        browser = self.set_browser()
+        browser = self.auth.set_browser()
+        """Кнопка Войти недоступна при пустом инпуте"""
         try:
             self.auth.set_phone(browser, self.phone)
             enter = browser.find_element_by_css_selector('.form-controls button')
@@ -203,9 +190,9 @@ class Test:
             browser.close()
             assert 1 == 2
 
-    '''Успешная отправка одноразового пароля'''
-    def test_success_login_by_otp(self):
-        browser = self.set_browser()
+    def test_success_send_otp(self):
+        """Успешная отправка одноразового пароля"""
+        browser = self.auth.set_browser()
         msg = 'Одноразовый код для входа был отправлен на ваш номер.'
         timer_text = 'Повторно код можно получить через'
         try:
@@ -219,6 +206,7 @@ class Test:
             otp.click()
             message = browser.find_element_by_class_name('form-message')
             assert message.text == msg
+            browser.implicitly_wait(5)
             timer = browser.find_element_by_class_name('form-message.form-message--color')
             assert timer_text in timer.text
             browser.close()
@@ -226,9 +214,9 @@ class Test:
             browser.close()
             assert 1 == 2
 
-    '''Повторная отправка ОТР'''
     def test_retry_send_otp(self):
-        browser = self.set_browser()
+        """Повторная отправка ОТР"""
+        browser = self.auth.set_browser()
         msg = 'Одноразовый код для входа был отправлен на ваш номер.'
         timer_text = 'Повторно код можно получить через '
         try:
@@ -242,13 +230,14 @@ class Test:
             otp.click()
             message = browser.find_element_by_class_name('form-message')
             assert message.text == msg
+            browser.implicitly_wait(5)
             timer = browser.find_element_by_class_name('form-message.form-message--color')
             assert timer_text in timer.text
             time.sleep(60)
             retry = browser.find_element_by_css_selector('button.link')
             assert retry.text == 'Получить код повторно'
             retry.click()
-            time.sleep(2)
+            browser.implicitly_wait(5)
             timer = browser.find_element_by_class_name('form-message.form-message--color')
             assert timer_text in timer.text
             browser.close()
@@ -256,12 +245,10 @@ class Test:
             browser.close()
             assert 1 == 2
 
-
-
     '''
-    #Очистка таймера при смене номера, на который уже отправили код
     def test_success_login_by_otp(self):
-        browser = self.set_browser()
+        #Очистка таймера при смене номера, на который уже отправили код
+        browser = self.auth.set_browser()
         timer_text = 'Повторно код можно получить через'
         try:
             self.auth.set_phone(browser, self.phone)
@@ -291,15 +278,4 @@ class Test:
             browser.close()
             assert 1 == 2
 
-    #Авторизация с добавлением кук
-    def test_cookie(self):
-        browser = self.set_browser()
-        try:
-            self.auth.set_cookie(browser)
-            assert '/accounts/edit' in browser.current_url
-            personal = browser.find_element_by_class_name('form-title')
-            assert personal.text == 'Личные данные'
-        except Exception:
-            browser.close()
-            assert 1 == 2
     '''

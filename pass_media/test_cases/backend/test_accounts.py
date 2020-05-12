@@ -7,6 +7,8 @@ import backend.data_request as dt
 import backend.response_account as resp_acc
 import requests, json, pytest
 
+
+@pytest.mark.usefixtures('delete_user', 'full_registration_account')
 class TestAccounts:
 
 	stand = var.stand_for_test
@@ -16,11 +18,11 @@ class TestAccounts:
 	srv = Services()
 	link = var.options[stand]
 	ep = var.endpoints_account
-	
+
 	cookie = Sessions().get_sessionid(stand)
 	session = requests.Session()
 	session.cookies.update(cookie)
-	
+
 	def test_accounts_available_api(self):
 		"""Проверка доступности API"""
 		fail = []
@@ -33,6 +35,8 @@ class TestAccounts:
 	
 	def test_correct_accounts_fields(self):
 		"""Проверка корректной отдачи набора полей аккаунта"""
+		cookie = Sessions().get_sessionid(self.stand)
+		self.acc.session.cookies.update(cookie)
 		account = self.acc.get_account_info().json()
 		assert dt.account.keys() == account.keys()
 	
@@ -40,7 +44,7 @@ class TestAccounts:
 		"""Проверка закрытости api под авторизацию"""
 		fail = []
 		for endpoint in self.ep:
-			if endpoint == 'logout' or endpoint == 'check_phone':
+			if endpoint == 'logout' or endpoint == 'check_phone' or endpoint == 'register':
 				pass
 			else:
 				make_request = requests.get(self.link + self.ep[endpoint])

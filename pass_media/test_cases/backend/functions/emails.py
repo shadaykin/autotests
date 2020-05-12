@@ -6,15 +6,16 @@ from backend.functions.cookies import Sessions
 class Emails:
 
 	env = var.stand_for_test
-
-	cookie = Sessions().get_sessionid(env)
-	session = requests.Session()
-	session.cookies.update(cookie)
+	def set_session(self):
+		cookie = Sessions().get_sessionid(self.env)
+		session = requests.Session()
+		session.cookies.update(cookie)
+		return session
 
 	def emails_list(self):
-		make_request = self.session.get(var.options[self.env] + var.endpoints_email['email'])
-		st_code = make_request.text
-		emails = json.loads(st_code)
+		make_request = self.set_session().get(var.options[self.env] + var.endpoints_email['email'])
+		list = make_request.text
+		emails = json.loads(list)
 		return emails
 
 	def emails_count(self):
@@ -84,9 +85,8 @@ class Emails:
 			add_request = self.session.post(link, json=data)
 			return add_request
 
-	
-	"""Подтверждение адреса с помощью кода"""
 	def emails_confirm_key(self, email, code):
+		"""Подтверждение адреса с помощью кода"""
 		endpoint = var.endpoints_email['email_confirm']
 		data={"email": email, "confirmation_key": code}
 		confirm = self.session.post(var.options[self.env]+endpoint, data=data)

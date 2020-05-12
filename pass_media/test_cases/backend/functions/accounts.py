@@ -6,10 +6,14 @@ from backend.functions.cookies import Sessions
 class Accounts:
 
 	env = var.stand_for_test
+	try:
+		cookie = Sessions().get_sessionid(env)
+		session = requests.Session()
+		session.cookies.update(cookie)
+	except:
+		print("Can't connect to passport")
+		pass
 
-	cookie = Sessions().get_sessionid(env)
-	session = requests.Session()
-	session.cookies.update(cookie)
 	link = var.options[env]
 	endpoint = var.endpoints_account
 	
@@ -75,6 +79,16 @@ class Accounts:
 		data = {"password": password}
 		delete = self.session.delete(self.link+self.endpoint['edit'], json=data)
 		return delete
+
+	def register_account(self, *args):
+		"""Регистрация пользователя"""
+		if len(args) == 0:
+			phone = var.options['phone']
+		else:
+			phone = args[0]
+		data = {"phone": phone, "recaptcha": "fake"}
+		register = requests.post(self.link+self.endpoint['register'], json=data)
+		return register
 
 	def logout_account(self):
 		"""Логаут пользователя"""

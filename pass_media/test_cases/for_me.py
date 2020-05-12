@@ -1,27 +1,34 @@
-import requests, json, time
+import requests, json, time, datetime, pytest
 import variables as var
+
 from selenium import webdriver
+
+'''
 from backend.functions.cookies import Sessions
+from backend.functions.emails import Emails
 from backend.functions.accounts import Accounts
+from selenium.webdriver.support.ui import Select
+from frontend.functions.authorization import Authorization
+'''
 
 
-env = var.stand_for_test
-acc = Accounts()
-service = var.options['cas']
+# env = var.stand_for_test
+# acc = Accounts()
+# service = var.options['cas']
+# auth = Authorization()
 
-response = acc.get_account_info(service).json()
-need_update = []
-requireds = response['required_fields']
+@pytest.fixture(scope='class')
+def success():
+    browser = webdriver.Chrome()
+    time.sleep(5)
+    browser.close()
 
-for required in requireds:
-    have = response[required]
-    if have == '' or have == []:
-        print(required)
-        need_update.append(required)
-data = acc.generate_account_data(need_update)
-if data == {}:
-    pass
-else:
 
-#upd = acc.update_account_info(data)
+@pytest.mark.usefixtures('success')
+class TestSomething:
 
+    def test_one(self):
+        assert 1 == 1
+
+    def test_two(self):
+        assert 1 == 1
