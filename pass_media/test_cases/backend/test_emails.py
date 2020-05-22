@@ -1,8 +1,10 @@
 import variables as var
 from backend.functions.cookies import Sessions
 from backend.functions.emails import Emails
-import requests, json
+import requests, json, pytest
 
+
+#@pytest.mark.usefixtures('delete_user', 'full_registration_account')
 class TestEmails:
 
 	stand = var.stand_for_test
@@ -14,9 +16,12 @@ class TestEmails:
 	e = Emails()
 	link = var.options[stand]
 	ep = var.endpoints_email
-	
+
+
 	def test_email_available_api(self):
 		""" Проверка на доступность API  """
+		#cookie = Sessions().get_sessionid(var.stand_for_test)
+		#self.e.session.cookies.update(cookie)
 		fail = []
 		for endpoint in self.ep:
 			make_request = requests.get(self.link + self.ep[endpoint])

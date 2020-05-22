@@ -43,7 +43,7 @@ check_phone = {
 	"has_password": True, "restore_password_window": 0}
 
 check_phone_no_pwd = {
-	"success": True, "confirmed": False, "inactive": False,
+	"success": True, "confirmed": True, "inactive": False,
 	"has_password": False, "restore_password_window": 0}
 
 check_unreg_phone = {

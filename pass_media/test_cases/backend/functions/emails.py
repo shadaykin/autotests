@@ -6,14 +6,12 @@ from backend.functions.cookies import Sessions
 class Emails:
 
 	env = var.stand_for_test
-	def set_session(self):
-		cookie = Sessions().get_sessionid(self.env)
-		session = requests.Session()
-		session.cookies.update(cookie)
-		return session
+	cookie = Sessions().get_sessionid(env)
+	session = requests.Session()
+	session.cookies.update(cookie)
 
 	def emails_list(self):
-		make_request = self.set_session().get(var.options[self.env] + var.endpoints_email['email'])
+		make_request = self.session.get(var.options[self.env] + var.endpoints_email['email'])
 		list = make_request.text
 		emails = json.loads(list)
 		return emails

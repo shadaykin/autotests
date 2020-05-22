@@ -23,8 +23,12 @@ class TestAccounts:
 	session = requests.Session()
 	session.cookies.update(cookie)
 
+
+
 	def test_accounts_available_api(self):
 		"""Проверка доступности API"""
+		cookie = Sessions().get_sessionid(self.stand)
+		self.acc.session.cookies.update(cookie)
 		fail = []
 		for endpoint in self.ep:
 			make_request = requests.get(self.link + self.ep[endpoint])
@@ -35,8 +39,7 @@ class TestAccounts:
 	
 	def test_correct_accounts_fields(self):
 		"""Проверка корректной отдачи набора полей аккаунта"""
-		cookie = Sessions().get_sessionid(self.stand)
-		self.acc.session.cookies.update(cookie)
+
 		account = self.acc.get_account_info().json()
 		assert dt.account.keys() == account.keys()
 	
@@ -44,7 +47,7 @@ class TestAccounts:
 		"""Проверка закрытости api под авторизацию"""
 		fail = []
 		for endpoint in self.ep:
-			if endpoint == 'logout' or endpoint == 'check_phone' or endpoint == 'register':
+			if endpoint == 'logout' or endpoint =='check_phone' or endpoint == 'register':
 				pass
 			else:
 				make_request = requests.get(self.link + self.ep[endpoint])
@@ -104,6 +107,8 @@ class TestAccounts:
 
 	def test_city_autocomplete(self):
 		"""Автокомплит города"""
+		cookie = Sessions().get_sessionid(self.stand)
+		self.session.cookies.update(cookie)
 		msc = 'Москва'
 		spb = 'Санкт-Петербург'
 		ekb = 'Екатеринбург'
