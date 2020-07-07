@@ -39,15 +39,15 @@ special_unf_ed = {
 		{'id': 20366, 'speciality': 'спец', 'education': 20291, 'year': 2020}]}
 
 check_phone = {
-	"success": True, "confirmed": True, "inactive": False,
+	"success": True, "confirmed": True, "tos": True, "inactive": False,
 	"has_password": True, "restore_password_window": 0}
 
 check_phone_no_pwd = {
-	"success": True, "confirmed": True, "inactive": False,
+	"success": True, "confirmed": True, "tos": True, "inactive": False,
 	"has_password": False, "restore_password_window": 0}
 
 check_unreg_phone = {
-	"success": False, "confirmed": False, "inactive": False,
+	"success": False, "confirmed": False, "tos": False, "inactive": False,
 	"has_password": False, "restore_password_window": 0}
 
 

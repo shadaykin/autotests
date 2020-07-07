@@ -27,7 +27,8 @@ class TestProfile:
         fields = dict(first_name="first_name",
                       last_name="last_name",
                       nickname="nickname",
-                      gender="label[for='genderMale']",
+                      #gender="label[for='genderMale']",
+                      gender='.app-button.app-button--icon-inside:nth-child(2)',
                       birthdate="birthdate",
                       city="input[data-vv-as='Город']")
         for field in fields.keys():
@@ -56,6 +57,7 @@ class TestProfile:
             browser.close()
             assert 1 == 2
 
+    '''
     def test_delete_account(self):
         """Удаление аккаунта в ЛК"""
         browser = self.auth.set_browser()
@@ -71,9 +73,8 @@ class TestProfile:
             warning = browser.find_element_by_class_name('info-panel__title').text
             assert warning == 'Прочтите, это важно'
             content = browser.find_element_by_class_name('info-panel__content').text
-            assert content == 'Ваш аккаунт будет удалён, и вы потеряете доступ к сервисам,' \
-                              ' в которых были авторизованы с Pass.Media, ' \
-                              'вместе со всеми данными.'
+            assert content == 'Ваш аккаунт будет удалён, и вы потеряете доступ к сервисам, в которых были \n' \
+                              'авторизованы с Pass.Media, вместе со всеми данными.'
             delete = browser.find_element_by_css_selector('.app-button--ghost')
             assert 'is-disabled' in delete.get_attribute('class')
             browser.find_element_by_name('password').send_keys(var.options['password'])
@@ -88,6 +89,7 @@ class TestProfile:
                 elif button.text == 'Отменить':
                     cancel = button
             dlt.click()
+            
             a = False
             b = 0
             while not a and b < 5:
@@ -98,10 +100,12 @@ class TestProfile:
                     time.sleep(0.5)
                     b += 1
             assert a
+            
             browser.close()
         except:
             browser.close()
             assert 1 == 2
+    '''
 
 
     def test_data_edit(self):
@@ -174,6 +178,8 @@ class TestProfile:
     def test_add_unconf_email(self):
         """Добавление неподтвержденного адреса"""
         browser = self.auth.set_browser()
+        cookie = Sessions().get_sessionid(var.stand_for_test)
+        self.eml.session.cookies.update(cookie)
         try:
             email = var.options['email']
             add_btn = ''
@@ -207,8 +213,8 @@ class TestProfile:
             # Провереяем выполнение условий кейса
             description = browser.find_element_by_class_name('confirm-email__inside .profile-form-message')
             assert "Адрес не подтвержден" in browser.find_element_by_css_selector('.list__item-content .form-message.error').text
-            assert "Код отправлен на %s. Введите код в поле ниже или перейдите " \
-                   "по ссылке из письма, затем нажмите «Подтвердить»." % email in description.text
+            assert "Код отправлен на autotestpm@yandex.ru.\nСкопируйте его из письма и вставьте в поле в этом окне." \
+                   "\nПодтвердить адрес через код можно\nв течение 24 часов." in description.text
             assert "Повторно код можно получить через" in browser.find_element_by_class_name('confirm-email__resend .form-message').text
             assert browser.find_element_by_name('confirmation_key')
             browser.close()
@@ -271,6 +277,33 @@ class TestProfile:
                     yes_btn = button
             yes_btn.click()
             assert '/cas/login' in browser.current_url
+            browser.close()
+        except:
+            browser.close()
+            assert 1 == 2
+
+    @pytest.mark.skip(reason="no way of currently testing this")
+    def test_change_password(self):
+        browser = self.auth.set_browser()
+        try:
+            self.auth.set_cookie(browser)
+            assert browser.current_url == self.domain + '/accounts/edit'
+            time.sleep(20)
+            change = browser.find_element_by_link_text('Сменить пароль')
+            browser.execute_script('arguments[0].scrollIntoView(true);', change)
+            browser.execute_script("arguments[0].click();", change)
+            time.sleep(20)
+            assert '/accounts/edit/change-password' in browser.current_url
+            assert 'Изменение пароля' in browser.find_elements_by_tag_name('h2').text
+            pwd = browser.find_element_by_name('password')
+            pwd.send_keys('111111xX')
+            '''
+            buttons = browser.find_elements_by_tag_name('button')
+            for button in buttons:
+                if button.text == 'Нет':
+                    no_btn = button
+            no_btn.click()
+            '''
             browser.close()
         except:
             browser.close()

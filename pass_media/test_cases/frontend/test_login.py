@@ -104,7 +104,7 @@ class Test:
                     lbl += 1
                 elif 'Даю согласие на обработку своих персональных данных согласно' in label.text:
                     lbl += 1
-            assert lbl == 2, "не указаны оба пункта регистрации"
+            assert lbl == 2, "не отображены оба пункта регистрации"
             next = browser.find_element_by_css_selector("button[type=submit]")
             assert 'is-disabled' in next.get_attribute('class'), "Кнопка далее доступна для нажатия"
             browser.close()
@@ -115,6 +115,8 @@ class Test:
     def test_authorization_cas_service(self):
         """Авторизация в CAS-сервисе"""
         browser = self.auth.set_browser()
+        cookie = Sessions().get_sessionid(var.stand_for_test)
+        self.acc.session.cookies.update(cookie)
         try:
             #Дозаполняем обязательные поля
             response = self.acc.get_account_info(self.cas_service).json()

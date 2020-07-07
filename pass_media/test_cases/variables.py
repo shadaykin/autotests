@@ -20,7 +20,7 @@ options = dict(
 	oauth_conf='client_id=XTEOEH9aM80A46ZMUojVahecHG5yVwHz8wtnlwak' +
 			   '&client_secret=vYOS9J5oFMpcuTcZfk6J8uJNfERegieDC96jSxM6EbFOHBbouB2vZFE4hXxxSh5gtgbVAgrzt8Nq3GRMCLhrpX1t7HTlYooFEIFkfm3APEY6UGlqXySVahDR5IK4U1ys',
 	api_key_prod='96618d5e24e19e760600296fb3d9dad1f529e08caa8c18f17c1a3b0f410a48cb',
-	api_key='c41350d8e80f15e2dca47fc5637cf208ac9b015feecdcdff8ea319f68ed89a51'
+	api_key='c12cfd8f0c63061fee93f5267c74cb782316b0d71108aa3deec85b4faf405071'
 )
 
 
@@ -59,5 +59,7 @@ endpoints_service = dict(
 	service_info='/api/service_info/?service=',
 	app_info='/api/application_info/?',
 	pmid='/api/accounts/pass_id/',
-	api_key='/api/users/'
+	api_key='/api/users/',
+	oauth='/api/oauth/authorize/',
+	notification='/api/service_notifications/events/'
 )

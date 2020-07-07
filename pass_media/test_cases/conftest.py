@@ -3,6 +3,8 @@ import time
 import variables as var
 from backend.functions.accounts import Accounts
 from backend.functions.cookies import Sessions
+from backend.functions.emails import Emails
+from backend.functions.services import Services
 from frontend.functions.authorization import Authorization
 from selenium.webdriver.support.ui import Select
 
@@ -21,7 +23,7 @@ def delete_user():
             browser.implicitly_wait(5)
             browser.find_element_by_css_selector('.row1 [type=checkbox]').click()
             select = Select(browser.find_element_by_name('action'))
-            select.select_by_visible_text('Delete selected users')
+            select.select_by_visible_text('Delete selected objects')
             go = browser.find_element_by_name('index')
             go.click()
             yes = browser.find_element_by_css_selector('[type=submit]')
@@ -85,6 +87,16 @@ def full_registration_account(disable_recaptcha):
         #assert 'successfully' in browser.find_element_by_class_name('success')
         browser.close()
         finish = Sessions().get_sessionid(var.stand_for_test, 'register')
+        Emails().session.cookies.update(finish)
+        Accounts().session.cookies.update(finish)
+        Services().session.cookies.update(finish)
+
+
+@pytest.fixture()
+def update_session(session):
+    cookie = Sessions().get_sessionid(var.stand_for_test)
+    session.cookies.update(cookie)
+
 
 
 def ff(full_registration_account):

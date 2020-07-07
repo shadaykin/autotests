@@ -19,11 +19,9 @@ class Sessions:
 		response = s.post(link, data=data, headers=headers, cookies=cookies)
 		assert response.status_code == 200, "can't authorize"
 		assert response.json()['authenticated']
-		if len(args) == 0:
+		if len(args) == 0 or 'register' in args:
 			session_id = {'sessionid': s.cookies['sessionid']}
 			return session_id
-		elif 'register' not in args:
+		else:
 			session_id = {'name': 'sessionid', 'value': s.cookies['sessionid']}
 			return session_id
-		else:
-			return response

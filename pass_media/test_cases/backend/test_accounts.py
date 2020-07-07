@@ -27,8 +27,8 @@ class TestAccounts:
 
 	def test_accounts_available_api(self):
 		"""Проверка доступности API"""
-		cookie = Sessions().get_sessionid(self.stand)
-		self.acc.session.cookies.update(cookie)
+		#cookie = Sessions().get_sessionid(self.stand)
+		#self.acc.session.cookies.update(cookie)
 		fail = []
 		for endpoint in self.ep:
 			make_request = requests.get(self.link + self.ep[endpoint])

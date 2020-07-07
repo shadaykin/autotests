@@ -7,7 +7,7 @@ from datetime import date
 '''
 api_key = {
     "id": "JF7yMzbfFgsSTab7fnwjUe",
-    "phone": "+79096201687",
+    "phone": var.options['phone'],
     "email": "autotestpm@yandex.ru",
     "email_confirmed": false,
     "first_name": "first_name",
@@ -24,5 +24,5 @@ api_key = {
     ],
     "access_token": null,
     "refresh_token": null
-}
+    }
 '''

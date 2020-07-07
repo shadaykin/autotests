@@ -41,8 +41,8 @@ class TestServices:
 			assert 1 == 2, print('API that are available without session: '+str(fail))
 
 	def test_required_fields_cas(self):
-		cookie = Sessions().get_sessionid(self.stand)
-		self.acc.session.cookies.update(cookie)
+		#cookie = Sessions().get_sessionid(self.stand)
+		#self.acc.session.cookies.update(cookie)
 		"""Обязательные поля для сервисов CAS"""
 		service = var.options['cas']
 		req_fields = ['emails_unconfirmed', 'first_name', 'last_name', 'phone']
@@ -104,9 +104,12 @@ class TestServices:
 		pmid = self.srv.get_pmid(self.session)
 		info = self.srv.get_api_key(pmid)
 		assert info.status_code == 200
+		tokens = 0
 		for key in info.json().keys():
 			if key == 'pm_id':
 				pass
+			elif key == 'access_token' or key == 'refresh_token':
+				tokens += 1
 			else:
 				assert data[key] == info.json()[key]
 	'''

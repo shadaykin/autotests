@@ -156,7 +156,7 @@ class TestEmails:
 
 		"""Добавление адреса, который подтвержден у другого пользователя"""
 	def test_add_busy_confirmed_email(self):
-		error = 'Email already confirmed.'
+		error = "User email already exists."
 		if self.e.emails_count() != 0:
 			self.e.emails_delete_confirmed()
 			self.e.emails_delete_unconfirmed()
