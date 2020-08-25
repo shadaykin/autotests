@@ -1,6 +1,6 @@
 
-enviroment = 'test_201'
-token = '79448704ddc07dd3831bd2e1daffb9d45351b401'
+enviroment = 'test_301'
+token = '2efe49abccad96de57e7c96923eccf90f6b1886c'
 email = 'shadayka152+test@gmail.com'
 order_options = dict(
     return_url='https://uma.preprod.zxz.su/',
@@ -10,7 +10,8 @@ order_options = dict(
 
 enviroments = dict(
     test_201='https://merch.test-201.zxz.su/',
-    test_202='https://merch.test-202.zxz.su/'
+    test_202='https://merch.test-202.zxz.su/',
+    test_301='https://merch.test-301.zxz.su/'
 )
 
 processing_endpoints = dict(

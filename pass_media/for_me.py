@@ -4,7 +4,11 @@ import time, random
 import pytest
 
 
-browser = webdriver.Chrome()
-browser.get('https://ya.ru')
+a = False
+b = 0
+while not a and b < 2:
+    b += 1
+    a = True
 
 
+print(a)

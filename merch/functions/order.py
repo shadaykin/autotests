@@ -1,7 +1,10 @@
+import random
+import time
+import autotests.merch.variables as var
 import requests
-import merch.variables as var
-import random, time
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
 
 
 class Orders:
@@ -65,7 +68,7 @@ class Orders:
                 "amount": amount,
                 "fail_url": var.order_options['fail_url'],
                 "pass_id": "000" + str(random.randint(1000, 2000)),
-                "binding_id":
+                "binding_id": 1
             }
         create = requests.post(self.env+var.processing_endpoints['order'], headers=self.header, data=data)
         return create
@@ -85,7 +88,7 @@ class Orders:
         deposit = requests.post(self.env + var.processing_endpoints['deposit'], headers=self.header, data=data)
         return deposit
 
-    def cancel_order(self, orderid):
+    def cancel_order(self, orderid, *args):
         """Отмена списания средств при двухстадийном платеже"""
         if len(args) == 0:
             data = {"order_id": orderid}
@@ -95,7 +98,8 @@ class Orders:
         return cancel
 
     def activate_binding(self, binding_id):
-        activate = requests.post(self.env + var.processing_endpoints['bindings'] + binding_id + '/activate/', headers=self.header)
+        activate = requests.post(self.env + var.processing_endpoints['bindings']
+                                 + binding_id + '/activate/', headers=self.header)
         return activate
 
     def deactivate_binding(self, binding_id):
@@ -115,8 +119,22 @@ class Orders:
         - error_3DS - ошибка при прохождении 3d-secure"""
         browser = webdriver.Chrome()
         browser.get(url)
+        a = 0
+        result = False
         if gateway == 'gpb':
-            pass
+            card_num = browser.find_element_by_id('pan')
+            month = browser.find_element_by_id('month')
+            year = browser.find_element_by_id('year')
+            cvc = browser.find_element_by_id('cvc')
+            try:
+                email = browser.find_element_by_id('email')
+                email.send_keys(var.email)
+            except:
+                pass
+            card_num.send_keys(self.card_gpb[case])
+            month.send_keys(self.card_gpb['expiration_month'])
+            year.send_keys(self.card_gpb['expiration_year'])
+            cvc.send_keys(self.card_gpb['cvc'])
         if gateway == 'yakassa':
             card_num = browser.find_element_by_id('cardNumber')
             month = browser.find_element_by_name('skr_month')
@@ -131,18 +149,21 @@ class Orders:
             month.send_keys(self.card_yakassa['expiration_month'])
             year.send_keys(self.card_yakassa['expiration_year'])
             cvc.send_keys(self.card_yakassa['cvc'])
+            cvc.submit()
+            cvc.send_keys(Keys.RETURN)
+            while not result and a < 10:
+                try:
+                    assert 'success' in browser.current_url
+                    result = True
+                except:
+                    time.sleep(1)
+                    a += 1
+            assert result is True
+        time.sleep(1)
+        return browser
 
-            #assert "Платеж прошел" in browser.find_element_by_class_name('payment-scenario__success-title').text
 
-        time.sleep(5)
+test_create = Orders().create_order('5', 'yakassa')
+url = test_create.json()['form_url']
+test_status = Orders().enter_data_card('yakassa', url, 'success_num')
 
-
-
-
-
-
-
-
-#test_create = Orders().create_order('5', 'gpb')
-url = 'https://money.yandex.ru/payments/external/confirmation?orderId=26a01074-000f-5000-9000-13b2f3121fc8'
-test_status = Orders().enter_data_card('yakassa',url,'success_num')
