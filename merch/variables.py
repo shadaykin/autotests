@@ -1,6 +1,13 @@
 
-enviroment = 'test_301'
-token = '2efe49abccad96de57e7c96923eccf90f6b1886c'
+enviroment = 'test_202'
+gateway = 'gpb'
+
+tokens = dict(
+    test_201='2efe49abccad96de57e7c96923eccf90f6b1886c',
+    test_202='740ea2823503035e6fdef524db3ad81f77ea705c',
+    test_301='2efe49abccad96de57e7c96923eccf90f6b1886c'
+)
+
 email = 'shadayka152+test@gmail.com'
 order_options = dict(
     return_url='https://uma.preprod.zxz.su/',
@@ -16,9 +23,10 @@ enviroments = dict(
 
 processing_endpoints = dict(
     order='api/processing/order/',
-    deposit='/api/processing/order/deposit/',
-    cancel='/api/processing/order/cancel/',
-    binding='/api/processing/binding/'
+    deposit='api/processing/order/deposit/',
+    cancel='api/processing/order/cancel/',
+    binding='api/processing/binding/',
+    refund='api/processing/order/refund/'
 )
 
 cards_gpb = dict(

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490fc803-22e8-484c-88ac-b1f2c01f6130" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/merch/test_cases/response_create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/merch/test_cases/test_cancel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/merch/test_cases/test_refunds.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/merch/for_me.py" beforeDir="false" afterPath="$PROJECT_DIR$/merch/for_me.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/merch/functions/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/merch/functions/order.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/merch/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/merch/variables.py" afterDir="false" />
     </list>
@@ -39,22 +43,23 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/merch/test_cases" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/merch/test_cases" />
+      <recent name="C:\Users\isadretdinov\Desktop\autotests\pass_media\test_cases\functions" />
+      <recent name="C:\Users\isadretdinov\Desktop\autotests\learn_stepik" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/merch" />
       <recent name="C:\Users\isadretdinov\Desktop\autotests\pass_media\test_cases\functions" />
       <recent name="C:\Users\isadretdinov\Desktop\autotests\pass.media" />
       <recent name="C:\Users\isadretdinov\Desktop\autotests\pass.media\test_cases\functions" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\isadretdinov\Desktop\autotests\pass_media\test_cases\functions" />
-      <recent name="C:\Users\isadretdinov\Desktop\autotests\learn_stepik" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test_cases">
+  <component name="RunManager" selected="Python.for_me (1)">
     <configuration name="for_me (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,7 +102,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="order" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="response_create" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -105,11 +110,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/merch/functions" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/merch/test_cases" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/merch/functions/order.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/merch/test_cases/response_create.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -160,6 +165,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for merch.test_cases.test_deposit.TestCase" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/merch/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;merch.test_cases.test_deposit.TestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest for test_accounts.TestAccounts.test_profile_fullness" type="tests" factoryName="py.test" nameIsGenerated="true">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,33 +195,78 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_profile.TestProfile.test_add_unconf_email" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_cancel.TestCancel.test_cancel_preauth_held" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases/frontend" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/merch/test_cases" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_profile.TestProfile.test_add_unconf_email&quot;" />
+      <option name="_new_target" value="&quot;test_cancel.TestCancel.test_cancel_preauth_held&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_profile.TestProfile.test_change_password" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_case.TestCase.test_held_131_simple" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="autotests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases/frontend" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/merch/test_cases" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_profile.TestProfile.test_change_password&quot;" />
+      <option name="_new_target" value="&quot;test_case.TestCase.test_held_131_simple&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_refunds.TestCancel" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/merch/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_refunds.TestCancel&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_refunds.TestCancel.test_refund_simple" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/merch/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_refunds.TestCancel.test_refund_simple&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_refunds.TestRefunds" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="autotests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/merch/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_refunds.TestRefunds&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -220,40 +285,26 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in test_cases" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="autotests" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pass_media/test_cases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/pass_media/test_cases&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.for_me (1)" />
       <item itemvalue="Python.for_me" />
-      <item itemvalue="Python.order" />
       <item itemvalue="Python.session_id" />
       <item itemvalue="Python.test_auth_cas" />
+      <item itemvalue="Python.response_create" />
       <item itemvalue="Python tests.pytest for test_accounts.TestAccounts.test_profile_fullness" />
-      <item itemvalue="Python tests.pytest for test_profile.TestProfile.test_add_unconf_email" />
-      <item itemvalue="Python tests.pytest for test_profile.TestProfile.test_change_password" />
       <item itemvalue="Python tests.pytest in for_me.py" />
-      <item itemvalue="Python tests.pytest in test_cases" />
+      <item itemvalue="Python tests.pytest for test_cancel.TestCancel.test_cancel_preauth_held" />
+      <item itemvalue="Python.for_me (1)" />
+      <item itemvalue="Python tests.pytest for test_refunds.TestCancel.test_refund_simple" />
+      <item itemvalue="Python tests.pytest for test_refunds.TestCancel" />
+      <item itemvalue="Python tests.pytest for test_refunds.TestRefunds" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest in test_cases" />
-        <item itemvalue="Python.order" />
         <item itemvalue="Python.for_me (1)" />
-        <item itemvalue="Python tests.pytest for test_profile.TestProfile.test_change_password" />
-        <item itemvalue="Python tests.pytest for test_profile.TestProfile.test_add_unconf_email" />
+        <item itemvalue="Python tests.pytest for test_cancel.TestCancel.test_cancel_preauth_held" />
+        <item itemvalue="Python tests.pytest for test_refunds.TestRefunds" />
+        <item itemvalue="Python tests.pytest for test_refunds.TestCancel" />
+        <item itemvalue="Python tests.pytest for test_refunds.TestCancel.test_refund_simple" />
       </list>
     </recent_temporary>
   </component>
@@ -314,22 +365,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="merch" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="319" y="93" key="#Inspections" timestamp="1589289469818">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state x="319" y="93" key="#Inspections/0.23.1440.821@0.23.1440.821" timestamp="1589289469818" />
     <state x="319" y="93" key="#Notifications" timestamp="1594150924468">
       <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state x="319" y="93" key="#Notifications/0.23.1440.829@0.23.1440.829" timestamp="1594150924468" />
-    <state x="184" y="93" width="1071" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589316123504">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="414" y="53" key="#response_create" timestamp="1598466545824">
+      <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state x="184" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.821@0.23.1440.821" timestamp="1589316123504" />
-    <state x="414" y="56" key="#pytest_in_test_for_me.py" timestamp="1589316175681">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state x="414" y="56" key="#pytest_in_test_for_me.py/0.23.1440.821@0.23.1440.821" timestamp="1589316175681" />
+    <state x="414" y="53" key="#response_create/0.23.1440.826@0.23.1440.826" timestamp="1598466545824" />
     <state x="343" y="30" key="CommitChangelistDialog2" timestamp="1594150982861">
       <screen x="0" y="23" width="1440" height="829" />
     </state>
@@ -338,52 +381,48 @@
       <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state x="143" y="85" key="DiffContextDialog/0.23.1440.829@0.23.1440.829" timestamp="1594150907332" />
-    <state width="708" height="196" key="GridCell.Tab.0.bottom" timestamp="1594839615878">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state width="1417" height="196" key="GridCell.Tab.0.bottom" timestamp="1599222090729">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1419" height="196" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589218996169" />
     <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1590582921918" />
-    <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1589479550652" />
-    <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1593118087591" />
-    <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.825@0.23.1440.825" timestamp="1593427086089" />
-    <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1592474446850" />
-    <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1592815162840" />
+    <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1599222090729" />
+    <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.825@0.23.1440.825" timestamp="1599130960202" />
+    <state width="708" height="196" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1598468871306" />
+    <state width="708" height="196" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1598469168413" />
+    <state width="708" height="196" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1598541366864" />
     <state width="708" height="196" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1594839615878" />
     <state width="1417" height="196" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1592560824211" />
-    <state width="708" height="196" key="GridCell.Tab.0.center" timestamp="1594839615878">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state width="1417" height="196" key="GridCell.Tab.0.center" timestamp="1599222090728">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1419" height="196" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589218996168" />
     <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1590582921918" />
-    <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1589479550651" />
-    <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1593118087590" />
-    <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.825@0.23.1440.825" timestamp="1593427086088" />
-    <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1592474446849" />
-    <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1592815162840" />
+    <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1599222090728" />
+    <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.825@0.23.1440.825" timestamp="1599130960201" />
+    <state width="708" height="196" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1598468871306" />
+    <state width="708" height="196" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1598469168412" />
+    <state width="708" height="196" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1598541366863" />
     <state width="708" height="196" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1594839615878" />
     <state width="1417" height="196" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1592560824210" />
-    <state width="708" height="196" key="GridCell.Tab.0.left" timestamp="1594839615878">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state width="1417" height="196" key="GridCell.Tab.0.left" timestamp="1599222090727">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1419" height="196" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589218996168" />
     <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1590582921917" />
-    <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1589479550651" />
-    <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1593118087590" />
-    <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.825@0.23.1440.825" timestamp="1593427086087" />
-    <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1592474446848" />
-    <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1592815162839" />
+    <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1599222090727" />
+    <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.825@0.23.1440.825" timestamp="1599130960201" />
+    <state width="708" height="196" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1598468871305" />
+    <state width="708" height="196" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1598469168411" />
+    <state width="708" height="196" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1598541366863" />
     <state width="708" height="196" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1594839615878" />
     <state width="1417" height="196" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1592560824210" />
-    <state width="708" height="196" key="GridCell.Tab.0.right" timestamp="1594839615878">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state width="1417" height="196" key="GridCell.Tab.0.right" timestamp="1599222090728">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1419" height="196" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589218996169" />
     <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1590582921918" />
-    <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1589479550652" />
-    <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1593118087590" />
-    <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.825@0.23.1440.825" timestamp="1593427086089" />
-    <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1592474446850" />
-    <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1592815162840" />
+    <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1599222090728" />
+    <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.825@0.23.1440.825" timestamp="1599130960202" />
+    <state width="708" height="196" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1598468871306" />
+    <state width="708" height="196" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1598469168412" />
+    <state width="708" height="196" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1598541366864" />
     <state width="708" height="196" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1594839615878" />
     <state width="1417" height="196" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1592560824211" />
     <state x="0" y="265" width="708" height="257" key="GridCell.Tab.1.bottom" timestamp="1594150737855">
@@ -402,27 +441,21 @@
       <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="708" height="257" key="GridCell.Tab.1.right/0.23.1440.829@0.23.1440.829" timestamp="1594150737855" />
-    <state x="221" y="51" key="SettingsEditor" timestamp="1589144220652">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="221" y="51" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1589144220652" />
-    <state x="397" y="266" key="com.intellij.ide.util.TipDialog" timestamp="1597257820038">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1599126297872">
       <screen x="0" y="23" width="1440" height="825" />
     </state>
-    <state x="397" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.819@0.23.1440.819" timestamp="1590054206254" />
-    <state x="397" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.821@0.23.1440.821" timestamp="1588932093598" />
-    <state x="397" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.822@0.23.1440.822" timestamp="1589477553890" />
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.825@0.23.1440.825" timestamp="1599126297871" />
+    <state x="397" y="266" key="com.intellij.ide.util.TipDialog" timestamp="1598867617947">
+      <screen x="0" y="23" width="1440" height="825" />
+    </state>
     <state x="397" y="265" key="com.intellij.ide.util.TipDialog/0.23.1440.823@0.23.1440.823" timestamp="1593088548432" />
-    <state x="397" y="266" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1597257820038" />
+    <state x="397" y="266" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1598867617947" />
     <state x="397" y="267" key="com.intellij.ide.util.TipDialog/0.23.1440.828@0.23.1440.828" timestamp="1592760397622" />
     <state x="397" y="267" key="com.intellij.ide.util.TipDialog/0.23.1440.829@0.23.1440.829" timestamp="1594750983533" />
-    <state x="538" y="243" key="export.test.results" timestamp="1590149785073">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="449" y="345" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598466721209">
+      <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state x="538" y="243" key="export.test.results/0.23.1440.821@0.23.1440.821" timestamp="1590149785073" />
-    <state x="385" y="162" width="670" height="684" key="search.everywhere.popup" timestamp="1589130991541">
-      <screen x="0" y="23" width="1440" height="822" />
-    </state>
-    <state x="385" y="162" width="670" height="684" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1589130991541" />
+    <state x="449" y="345" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1440.826@0.23.1440.826" timestamp="1598466721209" />
+    <state x="449" y="346" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1440.828@0.23.1440.828" timestamp="1598460400014" />
   </component>
 </project>
