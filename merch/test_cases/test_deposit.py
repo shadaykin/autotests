@@ -58,7 +58,6 @@ class TestCase:
         browser = self.order.enter_data_card(self.gateway, url, "success_num")
         browser.close()
         wait = self.order.wait_status(id, 'held')
-
         deposit = self.order.deposit_order(id)
         assert deposit.status_code == 200
         paid = self.order.wait_status(id,'paid')
@@ -83,4 +82,16 @@ class TestCase:
         deposit = self.order.deposit_order(id)
         assert deposit.status_code == 400
         assert error in deposit.text
+
+    def test_deposit_with_other_token(self):
+        """Возврат заказа, принадлежащего другому клиенту"""
+        create = self.order.create_order(10, self.gateway, 'pre_auth_payment')
+        id = create.json()['id']
+        url = create.json()['form_url']
+        browser = self.order.enter_data_card(self.gateway, url, "success_num")
+        browser.close()
+        self.order.wait_status(id, 'held')
+        header = {'Authorization': 'Token ' + var.tokens['other'+self.env.split('test')[1]]}
+        deposit = requests.post(var.enviroments[self.env]+(var.processing_endpoints['deposit']) % id, headers=header)
+        assert deposit.status_code == 404
 
