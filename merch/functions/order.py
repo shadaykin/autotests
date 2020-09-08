@@ -81,40 +81,44 @@ class Orders:
     def deposit_order(self, orderid, *args):
         """Списание средств при двухстадийном платеже,
         если указан 2-ий параметр (сумма), то будет списываться указанная сумма"""
-        if len(args) == 0:
-            data = {"order_id": orderid}
-        elif len(args) == 1:
-            data = {"order_id": orderid, "amount": args[0]}
-        deposit = requests.post(self.env + var.processing_endpoints['deposit'], headers=self.header, data=data)
+        if len(args) == 1:
+            data = {"amount": args[0]}
+            deposit = requests.post(self.env + str(var.processing_endpoints['deposit']) % orderid, headers=self.header, data=data)
+        else:
+            deposit = requests.post(self.env + str(var.processing_endpoints['deposit']) % orderid, headers=self.header)
         return deposit
 
     def cancel_order(self, orderid, *args):
         """Отмена списания средств при двухстадийном платеже"""
-        if len(args) == 0:
-            data = {"order_id": orderid}
-        elif len(args) == 1:
-            data = {"order_id": orderid, "amount": args[0]}
-        cancel = requests.post(self.env + var.processing_endpoints['cancel'], headers=self.header, data=data)
+        if len(args) == 1:
+            data = {"amount": args[0]}
+            cancel = requests.post(self.env + str(var.processing_endpoints['cancel']) % orderid, headers=self.header, data=data)
+        else:
+            cancel = requests.post(self.env + str(var.processing_endpoints['cancel']) % orderid, headers=self.header)
         return cancel
 
     def refund_order(self, orderid, *args):
+        """Возврат оплаты"""
         if len(args) == 0:
-            data = {"order_id": orderid, "amount": "1"}
+            data = {"amount": "1"}
         else:
-            data = {"order_id": orderid, "amount": args[0]}
-        refund = requests.post(self.env + var.processing_endpoints['refund'], headers=self.header, data=data)
+            data = {"amount": args[0]}
+        refund = requests.post(self.env + str(var.processing_endpoints['refund']) % orderid, headers=self.header, data=data)
         return refund
 
     def activate_binding(self, binding_id):
+        """Активация связки"""
         activate = requests.post(self.env + var.processing_endpoints['bindings']
                                  + binding_id + '/activate/', headers=self.header)
         return activate
 
     def deactivate_binding(self, binding_id):
+        """Деактивация связки"""
         deactivate = requests.post(self.env + var.processing_endpoints['bindings'] + binding_id + '/deactivate/', headers=self.header)
         return deactivate
 
     def get_bindings(self, pass_id):
+        """Получение списка связок пользователя"""
         get_binding = requests.get(self.env + var.processing_endpoints['bindings'] + pass_id, headers=self.header)
         return get_binding
 
@@ -185,6 +189,11 @@ class Orders:
         return browser
 
     def full_paid(self, case, *args):
+        """Полная оплата заказа для определенного кейса
+        pre_auth_payment - двухстадийный заказ,
+        save_payment_method - с сохраненным способом оплаты,
+        simple - простой заказ,
+        binding + binding_id - оплата по связке"""
         if case == 'pre_auth_payment':
             order = self.create_order(10, var.gateway, "pre_auth_payment")
             url = order.json()['form_url']
@@ -240,6 +249,7 @@ class Orders:
             return id
 
     def wait_status(self, id, status):
+        """функция, ожидающая перехода заказа в переданный статус"""
         a = False
         b = 0
         while not a and b < 30:

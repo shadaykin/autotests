@@ -2,12 +2,12 @@ from functions.order import Orders
 import variables as var
 import random
 
-
+'''
 #Оплата простого заказа
 print("Simple:")
 simple = Orders().full_paid("simple")
 #Оплата двухстадийного заказа
-print("Pre_auth #" + str(i) + ":")
+print("Pre_auth:")
 pre_auth = Orders().full_paid("pre_auth_payment")
 #Оплата с сохраненным способом
 print("Save:")
@@ -18,6 +18,8 @@ binding = Orders().full_paid("binding", save[1])
 #Возврат средств
 print("Refund:")
 refund = Orders().refund_order(simple)
+'''
+header = {'Authorization': 'Token ' + var.tokens['other'+var.enviroment.split('test')]}
 
 
 

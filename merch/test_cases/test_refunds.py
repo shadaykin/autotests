@@ -20,7 +20,38 @@ class TestRefunds:
         refund = self.order.refund_order(order, 10).json()
         refunded = self.order.wait_status(order, "refunded")
         assert refunded is True
-        assert refund['refunded_amount'] == 10.0
+        assert refund['amount'] == '10.00'
+
+
+    def test_refund_pre_auth(self):
+        order = self.order.full_paid("pre_auth_payment")
+        paid = self.order.wait_status(order, "paid")
+        assert paid is True
+        refund = self.order.refund_order(order, 10).json()
+        refunded = self.order.wait_status(order, "refunded")
+        assert refunded is True
+        assert refund['amount'] == "10.00"
+
+    def test_refund_save(self):
+        order = self.order.full_paid("save_payment_method")
+        paid = self.order.wait_status(order[0], "paid")
+        assert paid is True
+        refund = self.order.refund_order(order[0], 10).json()
+        refunded = self.order.wait_status(order[0], "refunded")
+        assert refunded is True
+        assert refund['amount'] == "10.00"
+
+    def test_refund_binding(self):
+        order = self.order.full_paid('save_payment_method')
+        paid = self.order.wait_status(order[0], "paid")
+        assert paid is True
+        binding = self.order.full_paid("binding", order[1])
+        paid = self.order.wait_status(binding, "paid")
+        assert paid is True
+        refund = self.order.refund_order(binding, 10).json()
+        refunded = self.order.wait_status(binding, "refunded")
+        assert refunded is True
+        assert refund['amount'] == "10.00"
 
     def test_partly_refund(self):
         order = self.order.full_paid('simple')
@@ -29,7 +60,7 @@ class TestRefunds:
         refund = self.order.refund_order(order).json()
         refunded = self.order.wait_status(order, "refunded")
         assert refunded is True
-        assert refund['refunded_amount'] == 1.0
+        assert refund['amount'] == "1.00"
 
     def test_some_refunds(self):
         order = self.order.full_paid('simple')
@@ -38,11 +69,11 @@ class TestRefunds:
         refund = self.order.refund_order(order, 3).json()
         refunded = self.order.wait_status(order, "refunded")
         assert refunded is True
-        assert refund['refunded_amount'] == 3.0
+        assert refund['amount'] == "3.00"
         refund = self.order.refund_order(order, 5).json()
         refunded = self.order.wait_status(order, "refunded")
         assert refunded is True
-        assert refund['refunded_amount'] == 8.0
+        assert refund['amount'] == "8.00"
 
     def test_error_status(self):
         error = 'Invalid order status'
@@ -52,6 +83,16 @@ class TestRefunds:
         refund = self.order.refund_order(id)
         assert refund.status_code == 400
         assert error in refund.text
+
+    def test_refund_with_other_token(self):
+        id = self.order.full_paid('simple')
+        self.order.wait_status(id, 'paid')
+        data = {"amount": "1.00"}
+        header = {'Authorization': 'Token ' + var.tokens['other'+self.env.split('test')[1]]}
+        refund = requests.post(var.enviroments[self.env]+(var.processing_endpoints['refund']) % id, headers=header, data=data)
+        assert refund.status_code == 404
+
+
 
 
 

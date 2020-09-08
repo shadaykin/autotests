@@ -52,16 +52,22 @@ class TestCase:
 
     def test_deposit_preauth_held(self):
         '''списание денег с двухстадийного заказа со статусом held'''
-        error = 'Invalid order status'
-        id = self.order.full_paid('pre_auth_payment')
-        deposit = Orders().deposit_order(id)
+        create = self.order.create_order(10, self.gateway, 'pre_auth_payment')
+        id = create.json()['id']
+        url = create.json()['form_url']
+        browser = self.order.enter_data_card(self.gateway, url, "success_num")
+        browser.close()
+        wait = self.order.wait_status(id, 'held')
+
+        deposit = self.order.deposit_order(id)
         assert deposit.status_code == 200
+        paid = self.order.wait_status(id,'paid')
 
     def test_deposit_preauth_refunded(self):
         '''списание денег с двухстадийного заказа со статусом refunded'''
         error = 'Invalid order status'
         id = self.order.full_paid('pre_auth_payment')
-        time.sleep(2)
+        self.order.wait_status(id, 'paid')
         refund = self.order.refund_order(id)
         assert refund.status_code == 200
         time.sleep(2)
@@ -73,7 +79,7 @@ class TestCase:
         '''списание денег с двухстадийного заказа со статусом paid'''
         error = 'Invalid order status'
         id = self.order.full_paid('pre_auth_payment')
-        time.sleep(2)
+        paid = self.order.wait_status(id,'paid')
         deposit = self.order.deposit_order(id)
         assert deposit.status_code == 400
         assert error in deposit.text
