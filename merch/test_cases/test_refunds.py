@@ -76,12 +76,18 @@ class TestRefunds:
         refunded = self.order.wait_status(order, "refunded")
         assert refunded is True
         assert refund['amount'] == "3.00"
-        refund = self.order.refund_order(order, 5).json()
-        refunded = self.order.wait_status(order, "refunded")
-        assert refunded is True
-        assert refund['amount'] == "5.00"
-        status = self.order.status_order_in_merch(order)
-        assert status.json()['refunded_amount'] == 8.0
+        refund = self.order.refund_order(order, 3).json()
+        assert refund['amount'] == "3.00"
+        a = False
+        b = 0
+        while not a and b < 30:
+            status = self.order.status_order_in_merch(order)
+            if status.json()['refunded_amount'] == 6.0:
+                a = True
+            else:
+                time.sleep(1)
+                b += 1
+        assert a is True
 
     def test_error_status(self):
         """Возврат заказа при некорректном статусе != paid/refunded"""

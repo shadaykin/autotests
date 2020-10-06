@@ -35,7 +35,7 @@ class TestCancel:
         error = 'Invalid order status'
         id = self.order.full_paid('simple')
         refund = self.order.refund_order(id)
-        assert refund.status_code == 200
+        assert refund.status_code == 201
         time.sleep(2)
         cancel = self.order.cancel_order(id)
         assert cancel.status_code == 400
@@ -58,7 +58,7 @@ class TestCancel:
         self.order.enter_data_card(self.gateway, url, "success_num")
         time.sleep(3)
         cancel = Orders().cancel_order(id)
-        assert cancel.status_code == 200
+        assert cancel.status_code == 204
 
 
     def test_cancel_preauth_refunded(self):
@@ -67,7 +67,7 @@ class TestCancel:
         id = self.order.full_paid('pre_auth_payment')
         time.sleep(2)
         refund = self.order.refund_order(id)
-        assert refund.status_code == 200
+        assert refund.status_code == 201
         time.sleep(2)
         cancel = self.order.cancel_order(id)
         assert cancel.status_code == 400

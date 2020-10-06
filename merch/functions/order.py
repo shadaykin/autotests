@@ -25,7 +25,7 @@ class Orders:
         - рекуррентный + двухстадийный - pre_auth_payment and (save_payment_method and pass_id
          or binding_id) in args"""
 
-        client_order_id = 'autotest_order_' + str(random.randint(0, 10000))
+        client_order_id = 'ildar_order_' + str(random.randint(0, 10000))
         if len(args) == 0:
             data = {
                 "return_url": var.order_options['return_url'],

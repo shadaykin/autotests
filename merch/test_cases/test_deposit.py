@@ -35,7 +35,7 @@ class TestCase:
         error = 'Invalid order status'
         id = self.order.full_paid('simple')
         refund = self.order.refund_order(id)
-        assert refund.status_code == 200
+        assert refund.status_code == 201
         time.sleep(2)
         deposit = self.order.deposit_order(id)
         assert deposit.status_code == 400
@@ -59,7 +59,7 @@ class TestCase:
         browser.close()
         wait = self.order.wait_status(id, 'held')
         deposit = self.order.deposit_order(id)
-        assert deposit.status_code == 200
+        assert deposit.status_code == 204
         paid = self.order.wait_status(id,'paid')
 
     def test_deposit_preauth_refunded(self):
@@ -68,7 +68,7 @@ class TestCase:
         id = self.order.full_paid('pre_auth_payment')
         self.order.wait_status(id, 'paid')
         refund = self.order.refund_order(id)
-        assert refund.status_code == 200
+        assert refund.status_code == 201
         time.sleep(2)
         deposit = self.order.deposit_order(id)
         assert deposit.status_code == 400

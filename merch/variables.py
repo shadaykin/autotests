@@ -1,14 +1,14 @@
 
-enviroment = 'test_202'
-gateway = 'yakassa'
+enviroment = 'test_301'
+gateway = 'gpb'
 
 tokens = dict(
-    test_201='2efe49abccad96de57e7c96923eccf90f6b1886c',
+    test_201='6186fcdfb79316b97050652571cf3075e76a2c5c',
     test_202='740ea2823503035e6fdef524db3ad81f77ea705c',
-    test_301='2efe49abccad96de57e7c96923eccf90f6b1886c',
-    other_201='79448704ddc07dd3831bd2e1daffb9d45351b401',
+    test_301='2edda4a529b9184688f46d82c61dc7d98cef43ed',
+    other_201='5460cddbb9460e9a02f368451f80c5c85806a14e',
     other_202='5731680f5fc4c1079d4adc2ed17ed351138655df',
-    other_301='3f2c75e7ff014f579dcb18aa5e3348d4fdc6b470'
+    other_301='645c120d3accdbcb902d757399eff755e1f69f0a'
 )
 
 email = 'shadayka152+test@gmail.com'
