@@ -15,7 +15,7 @@ class TestCancel:
 
     def test_cancel_simple_registered(self):
         error = 'Invalid order status'
-        '''отмена списания денег с простого заказа со статусом registered'''
+        """отмена списания денег с простого заказа со статусом registered"""
         create = self.order.create_order(10, var.gateway)
         id = create.json()['id']
         cancel = self.order.cancel_order(id)
@@ -23,7 +23,7 @@ class TestCancel:
         assert error in cancel.text
 
     def test_cancel_simple_paid(self):
-        '''отмена списания денег с простого заказа со статусом paid'''
+        """отмена списания денег с простого заказа со статусом paid"""
         error = 'Invalid order status'
         id = self.order.full_paid('simple')
         cancel = self.order.cancel_order(id)
@@ -31,7 +31,7 @@ class TestCancel:
         assert error in cancel.text
 
     def test_cancel_simple_refunded(self):
-        '''отмена списания денег с простого заказа со статусом refunded'''
+        """отмена списания денег с простого заказа со статусом refunded"""
         error = 'Invalid order status'
         id = self.order.full_paid('simple')
         refund = self.order.refund_order(id)
@@ -43,7 +43,7 @@ class TestCancel:
 
     def test_cancel_preauth_registered(self):
         error = 'Invalid order status'
-        '''отмена списания денег с двухстадийного заказа со статусом registered'''
+        """отмена списания денег с двухстадийного заказа со статусом registered"""
         create = self.order.create_order(10, var.gateway, "pre_auth_payment")
         id = create.json()['id']
         cancel = self.order.cancel_order(id)
@@ -51,7 +51,7 @@ class TestCancel:
         assert error in cancel.text
 
     def test_cancel_preauth_held(self):
-        '''отмена списания денег с двухстадийного заказа со статусом held'''
+        """отмена списания денег с двухстадийного заказа со статусом held"""
         create = self.order.create_order(10, self.gateway, "pre_auth_payment")
         id = create.json()['id']
         url = create.json()['form_url']
@@ -62,7 +62,7 @@ class TestCancel:
 
 
     def test_cancel_preauth_refunded(self):
-        '''отмена списания денег с двухстадийного заказа со статусом refunded'''
+        """отмена списания денег с двухстадийного заказа со статусом refunded"""
         error = 'Invalid order status'
         id = self.order.full_paid('pre_auth_payment')
         time.sleep(2)
@@ -74,7 +74,7 @@ class TestCancel:
         assert error in cancel.text
 
     def test_cancel_preauth_paid(self):
-        '''отмена списания денег с двухстадийного заказа со статусом paid'''
+        """отмена списания денег с двухстадийного заказа со статусом paid"""
         error = 'Invalid order status'
         id = self.order.full_paid('pre_auth_payment')
         time.sleep(2)

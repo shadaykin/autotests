@@ -47,14 +47,11 @@ class TestRefunds:
     def test_refund_binding(self):
         """Возврат рекуррентного заказа"""
         order = self.order.full_paid('save_payment_method')
-        paid = self.order.wait_status(order[0], "paid")
-        assert paid is True
+        self.order.wait_status(order[0], "paid")
         binding = self.order.full_paid("binding", order[1])
-        paid = self.order.wait_status(binding, "paid")
-        assert paid is True
+        self.order.wait_status(binding, "paid")
         refund = self.order.refund_order(binding, 10).json()
-        refunded = self.order.wait_status(binding, "refunded")
-        assert refunded is True
+        self.order.wait_status(binding, "refunded")
         assert refund['amount'] == "10.00"
 
     def test_partly_refund(self):

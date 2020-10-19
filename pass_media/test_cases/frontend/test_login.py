@@ -100,9 +100,9 @@ class Test:
                 assert not checkbox.is_selected(), "checkbox is selected"
             labels = browser.find_elements_by_class_name('checkbox__label')
             for label in labels:
-                if 'Даю согласие на получение новостных, информационных рассылок' in label.text:
+                if 'Даю согласие на получение информационных рассылок и рекламных сообщений' in label.text:
                     lbl += 1
-                elif 'Даю согласие на обработку своих персональных данных согласно' in label.text:
+                elif 'Даю согласие на обработку своих персональных данных согласно'  in label.text:
                     lbl += 1
             assert lbl == 2, "не отображены оба пункта регистрации"
             next = browser.find_element_by_css_selector("button[type=submit]")

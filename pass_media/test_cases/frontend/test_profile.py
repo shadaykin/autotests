@@ -212,9 +212,8 @@ class TestProfile:
             time.sleep(2)
             # Провереяем выполнение условий кейса
             description = browser.find_element_by_class_name('confirm-email__inside .profile-form-message')
-            assert "Адрес не подтвержден" in browser.find_element_by_css_selector('.list__item-content .form-message.error').text
-            assert "Код отправлен на autotestpm@yandex.ru.\nСкопируйте его из письма и вставьте в поле в этом окне." \
-                   "\nПодтвердить адрес через код можно\nв течение 24 часов." in description.text
+            assert "Введите код, отправленный на autotestpm@yandex.ru, или перейдите\n" \
+                   "по ссылке из письма, затем нажмите «Подтвердить»" in description.text
             assert "Повторно код можно получить через" in browser.find_element_by_class_name('confirm-email__resend .form-message').text
             assert browser.find_element_by_name('confirmation_key')
             browser.close()

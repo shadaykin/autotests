@@ -1,5 +1,5 @@
 
-enviroment = 'test_301'
+enviroment = 'test_201'
 gateway = 'gpb'
 
 tokens = dict(
@@ -11,7 +11,7 @@ tokens = dict(
     other_301='645c120d3accdbcb902d757399eff755e1f69f0a'
 )
 
-email = 'shadayka152+test@gmail.com'
+email = 'shadayka152@gmail.com'
 order_options = dict(
     return_url='https://uma.preprod.zxz.su/',
     fail_url='https://localhost'

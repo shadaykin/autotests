@@ -23,6 +23,3 @@ class TestCases:
                     fail.append(endpoint)
         if len(fail) != 0:
             assert 1 == 2, print('API who available without functions: ' + str(fail))
-
-    def test_create_simple_order(self):
-        pass
