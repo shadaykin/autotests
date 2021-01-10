@@ -19,9 +19,12 @@ class TestAccounts:
 	link = var.options[stand]
 	ep = var.endpoints_account
 
-	cookie = Sessions().get_sessionid(stand)
-	session = requests.Session()
-	session.cookies.update(cookie)
+	try:
+		cookie = Sessions().get_sessionid(stand)
+		session = requests.Session()
+		session.cookies.update(cookie)
+	except:
+		pass
 
 
 
@@ -39,9 +42,8 @@ class TestAccounts:
 	
 	def test_correct_accounts_fields(self):
 		"""Проверка корректной отдачи набора полей аккаунта"""
-
-		account = self.acc.get_account_info().json()
-		assert dt.account.keys() == account.keys()
+		account = self.acc.get_account_info()
+		assert dt.account.keys() == account.json().keys(), print(account.text)
 	
 	def test_accounts_permission(self):
 		"""Проверка закрытости api под авторизацию"""

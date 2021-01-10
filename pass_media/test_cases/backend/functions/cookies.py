@@ -20,8 +20,8 @@ class Sessions:
 		assert response.status_code == 200, "can't authorize"
 		assert response.json()['authenticated']
 		if len(args) == 0 or 'register' in args:
-			session_id = {'sessionid': s.cookies['sessionid']}
+			session_id = {'pm_sid': s.cookies['pm_sid']}
 			return session_id
 		else:
-			session_id = {'name': 'sessionid', 'value': s.cookies['sessionid']}
+			session_id = {'name': 'pm_sid', 'value': s.cookies['pm_sid']}
 			return session_id

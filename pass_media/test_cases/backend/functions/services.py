@@ -7,11 +7,14 @@ class Services:
 
     env = var.stand_for_test
 
-    cookie = Sessions().get_sessionid(env)
-    session = requests.Session()
-    session.cookies.update(cookie)
-    link = var.options[env]
-    endpoint = var.endpoints_account
+    try:
+        cookie = Sessions().get_sessionid(env)
+        session = requests.Session()
+        session.cookies.update(cookie)
+        link = var.options[env]
+        endpoint = var.endpoints_account
+    except:
+        pass
 
     def get_pmid(self, session):
         """Получение pass.media_id"""

@@ -18,8 +18,7 @@ def delete_user():
         try:
             browser = Authorization().set_browser()
             Authorization().auth_admin(browser)
-            browser.get(browser.current_url + '/passport/user/?q=' + var.options['phone'])
-            browser.refresh()
+            browser.get(domain + '/admin/passport/user/?q=' + var.options['phone'])
             browser.implicitly_wait(5)
             browser.find_element_by_css_selector('.row1 [type=checkbox]').click()
             select = Select(browser.find_element_by_name('action'))
@@ -34,7 +33,8 @@ def delete_user():
             browser.close()
         except:
             browser.close()
-            assert 1 == 2, "can't delete user"
+            assert 1 == 2
+
     else:
         pass
 
@@ -60,15 +60,23 @@ def disable_recaptcha():
 def full_registration_account(disable_recaptcha):
     """Полная регистрация пользователя"""
     check = Accounts().check_phone()
-    if check.json()['success']:
+    if check.json()['tos']:
         pass
     else:
         browser = Authorization().set_browser()
-        reg = Accounts().register_account()
-        assert reg.status_code == 201
+        register = False
+        count = 0
+        while not register and count <= 5:
+            try:
+                reg = Accounts().register_account()
+                assert reg.status_code == 201, reg.text
+                register = True
+            except:
+                time.sleep(1)
+                count += 1
+        assert register == True, browser.close()
         Authorization().auth_admin(browser)
-        browser.get(browser.current_url + '/passport/user/?q=' + var.options['phone'])
-        browser.refresh()
+        browser.get(domain + '/admin/passport/user/?q=' + var.options['phone'])
         browser.find_element_by_css_selector('.row1 .field-pk').click()
         time.sleep(1)
         title = browser.find_element_by_css_selector('#content>h1').text
@@ -81,10 +89,11 @@ def full_registration_account(disable_recaptcha):
         pwd2.submit()
         success = browser.find_element_by_class_name('success')
         assert 'success' in success.text
-        #browser.find_element_by_name('is_confirmed').click()
-        #save = browser.find_elements_by_name('_addanother')
-        #save.click()
-        #assert 'successfully' in browser.find_element_by_class_name('success')
+        browser.find_element_by_name('is_confirmed').click()
+        browser.find_element_by_name('tos').click()
+        save = browser.find_element_by_name('_save')
+        save.click()
+        assert 'successfully' in browser.find_element_by_class_name('success').text
         browser.close()
         finish = Sessions().get_sessionid(var.stand_for_test, 'register')
         Emails().session.cookies.update(finish)

@@ -5,12 +5,24 @@ import pytest
 import sys
 
 
-tokens = dict(
-    test_201='2efe49abccad96de57e7c96923eccf90f6b1886c',
-    other_201='740ea2823503035e6fdef524db3ad81f77ea705c')
 
-env = 'test_201'
+params = {
+  "default_cas_fields": [
+    "nickname_hash",
+    "last_name"
+  ],
+  "redirect_uris": "https://localhost\r\nhttps://locaohffs\r\n",
+  "name": "fdsdgfs",
+  "required_fields": ["nickname","first_name"],
+  "public_url": "https://localhostq",
+  "rate_limit_minute": "0",
+  "rate_limit_day": "0",
+  "public": "false",
+  "optional_fields": "nickname"
+}
 
-header = tokens['other'+env.split('test')[1]]
-
-print(header)
+for key in params['default_cas_fields']:
+    if 'hash' in key:
+        print('optional')
+    else:
+        print('req')

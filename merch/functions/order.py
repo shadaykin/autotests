@@ -152,15 +152,14 @@ class Orders:
             while not result and a < 10:
                 try:
                     assert '/auth/start.do' in browser.current_url
+                    password = browser.find_element_by_name('password')
+                    password.send_keys(self.card_gpb['password'])
+                    password.submit()
                     result = True
                 except:
-                    time.sleep(1)
+                    time.sleep(0.5)
                     a += 1
             assert result is True
-            time.sleep(3)
-            password = browser.find_element_by_name('password')
-            password.send_keys(self.card_gpb['password'])
-            password.submit()
         if gateway == 'yakassa':
             card_num = browser.find_element_by_id('cardNumber')
             month = browser.find_element_by_name('skr_month')
